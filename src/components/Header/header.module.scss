@@ -1,0 +1,14 @@
+.header{
+    height: 80px;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition: 0.3s all;
+    background-color: rgb(245, 245, 247);
+    padding: 0 calc(20px - (100vw - 100%)) 0 0; 
+    border-bottom: 1px solid black;
+    padding: 10px 50px 10px 50px;
+}

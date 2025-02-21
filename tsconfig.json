@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
       "target": "es5",
-      "baseUrl": "src",
       "lib": [
         "dom",
         "dom.iterable",
@@ -24,6 +23,5 @@
     "include": [
       "src"
     ],
-    "extends": "./tsconfig.paths.json"
   }
   
