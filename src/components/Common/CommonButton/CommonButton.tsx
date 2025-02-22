@@ -6,7 +6,7 @@ type Props = {
     style?: React.CSSProperties;
     type?: string;
     imgStyle?: any; 
-    onClick: any;
+    onClick?: any;
     text?: string;
     image?: string;
     inForm?: boolean; 

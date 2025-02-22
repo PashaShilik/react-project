@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ROUTES } from './routes';
 
 import LayoutWithHeader from '../layouts/LayoutWithHeader/LayoutWithHeader';
+import LayoutWithOutHeader from '../layouts/LayoutWithOutHeader/LayoutWithOutHeader';
 
 const HomePage = React.lazy(() => import('../pages/HomePage/HomePage'));
 const SearchPage = React.lazy(() => import('../pages/SearchPage/SearchPage'));
@@ -21,9 +22,11 @@ function RootRouter() {
           <Route path={ROUTES.search} element={<SearchPage/>}/>
           <Route path={ROUTES.history} element={<HistoryPage/>}/>
           <Route path={ROUTES.favorites} element={<FavoritesPage/>}/>
+          <Route path={ROUTES.viewCard} element={<ViewCardPage/>}/>
+        </Route>
+        <Route element={ <LayoutWithOutHeader/> }>
           <Route path={ROUTES.signin} element={<SigninPage/>}/>
           <Route path={ROUTES.signup} element={<SignupPage/>}/>
-          <Route path={ROUTES.viewCard} element={<ViewCardPage/>}/>
         </Route>
       </Routes>
     </Suspense>

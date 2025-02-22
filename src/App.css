@@ -14,18 +14,18 @@ body{
   font-family: "Arial", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  background-color: rgb(245, 245, 247);
-  color: rgb(33, 30, 49);
+  background-color: #0F0F0F;
+  color: white;
 }
 
 input, button {
-  color: rgb(33, 30, 49);
+  color: white;
   font-weight: 400;
   font-size: 16px;
 }
 
 a {
-  color: rgb(33, 30, 49);
+  color: white;
   text-decoration: none;
 }
 
