@@ -4,6 +4,7 @@ import { ROUTES } from './routes';
 
 import LayoutWithHeader from '../layouts/LayoutWithHeader/LayoutWithHeader';
 import LayoutWithOutHeader from '../layouts/LayoutWithOutHeader/LayoutWithOutHeader';
+import CommonLoader from '../components/Common/CommonLoader/CommonLoader';
 
 const HomePage = React.lazy(() => import('../pages/HomePage/HomePage'));
 const SearchPage = React.lazy(() => import('../pages/SearchPage/SearchPage'));
@@ -15,7 +16,7 @@ const ViewCardPage = React.lazy(() => import('../pages/ViewCardPage/ViewCardPage
 
 function RootRouter() {
   return (
-    <Suspense fallback={<p>Загрузка...</p>}>
+    <Suspense fallback={<CommonLoader/>}>
       <Routes>
         <Route element={ <LayoutWithHeader/> }>
           <Route path={ROUTES.home} element={<HomePage/>}/>
