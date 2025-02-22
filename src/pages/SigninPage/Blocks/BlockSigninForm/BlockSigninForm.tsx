@@ -7,6 +7,7 @@ import { loginValidation } from '../../../../helpers/authValidation/authValidati
 import { useNavigate } from 'react-router-dom';
 import CommonInputForm from '../../../../components/Common/CommonInputForm/CommonInputForm';
 import CommonButton from '../../../../components/Common/CommonButton/CommonButton';
+import { ROUTES } from '../../../../routes/routes';
 
 function BlockSigninForm() {
     const navigate = useNavigate();
@@ -21,6 +22,10 @@ function BlockSigninForm() {
         navigate('/'); 
     };
 
+    const handleSingUpClick = () => {
+        navigate(ROUTES.signup);
+    };
+
     return (
         <div className={styles.blockSigninForm}>
             <Formik initialValues={initialFormValues} validate={loginValidation} onSubmit={(formValues: any) => onFormSubmit(formValues)}>
@@ -30,14 +35,12 @@ function BlockSigninForm() {
                             <CommonInputForm placeholder={'Login'} type={'login'} name={'login'} />
                             <CommonInputForm placeholder={'Password'} type={'password'} name={'password'} /> 
                         </div>
-
                         <div className={styles.blockSigninForm__button_container}>
-                            <CommonButton
-                                text='Login' 
-                                type='default_bg' 
-                                inForm 
-                                disabled={!(isValid && dirty)}
-                            />
+                            <CommonButton text='Login' type='default_bg' inForm  disabled={!(isValid && dirty)}/>
+                            <div className={styles.blockSigninForm__text_container}>
+                                <p className={styles.blockSigninForm__text}>Want to create an account?</p>
+                                <p className={styles.blockSigninForm__text_link} onClick={handleSingUpClick}>Registration</p>
+                            </div>
                         </div>
                     </Form>
                 )}

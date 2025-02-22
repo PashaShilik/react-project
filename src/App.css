@@ -14,7 +14,7 @@ body{
   font-family: "Arial", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  background-color: #0F0F0F;
+  background-color: black;
   color: white;
 }
 
@@ -32,10 +32,12 @@ a {
 button:focus, div {
   outline: none;
 }
+
 button:active, div {
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
+
 button, div {
   -webkit-appearance: none;
   -moz-appearance: none;
