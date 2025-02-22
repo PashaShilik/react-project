@@ -1,0 +1,39 @@
+.popupWithOverlay{
+    position: fixed;
+    align-self: center;
+    max-width: 1200px;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+
+    transform: translateX(-50%);
+    padding: 36px;
+    box-sizing: border-box;
+  
+    z-index: 1;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__overlay{
+        position: absolute;
+        align-self: center;
+        width: 100vw;
+        height: 100vh;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__content{
+        z-index: 1000;
+    }
+}

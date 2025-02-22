@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { useDispatch } from 'react-redux';
 import {AnyAction, configureStore, ThunkDispatch} from '@reduxjs/toolkit';
+import modalReducer from './reducers/modalReducer/modalReducer';
 
 const rootReducer = combineReducers({
-    
-   
+    modalReducer: modalReducer,
 });
 
 const store = configureStore({

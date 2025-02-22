@@ -1,0 +1,69 @@
+.selector, .selectorTransparent {
+    position: relative;
+    height: 40px;
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        gap: 10px;
+        cursor: pointer;
+        background-color: #c0c0c0;
+        color: white;
+    }
+
+    &__input_title {
+        white-space: nowrap;
+    }
+    
+    &__input_img {
+        max-width: 12px;
+        max-height: 12px;
+        filter: brightness(0) saturate(100%) invert(8%) sepia(13%) saturate(2402%) hue-rotate(209deg) brightness(98%) contrast(89%);
+    }
+
+    &__list {
+        padding: 5px;
+        background-color: #c0c0c0;
+        border-radius: 5px;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        z-index: 1;
+        width: auto;
+        min-width: 100%;
+        color:white;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: start;
+        height: 40px;
+        align-items: center;
+        border-radius: 5px;
+        padding: 15px 15px;
+        white-space: nowrap;
+        cursor: pointer;
+        &:hover {
+            background-color: #e6e6e6;
+        }
+    }
+}
+
+.selectorTransparent {
+    .selector__input {
+        background-color: transparent;
+        justify-content: end;
+        padding: 0;
+    }
+    .selector__item {
+        justify-content: end;
+    }
+    .selector__list {
+        top: 40px;
+    }
+}
