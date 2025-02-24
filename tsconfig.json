@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
       "target": "es5",
-      "baseUrl": "src",
       "lib": [
         "dom",
         "dom.iterable",
@@ -19,11 +18,13 @@
       "resolveJsonModule": true,
       "isolatedModules": true,
       "noEmit": true,
-      "jsx": "preserve"
+      "jsx": "preserve",
+      "paths": {
+        "@/*": ["./src/*"]
+      }
     },
     "include": [
       "src"
     ],
-    "extends": "./tsconfig.paths.json"
   }
   
