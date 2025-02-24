@@ -10,7 +10,7 @@ type Props = {
     setActiveItem: any;
     data: any[];
     name: string;
-    type: 'default' | 'transparent'
+    type: 'default' | 'transparent' 
     typeSelector?: string
     className?: any;
 };
@@ -31,10 +31,19 @@ export const CommonSelector = function ({activeItem, setActiveItem, data, name, 
 
     useClickOutsideAndClose(listRef, () => setOpen(false));
 
+    const handleOpenList = () => {
+        setOpen(prev => !prev)
+    };
+
+    const handleAddItem = (item:any) => {
+        handleSelect(item)
+    };
+
     return (
         <div className={`${type === 'default' ? styles.selector : styles.selectorTransparent} ${className}`} ref={listRef}>
-            <div className={styles.selector__input} onClick={() => setOpen(prev => !prev)}>
+            <div className={styles.selector__input} onClick={handleOpenList}>
                 <p className={styles.selector__input_title}>{activeItem?.title || name}</p>
+                
                 {activeItem ? (
                     <img src={closeIcon} alt="Close" className={styles.selector__input_img} onClick={handleClear} />
                 ) : open ? (
@@ -43,10 +52,11 @@ export const CommonSelector = function ({activeItem, setActiveItem, data, name, 
                     <img src={arrowDown} alt="Arrow Down" className={styles.selector__input_img} />
                 )}
             </div>
+
             {data && open ? (
                 <ul className={styles.selector__list}>
                     {data.map((item) => (
-                        <li className={styles.selector__item} key={item.id} onClick={() => handleSelect(item)}>
+                        <li className={styles.selector__item} key={item.id} onClick={handleAddItem}>
                             {item.title}
                         </li>
                     ))}

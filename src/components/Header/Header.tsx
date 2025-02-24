@@ -39,7 +39,7 @@ export const Header = function () {
   return (
     <div className={`${styles.header} ${isScrolled ? styles.header_scroll : ''}`}>
       <div className={styles.header__container}>
-        <Link to='/' className={styles.header__logo_container}>
+        <Link to={ROUTES.home} className={styles.header__logo_container}>
           <img src={logo} alt="logo" className={styles.header__logo_img} />
         </Link>
         <div className={styles.header__button_container}>

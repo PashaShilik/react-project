@@ -1,14 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Modal, initialStateModalReducerType } from "../../../types/modal";
 
-const initialStateModalReducer = {
-    called_modal_list: [] as Modal[],
+const initialStateModalReducer: initialStateModalReducerType = {
+    called_modal_list: [],
     detailSuccessMessageForUser: "",
     detailErrorMessageForUser: "",
     modalItemData: {},
     messageForModal: {},
     feedbackModalInfo: null,
-} as initialStateModalReducerType;
+};
+
 
 const modalReducer = createSlice({
     name: "modalReducer",
@@ -18,8 +19,8 @@ const modalReducer = createSlice({
             state,
             action: PayloadAction<{
                 isModalActive: boolean;
-                modalName?: string | undefined;
-                withOverlay?: boolean | undefined;
+                modalName: string ;
+                withOverlay?: boolean;
                 withDarkOverlay?: boolean | undefined;
             }>,
         ) => {
@@ -32,10 +33,10 @@ const modalReducer = createSlice({
             };
             state.called_modal_list.push(newModal);
         }
-        }, // сетаем полный обьект: {isModalActive: true, ModalName: 'имя-модалки', WithOverlay: true или false}
+        },
         removeModalByName: (state, action: PayloadAction<{ modalName: string }>) => {
             state.called_modal_list = state.called_modal_list.filter((modal) => modal.modalName !== action.payload.modalName);
-        }, // указываем имя модалки для закрытия, к примеру modalName: 'modal-success-alert'
+        }, 
         removeLastOpenedModal: (state) => {
             state.called_modal_list.pop();
         },

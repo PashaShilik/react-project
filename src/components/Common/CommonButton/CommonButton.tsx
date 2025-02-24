@@ -13,7 +13,10 @@ type Props = {
     disabled?: boolean;
   };
 
-export const CommonButton = function ({ text = '', type, image, onClick, style, disabled, inForm, imgStyle }: Props) {
+export const CommonButton = function ( props : Props) {
+
+  const {text = '', type, image, onClick, style, disabled, inForm, imgStyle} = props
+
     return (
       <button
         style={style || {}}

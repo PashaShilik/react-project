@@ -15,12 +15,22 @@ type Props = {
     className?: any;
 }
 
-export const CommonInputForm = function ({placeholder, type, name, disabled, className}:Props) {
+export const CommonInputForm = function ( props:Props ) {
+
+    const {placeholder, type, name, disabled, className} = props
 
     const [passwordView, setPasswordView] = useState<boolean>(true);
 
     const [field, meta, helpers] = useField(name);    
     const { setValue } = helpers;
+
+    const handleViewPassword = () => {
+        setPasswordView((prev: boolean) => !prev)
+    };
+
+    const handleDeleteValue = () => {
+        setValue(setValue(''))
+    };
 
   return (
     <div className={`${styles.commonInputForm} ${className ? className : ''}`}>
@@ -33,15 +43,15 @@ export const CommonInputForm = function ({placeholder, type, name, disabled, cla
                 placeholder={placeholder}
             />
            {type === 'password' ? (
-                <div className={styles.commonInputForm__icon} onClick={() => setPasswordView((prev: boolean) => !prev)}>
+                <div className={styles.commonInputForm__icon} onClick={handleViewPassword}>
                     {passwordView ? <img src={openEye} alt="" /> : <img src={closeEye} alt="" /> }
                 </div>
             ): null}
 
-                {field?.value ? (
-                    <img src={deleteIco} alt="" className={styles.commonInputForm__icon} onClick={() => setValue('')} />
-                ) : null}
-            </div>
+            {field?.value ? (
+                <img src={deleteIco} alt="" className={styles.commonInputForm__icon} onClick={handleDeleteValue} />
+            ) : null}
+        </div>
             {meta.error && meta.touched && <p className={styles.commonInputForm__err_text}>{meta.error}</p>}
     </div>
   )

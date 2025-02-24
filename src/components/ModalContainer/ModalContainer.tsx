@@ -6,16 +6,13 @@ import { removeLastOpenedModal } from '../../redux/reducers/modalReducer/modalRe
 import {PopupWithOverlay} from '../../portal/PopupWithOverlay/PopupWithOverlay';
 import {PopupWithDarkOverlay} from '../../portal/PopupWithDarkOverlay/PopupWithDarkOverlay';
 import {PopupWithoutOverlay} from '../../portal/PopupWithoutOverlay/PopupWithoutOverlay';
+import { modalContainerArr } from '../../constants/ModalContainer/ModalContainer';
 
-import {FeedbackModal} from './FeedbackModal/FeedbackModal';
+
 
 export const ModalContainer = function () {
   const dispatch = useDispatch();
   const calledModals = useSelector(calledModalsSelector);
-
-  const modalContainerArr = [
-    {id:0, name: 'modal-feedback', element: <FeedbackModal/>},
-  ];
 
   const handleCloseModal = () => {
     dispatch(removeLastOpenedModal());

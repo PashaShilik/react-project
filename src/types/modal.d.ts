@@ -1,7 +1,9 @@
 export type initialStateModalReducerType = {
     called_modal_list: Modal[];
-    modalItemData: any;
-    messageForModal: any;
+    detailSuccessMessageForUser: string;
+    detailErrorMessageForUser: string;
+    modalItemData: {};
+    messageForModal: {};
     feedbackModalInfo: any;
 };
 

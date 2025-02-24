@@ -13,10 +13,15 @@ export const PopupWithoutOverlay = function ({children, onClose, isOpen}:Props) 
 
   if(!isOpen) return null;
 
+  const handleClose = () => {
+    onClose()
+  };
+
+
   return (
   <Portal>
     <div className={styles.popupWithoutOverlay} role='dialog'>
-      <div className={styles.popupWithoutOverlay__overlay} role='button' onClick={() => onClose()}/>
+      <div className={styles.popupWithoutOverlay__overlay} role='button' onClick={handleClose}/>
       <div className={styles.popupWithoutOverlay__content}>{children}</div>
     </div>
   </Portal>

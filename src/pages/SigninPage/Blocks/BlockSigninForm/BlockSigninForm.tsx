@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './blockSigninForm.module.scss';
 
 import { Formik, Form } from 'formik';
-import { loginValidation } from '../../../../helpers/authValidation/authValidation';
+import { initialFormValuesLogin, loginValidation } from '../../../../helpers/authValidation/authValidation';
 import { useNavigate } from 'react-router-dom';
 import {CommonInputForm} from '../../../../components/Common/CommonInputForm/CommonInputForm';
 import {CommonButton} from '../../../../components/Common/CommonButton/CommonButton';
@@ -12,14 +12,8 @@ import { ROUTES } from '../../../../routes/routes';
 export const BlockSigninForm = function () {
     const navigate = useNavigate();
 
-    const initialFormValues = {
-        login: '',
-        password: '',
-    };
-
-    const onFormSubmit = (formValues: any) => {
-        console.log('Форма отправлена:', formValues);
-        navigate('/'); 
+    const onFormSubmit = () => {
+        navigate(ROUTES.home); 
     };
 
     const handleSingUpClick = () => {
@@ -28,7 +22,7 @@ export const BlockSigninForm = function () {
 
     return (
         <div className={styles.blockSigninForm}>
-            <Formik initialValues={initialFormValues} validate={loginValidation} onSubmit={(formValues: any) => onFormSubmit(formValues)}>
+            <Formik initialValues={initialFormValuesLogin} validate={loginValidation} onSubmit={onFormSubmit}>
                 {({ isValid, dirty }) => ( 
                     <Form>
                         <div className={styles.blockSigninForm__input_group}>

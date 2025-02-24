@@ -1,3 +1,15 @@
+export const initialFormValuesLogin = {
+    login: '',
+    password: '',
+};
+
+export const initialFormValuesAuth = {
+    login: '',
+    name: '',
+    lastName: '',
+    password: '',
+};
+
 export const loginValidation = (formValues: { login: string; password: string }) => {
     let errorsObject: { login?: string; password?: string } = {};
 

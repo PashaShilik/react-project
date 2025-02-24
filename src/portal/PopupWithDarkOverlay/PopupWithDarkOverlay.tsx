@@ -12,10 +12,14 @@ export const PopupWithDarkOverlay = function ({children, onClose, isOpen}:Props)
 
   if(!isOpen) return null;
 
+  const handleClose = () => {
+    onClose()
+  };
+
   return (
     <Portal>
       <div className={styles.popupWithDarkOverlay} role='dialog'>
-        <div className={styles.popupWithDarkOverlay__overlay} role='button' onClick={() => onClose()}/>
+        <div className={styles.popupWithDarkOverlay__overlay} role='button' onClick={handleClose}/>
         <div className={styles.popupWithDarkOverlay__content}>{children}</div>
       </div>
     </Portal>
