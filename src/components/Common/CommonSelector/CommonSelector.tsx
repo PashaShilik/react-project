@@ -15,7 +15,7 @@ type Props = {
     className?: any;
 };
 
-function CommonSelector({activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'}: Props) {
+export const CommonSelector = function ({activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'}: Props) {
     const [open, setOpen] = useState<boolean>(false);
     const listRef = useRef<HTMLDivElement>(null);
 
@@ -55,5 +55,3 @@ function CommonSelector({activeItem, setActiveItem, data, name, className = '', 
         </div>
     );
 }
-
-export default CommonSelector;

@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import styles from './popupWithOverlay.module.scss';
-import Portal from '../Portal/Portal';
+import {Portal} from '../Portal/Portal';
 
 type Props = {
   children:any;
@@ -8,7 +8,7 @@ type Props = {
   isOpen:boolean;
 }
 
-function PopupWithOverlay({children, onClose, isOpen}:Props) {
+export const PopupWithOverlay = function ({children, onClose, isOpen}:Props) {
 
   if(!isOpen) return null;
   
@@ -21,5 +21,3 @@ function PopupWithOverlay({children, onClose, isOpen}:Props) {
     </Portal>
   )
 }
-
-export default PopupWithOverlay

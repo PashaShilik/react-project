@@ -7,7 +7,7 @@ const rootReducer = combineReducers({
     modalReducer: modalReducer,
 });
 
-const store = configureStore({
+export const store = configureStore({
     reducer: rootReducer,
 });
 
@@ -17,5 +17,3 @@ export const useAppDispatch = () => useDispatch<AppThunkType>();
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-
-export default store;

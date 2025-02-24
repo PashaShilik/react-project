@@ -13,7 +13,7 @@ type Props = {
     disabled?: boolean;
   };
 
-function CommonButton({ text = '', type, image, onClick, style, disabled, inForm, imgStyle }: Props) {
+export const CommonButton = function ({ text = '', type, image, onClick, style, disabled, inForm, imgStyle }: Props) {
     return (
       <button
         style={style || {}}
@@ -27,5 +27,3 @@ function CommonButton({ text = '', type, image, onClick, style, disabled, inForm
       </button>
     )
   }
-
-export default CommonButton

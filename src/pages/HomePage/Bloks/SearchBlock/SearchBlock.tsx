@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './searchBlock.module.scss'
 
-function SearchBlock() {
+export const SearchBlock = function() {
   return (
     <div className={styles.searchBlock}>
       Блок для поиска
@@ -9,4 +9,3 @@ function SearchBlock() {
   )
 }
 
-export default SearchBlock

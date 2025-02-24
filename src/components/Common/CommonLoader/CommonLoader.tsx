@@ -6,10 +6,9 @@ type Props = {
     className?: string;
 }
 
-function CommonLoader({ className }:Props) {
+export const CommonLoader = function ({ className }:Props) {
   return (
     <img className={`${styles.commonLoader} ${className}`} src={loader} alt='loader' />
   )
 }
 
-export default CommonLoader

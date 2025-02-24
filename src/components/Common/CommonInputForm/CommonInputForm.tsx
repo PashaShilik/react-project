@@ -15,7 +15,7 @@ type Props = {
     className?: any;
 }
 
-function CommonInputForm({placeholder, type, name, disabled, className}:Props) {
+export const CommonInputForm = function ({placeholder, type, name, disabled, className}:Props) {
 
     const [passwordView, setPasswordView] = useState<boolean>(true);
 
@@ -47,4 +47,3 @@ function CommonInputForm({placeholder, type, name, disabled, className}:Props) {
   )
 }
 
-export default CommonInputForm

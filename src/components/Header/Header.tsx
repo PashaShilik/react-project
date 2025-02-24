@@ -4,10 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/img/logo.png';
 
-import CommonButton from '../Common/CommonButton/CommonButton';
+import {CommonButton} from '../Common/CommonButton/CommonButton';
 import { ROUTES } from '../../routes/routes';
 
-function Header() {
+export const Header = function () {
 
   const navigate = useNavigate(); 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,5 +50,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import ModalContainer from '../../components/ModalContainer/ModalContainer';
+import {ModalContainer} from '../../components/ModalContainer/ModalContainer';
 
-function LayoutWithOutHeader() {
+export const LayoutWithOutHeader = function() {
   return (
     <>
       <Outlet/>
@@ -10,5 +10,3 @@ function LayoutWithOutHeader() {
     </>
   )
 }
-
-export default LayoutWithOutHeader

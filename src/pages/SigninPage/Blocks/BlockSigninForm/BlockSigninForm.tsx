@@ -5,11 +5,11 @@ import styles from './blockSigninForm.module.scss';
 import { Formik, Form } from 'formik';
 import { loginValidation } from '../../../../helpers/authValidation/authValidation';
 import { useNavigate } from 'react-router-dom';
-import CommonInputForm from '../../../../components/Common/CommonInputForm/CommonInputForm';
-import CommonButton from '../../../../components/Common/CommonButton/CommonButton';
+import {CommonInputForm} from '../../../../components/Common/CommonInputForm/CommonInputForm';
+import {CommonButton} from '../../../../components/Common/CommonButton/CommonButton';
 import { ROUTES } from '../../../../routes/routes';
 
-function BlockSigninForm() {
+export const BlockSigninForm = function () {
     const navigate = useNavigate();
 
     const initialFormValues = {
@@ -48,5 +48,3 @@ function BlockSigninForm() {
         </div>
     )
 }
-
-export default BlockSigninForm;

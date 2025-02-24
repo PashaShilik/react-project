@@ -13,7 +13,7 @@ type Props = {
   img?: any;
 };
 
-function DefaultInput({ value, name, label, onChangeFn, style, maxlengthText, type = 'text', img }: Props) {
+export const DefaultInput = function ({ value, name, label, onChangeFn, style, maxlengthText, type = 'text', img }: Props) {
   const [inputValue, setInputValue] = useState(value);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,5 +51,4 @@ function DefaultInput({ value, name, label, onChangeFn, style, maxlengthText, ty
   );
 }
 
-export default DefaultInput
 

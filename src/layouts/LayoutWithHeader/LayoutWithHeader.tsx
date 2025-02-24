@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './layoutWithHeader.module.scss'
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import {Header} from '../../components/Header/Header';
+import {Footer} from '../../components/Footer/Footer';
 import { Outlet } from 'react-router-dom';
-import ModalContainer from '../../components/ModalContainer/ModalContainer';
+import {ModalContainer} from '../../components/ModalContainer/ModalContainer';
 
 
-function LayoutWithHeader() {
+export const LayoutWithHeader = function () {
   return (
     <div className={styles.layoutWithHeader}>
       <Header/>
@@ -17,4 +17,4 @@ function LayoutWithHeader() {
   )
 }
 
-export default LayoutWithHeader
+

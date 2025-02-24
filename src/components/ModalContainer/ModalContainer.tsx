@@ -3,13 +3,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeLastOpenedModal } from '../../redux/reducers/modalReducer/modalReducer';
 
-import PopupWithOverlay from '../../portal/PopupWithOverlay/PopupWithOverlay';
-import PopupWithDarkOverlay from '../../portal/PopupWithDarkOverlay/PopupWithDarkOverlay';
-import PopupWithoutOverlay from '../../portal/PopupWithoutOverlay/PopupWithoutOverlay';
+import {PopupWithOverlay} from '../../portal/PopupWithOverlay/PopupWithOverlay';
+import {PopupWithDarkOverlay} from '../../portal/PopupWithDarkOverlay/PopupWithDarkOverlay';
+import {PopupWithoutOverlay} from '../../portal/PopupWithoutOverlay/PopupWithoutOverlay';
 
-import FeedbackModal from './FeedbackModal/FeedbackModal';
+import {FeedbackModal} from './FeedbackModal/FeedbackModal';
 
-function ModalContainer() {
+export const ModalContainer = function () {
   const dispatch = useDispatch();
   const calledModals = useSelector(calledModalsSelector);
 
@@ -48,4 +48,3 @@ function ModalContainer() {
   )
 }
 
-export default ModalContainer

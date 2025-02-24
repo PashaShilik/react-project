@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './feedbackModal.module.scss'
 
-function FeedbackModal() {
+export const FeedbackModal = function () {
   return (
     <div className={styles.feedbackModal}>
       Модалка с ответами юзеру
@@ -9,4 +9,4 @@ function FeedbackModal() {
   )
 }
 
-export default FeedbackModal
+

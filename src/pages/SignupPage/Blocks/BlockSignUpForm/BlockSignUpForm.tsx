@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './blockSignUpForm.module.scss';
 import { Formik, Form } from 'formik'; 
 import { useNavigate } from 'react-router-dom';
-import CommonInputForm from '../../../../components/Common/CommonInputForm/CommonInputForm';
-import CommonButton from '../../../../components/Common/CommonButton/CommonButton';
+import {CommonInputForm} from '../../../../components/Common/CommonInputForm/CommonInputForm';
+import {CommonButton} from '../../../../components/Common/CommonButton/CommonButton';
 import { registrationValidation } from '../../../../helpers/authValidation/authValidation';
 import { ROUTES } from '../../../../routes/routes';
 
-function BlockSignUpForm() {
+export const BlockSignUpForm = function () {
 
   const navigate = useNavigate();
 
@@ -52,4 +52,3 @@ function BlockSignUpForm() {
   )
 }
 
-export default BlockSignUpForm

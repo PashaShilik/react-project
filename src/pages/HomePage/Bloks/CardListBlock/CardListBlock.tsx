@@ -4,11 +4,11 @@ import styles from './cardListBlock.module.scss';
 import icoCommonButton from '../../../../assets/svg/icoButton.svg'
 import searchIco from '../../../../assets/svg/search.png'
 
-import CommonButton from '../../../../components/Common/CommonButton/CommonButton';
-import CommonSelector from '../../../../components/Common/CommonSelector/CommonSelector';
-import DefaultInput from '../../../../components/Common/CommonInput/CommonInput';
+import {CommonButton} from '../../../../components/Common/CommonButton/CommonButton';
+import {CommonSelector} from '../../../../components/Common/CommonSelector/CommonSelector';
+import {DefaultInput} from '../../../../components/Common/CommonInput/CommonInput';
 
-function CardListBlock() {
+export const CardListBlock = function () {
 
   const [activeItem, setActiveItem] = React.useState('');
   const [searchValue, setSearchValue] = React.useState('');
@@ -61,4 +61,3 @@ function CardListBlock() {
   )
 }
 
-export default CardListBlock

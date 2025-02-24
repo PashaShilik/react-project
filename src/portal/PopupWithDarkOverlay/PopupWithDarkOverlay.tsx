@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './popupWithDarkOverlay.module.scss';
-import Portal from '../Portal/Portal';
+import {Portal} from '../Portal/Portal';
 
 type Props = {
   children:any;
@@ -8,7 +8,7 @@ type Props = {
   isOpen:boolean;
 }
 
-function PopupWithDarkOverlay({children, onClose, isOpen}:Props) {
+export const PopupWithDarkOverlay = function ({children, onClose, isOpen}:Props) {
 
   if(!isOpen) return null;
 
@@ -22,4 +22,3 @@ function PopupWithDarkOverlay({children, onClose, isOpen}:Props) {
   )
 }
 
-export default PopupWithDarkOverlay

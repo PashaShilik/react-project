@@ -1,14 +1,14 @@
 import React from 'react';
-import store from './redux/store';
+import {store} from './redux/store';
 import './App.css';
 import { Provider } from 'react-redux';
 import { AuthProvider } from './providers/AuthProvider';
 import { BrowserRouter } from 'react-router-dom';
-import RootRouter from './routes/RootRouter';
+import {RootRouter} from './routes/RootRouter';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-function App() {
+export const App = function () {
 
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+
