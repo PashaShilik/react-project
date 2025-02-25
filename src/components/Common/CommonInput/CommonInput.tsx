@@ -13,7 +13,8 @@ type Props = {
   img?: any;
 };
 
-export const DefaultInput = function ({ value, name, label, onChangeFn, style, maxlengthText, type = 'text', img }: Props) {
+export const DefaultInput = function ( props: Props ) {
+  const {value, name, label, onChangeFn, style, maxlengthText, type = 'text', img} = props
   const [inputValue, setInputValue] = useState(value);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

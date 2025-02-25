@@ -4,12 +4,12 @@ import {Portal} from '../Portal/Portal';
 
 type Props = {
   children:any;
-  onClose: Function;
+  onClose: () => void;
   isOpen:boolean;
 }
 
-export const PopupWithDarkOverlay = function ({children, onClose, isOpen}:Props) {
-
+export const PopupWithDarkOverlay = function (props:Props) {
+  const {children, onClose, isOpen} = props
   if(!isOpen) return null;
 
   const handleClose = () => {

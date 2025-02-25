@@ -15,7 +15,8 @@ type Props = {
     className?: any;
 };
 
-export const CommonSelector = function ({activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'}: Props) {
+export const CommonSelector = function (props: Props) {
+    const {activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'} = props
     const [open, setOpen] = useState<boolean>(false);
     const listRef = useRef<HTMLDivElement>(null);
 
