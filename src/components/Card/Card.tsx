@@ -11,7 +11,7 @@ export function Card({ anime }: CardProps) {
     const navigate = useNavigate();
 
     const handleClick = (): void => {
-        navigate(`anime/${anime.id}`);
+        navigate(`view_card/${anime.id}`);
     };
 
     const { imageUrl, title, genres, yearStart, yearEnd, description } = anime;
