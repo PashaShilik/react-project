@@ -3,7 +3,7 @@ export interface IAnime {
     title: string;
     imageUrl: string;
     genres: Array<string>;
-    yearStart: number | string | null; // год начала выпуска
-    yearEnd?: number | string | null; // год окончания выпуска
+    yearStart: number | string; // год начала выпуска
+    yearEnd?: number | string; // год окончания выпуска
     description: string;
 }

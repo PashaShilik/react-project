@@ -1,6 +1,7 @@
 import { IAnime } from "../types/interfaces/IAnime";
+import { API_BASE_URL } from "../constants/apiConstants/apiConstants";
+import { _transformAnime } from "../utils/transformAnime";
 
-const API_BASE_URL = "https://api.jikan.moe/v4/anime";
 export const getAnimeList = async (
     page: number = 1,
     limit: number = 9
@@ -41,47 +42,3 @@ export const getAnimeById = async (
     }
 };
 
-// деструктуризация полученных данных для удобной работы
-const _transformAnime = (anime: any) => {
-    const formatDate = (year: number | string, month: number | string) => {
-        if (year === "Unknown" || !month) return "Unknown";
-        const months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-        ];
-        return `${months[parseInt(month as string) - 1]} ${year}`;
-    };
-
-    return {
-        id: anime.mal_id,
-        title: anime.title,
-        description: anime.synopsis
-            ? anime.synopsis
-            : "Wops, description is not found now !",
-        imageUrl: anime.images?.webp?.image_url
-            ? anime.images?.webp?.image_url
-            : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBNnH7hPrYmvHPtcImonVIDwGgMIgtg5URew&s",
-        genres: anime.genres
-            ? anime.genres.map((genre: any) => genre.name).join(", ")
-            : "Classic",
-        yearStart: formatDate(
-            anime.aired?.prop?.from?.year || "Unknown",
-            anime.aired?.prop?.from?.month
-        ),
-        yearEnd: formatDate(
-            anime.aired?.prop?.to?.year || "Ongoing",
-            anime.aired?.prop?.to?.month
-        ),
-        homepage: anime.url,
-    };
-};

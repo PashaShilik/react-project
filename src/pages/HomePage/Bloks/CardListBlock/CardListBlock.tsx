@@ -8,7 +8,7 @@ import styles from './cardListBlock.module.scss'
 
 export function CardListBlock() {
   const [animeList, setAnimeList] = useState<Array<IAnime>>([]);
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState(1);
   const [newAnimeLoading, setNewAnimeLoading] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(true);
 

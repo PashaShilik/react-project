@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IAnime } from "../../types/interfaces/IAnime";
 import styles from "./card.module.scss"
+import { ROUTES } from "../../routes/routes";
 
 interface CardProps {
     anime: IAnime
@@ -10,8 +11,8 @@ interface CardProps {
 export function Card({ anime }: CardProps) {
     const navigate = useNavigate();
 
-    const handleClick = (): void => {
-        navigate(`view_card/${anime.id}`);
+    const handleClick = () => {
+        navigate(`${ROUTES.viewCard}/${anime.id}`);
     };
 
     const { imageUrl, title, genres, yearStart, yearEnd, description } = anime;
