@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 
-import logo from '../../assets/img/logo.png';
+import logo from '@/assets/img/logo.png';
 
-import {CommonButton} from '../Common/CommonButton/CommonButton';
-import { ROUTES } from '../../routes/routes';
+import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
+import { ROUTES } from '@/routes/routes';
 
 export const Header = function () {
 

@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import styles from './commonSelector.module.scss';
-import arrowDown from '../../../assets/img/arrow-down.png';
-import arrowUp from '../../../assets/img/arrow-up.png';
-import closeIcon from '../../../assets/svg/Delete.svg';
-import { useClickOutsideAndClose } from '../../../hooks/useClickOutsideAndClose';
+import arrowDown from '@/assets/img/arrow-down.png';
+import arrowUp from '@/assets/img/arrow-up.png';
+import closeIcon from '@/assets/svg/Delete.svg';
+import { useClickOutsideAndClose } from '@/hooks/useClickOutsideAndClose';
 
 type Props = {
     activeItem: any;

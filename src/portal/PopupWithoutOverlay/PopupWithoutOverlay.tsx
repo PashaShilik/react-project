@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './popupWithoutOverlay.module.scss';
-import {Portal} from '../Portal/Portal';
+import {Portal} from '@/portal/Portal/Portal';
 
 type Props = {
   children:any;

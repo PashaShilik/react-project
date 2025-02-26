@@ -1,5 +1,5 @@
 import styles from "./commonInput.module.scss";
-import deleteIco from "../../../assets/svg/Delete.svg";
+import deleteIco from "@/assets/svg/Delete.svg";
 import { CSSProperties, useState } from "react";
 
 type Props = {

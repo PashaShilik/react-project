@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styles from './commonInputForm.module.scss';
 
 
-import deleteIco from '../../../assets/svg/Delete.svg';
-import closeEye from '../../../assets/svg/PasswordClose.svg';
-import openEye from '../../../assets/svg/PasswordOpen.svg'
+import deleteIco from '@/assets/svg/Delete.svg';
+import closeEye from '@/assets/svg/PasswordClose.svg';
+import openEye from '@/assets/svg/PasswordOpen.svg'
 import { useField } from 'formik';
 
 type Props = {
