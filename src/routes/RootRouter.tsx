@@ -23,7 +23,7 @@ export const RootRouter = function () {
           <Route path={ROUTES.search} element={<SearchPage/>}/>
           <Route path={ROUTES.history} element={<HistoryPage/>}/>
           <Route path={ROUTES.favorites} element={<FavoritesPage/>}/>
-          <Route path={ROUTES.viewCard} element={<ViewCardPage/>}/>
+          <Route path={`${ROUTES.viewCard}/:id`} element={<ViewCardPage/>}/>
         </Route>
         <Route element={ <LayoutWithOutHeader/> }>
           <Route path={ROUTES.signin} element={<SigninPage/>}/>
