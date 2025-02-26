@@ -6,10 +6,9 @@ const initialStateModalReducer: initialStateModalReducerType = {
     detailSuccessMessageForUser: "",
     detailErrorMessageForUser: "",
     modalItemData: {},
-    messageForModal: {},
+    messageForModal: '',
     feedbackModalInfo: null,
 };
-
 
 const modalReducer = createSlice({
     name: "modalReducer",

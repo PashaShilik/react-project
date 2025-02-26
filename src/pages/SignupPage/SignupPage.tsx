@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './signupPage.module.scss';
 import {CommonButton} from '../../components/Common/CommonButton/CommonButton';
 import arrowLeft from '../../assets/svg/arrowLeft.svg';
@@ -13,6 +13,15 @@ function SignupPage() {
   const handleHomeClick = () => {
     navigate(ROUTES.home);
   };
+
+  useEffect(() => {
+    const isUsersExists = localStorage.getItem('Users');
+
+    if(!isUsersExists){
+     localStorage.setItem('Users', JSON.stringify([]));
+    }
+
+  }, []);
 
   return (
     <div className={styles.signupPage}>
