@@ -14,7 +14,9 @@ type Props = {
     isLoading?: boolean
 }
 
-const CommonSearch: FC<Props> = ({value, onChangeFn, onFocusFn, image, placeholder, maxLength = 30, isLoading = false}) => {
+export const CommonSearch: FC<Props> = (props) => {
+
+    const {value, onChangeFn, onFocusFn, image, placeholder, maxLength = 30, isLoading = false} = props;
     const [inputValue, setInputValue] = useState(value);
     const [focus, setFocus] = useState(false);
     const ref = useRef<HTMLInputElement>(null);
@@ -25,14 +27,12 @@ const CommonSearch: FC<Props> = ({value, onChangeFn, onFocusFn, image, placehold
             onChangeFn(newValue);
         }
     }
-
     const handleDeleteClick = () => {
         setInputValue('');
         if (onChangeFn) {
             onChangeFn('');
         }
     }
-
     const handleFocus = () => {
         setFocus(true);
         if (onFocusFn) {
@@ -81,5 +81,3 @@ const CommonSearch: FC<Props> = ({value, onChangeFn, onFocusFn, image, placehold
         </div>
     );
 };
-
-export default CommonSearch;
