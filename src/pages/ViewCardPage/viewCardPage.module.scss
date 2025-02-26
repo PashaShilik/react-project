@@ -1,10 +1,102 @@
-.viewCardPage{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
+.viewCardPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: auto;
 
-    width: 100%;
-    height: 100%;
-    padding: 100px 0 50px 0;
+  &__container {}
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__movie_card {
+    padding: 8rem;
+    max-width: 100rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__image_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: auto;
+    overflow: hidden;
+    margin-right: 14rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+  }
+
+  &__image {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+
+  &__details {
+    p {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      text-align: left;
+
+      strong {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__full_description {
+    max-height: 4.4em;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    overflow: hidden;
+    transition: max-height 9s ease-in-out;
+
+    p {
+      font-size: 1rem;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    &.viewCardPage__expanded {
+      max-height: 100%;
+    }
+  }
+
+  &__trailer {
+    display: block;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  &__trailer_title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__trailer_media {
+    border-radius: 1rem;
+    max-width: 100%;
+    width: 80rem;
+    height: auto;
+    min-height: 40rem;
+    cursor: pointer;
+    object-fit: cover;
+    margin: auto 0 24rem;
+  }
 }
