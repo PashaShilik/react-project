@@ -18,7 +18,6 @@ export const PopupWithoutOverlay = function (props:Props) {
     onClose()
   };
 
-
   return (
   <Portal>
     <div className={styles.popupWithoutOverlay} role='dialog'>

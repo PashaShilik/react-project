@@ -3,7 +3,7 @@ import styles from './commonLoader.module.scss';
 import loader from '../../../assets/img/loader.webp';
 
 type Props = {
-    className?: string;
+  className?: string;
 }
 
 export const CommonLoader = function ({ className }:Props) {
