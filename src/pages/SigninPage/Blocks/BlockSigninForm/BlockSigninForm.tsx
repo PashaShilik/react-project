@@ -5,12 +5,12 @@ import styles from './blockSigninForm.module.scss';
 import { Formik, Form } from 'formik';
 import { initialFormValuesLogin, loginValidation } from '@/helpers/authValidation/authValidation';
 import { useNavigate } from 'react-router-dom';
-import {CommonInputForm} from '../../../../components/Common/CommonInputForm/CommonInputForm';
-import {CommonButton} from '../../../../components/Common/CommonButton/CommonButton';
-import { ROUTES } from '../../../../routes/routes';
-import { useAppDispatch } from '../../../../redux/store';
-import { setMessageModal, setModalByName } from '../../../../redux/reducers/modalReducer/modalReducer';
-import { setAuthInfo, setIsAuth } from '../../../../redux/reducers/userReducer/userReducer';
+import {CommonInputForm} from '@/components/Common/CommonInputForm/CommonInputForm';
+import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
+import { ROUTES } from '@/routes/routes';
+import { useAppDispatch } from '@/redux/store';
+import { setMessageModal, setModalByName } from '@/redux/reducers/modalReducer/modalReducer';
+import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
 
 export const BlockSigninForm = function () {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ export const BlockSigninForm = function () {
             dispatch(setAuthInfo(formValues));
             dispatch(setIsAuth({isAuth:true}));
             navigate(ROUTES.home); 
-        }else{
+        } else {
             dispatch(setModalByName({ isModalActive: true, modalName: 'modal-feedback', withDarkOverlay: true }));
             dispatch(setMessageModal('You have entered an incorrect login or password!'));
         }

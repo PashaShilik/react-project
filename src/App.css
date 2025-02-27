@@ -24,6 +24,20 @@ input, button {
   font-size: 16px;
 }
 
+:root {
+  --autofill-text-color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
+  border: none;
+  color: var(--autofill-text-color) !important;
+  -webkit-text-fill-color: var(--autofill-text-color) !important;
+}
+
 a {
   color: white;
   text-decoration: none;

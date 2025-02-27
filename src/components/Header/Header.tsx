@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 
-import logo from '../../assets/img/logo.png';
-import userIco from '../../assets/svg/user.svg';
-import favoritesIco from '../../assets/img/favorites.png';
+import logo from '@/assets/img/logo.png';
+import userIco from '@/assets/svg/user.svg';
+import favoritesIco from '@/assets/img/favorites.png';
 
-import {CommonButton} from '../Common/CommonButton/CommonButton';
-import { ROUTES } from '../../routes/routes';
+import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
+import { ROUTES } from '@/routes/routes';
 import { useSelector } from 'react-redux';
-import { isAuthSelector } from '../../redux/reducers/userReducer/userSelector';
-import { useAppDispatch } from '../../redux/store';
-import { setAuthInfo, setIsAuth } from '../../redux/reducers/userReducer/userReducer';
+import { isAuthSelector } from '@/redux/reducers/userReducer/userSelector';
+import { useAppDispatch } from '@/redux/store';
+import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
 
 export const Header = function () {
   const navigate = useNavigate(); 

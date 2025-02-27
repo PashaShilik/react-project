@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './feedbackModal.module.scss'
-import { useAppDispatch } from '../../../redux/store';
+import { useAppDispatch } from '@/redux/store';
 import { useSelector } from 'react-redux';
-import { removeModalByName } from '../../../redux/reducers/modalReducer/modalReducer';
-import { modalMessageForModal } from '../../../redux/reducers/modalReducer/modalSelector';
+import { removeModalByName } from '@/redux/reducers/modalReducer/modalReducer';
+import { modalMessageForModal } from '@/redux/reducers/modalReducer/modalSelector';
 
-import closeIco from '../../../assets/svg/Delete.svg';
-import { CommonButton } from '../../../components/Common/CommonButton/CommonButton';
+import closeIco from '@/assets/svg/Delete.svg';
+import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
 
 export const FeedbackModal = () => {
 

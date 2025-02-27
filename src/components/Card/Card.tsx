@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { IAnime } from "../../types/interfaces/IAnime";
+import { IAnime } from "@/types/interfaces/IAnime";
 import styles from "./card.module.scss"
-import { ROUTES } from "../../routes/routes";
+import { ROUTES } from "@/routes/routes";
 
 interface CardProps {
     anime: IAnime

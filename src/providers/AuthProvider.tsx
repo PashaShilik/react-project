@@ -1,6 +1,6 @@
-import { CommonLoader } from "../components/Common/CommonLoader/CommonLoader";
-import { setIsAuth } from "../redux/reducers/userReducer/userReducer";
-import { useAppDispatch } from "../redux/store";
+import { CommonLoader } from "@/components/Common/CommonLoader/CommonLoader";
+import { setIsAuth } from "@/redux/reducers/userReducer/userReducer";
+import { useAppDispatch } from "@/redux/store";
 import { useEffect, useState } from "react";
 
 export const AuthProvider = ({ children }: any) => {
@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }: any) => {
     useEffect(() => {
         setIsLoading(true)
         if(isAuth){
-            dispatch(setIsAuth({isAuth:false}))
+            dispatch(setIsAuth({isAuth:true}))
         }   
         setIsLoading(false)
     }, []);
