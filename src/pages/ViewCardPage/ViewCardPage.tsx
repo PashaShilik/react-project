@@ -17,27 +17,9 @@ const ViewCardPage: React.FC = () => {
 
   const isShortDescription = checkDescriptionLength(movieData.synopsis);
 
-  let trailerContent;
-  if (isVideoPlaying) {
-    trailerContent = (
-      <iframe
-        className={styles.viewCardPage__trailer_media}
-        src={movieData.trailerUrl}
-        title='YouTube video player'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-      ></iframe>
-    );
-  } else {
-    trailerContent = (
-      <img
-        src={movieData.trailerPreview}
-        alt='Trailer Preview'
-        className={styles.viewCardPage__trailer_media}
-        onClick={() => setIsVideoPlaying(true)}
-      />
-    );
-  }
+  const handleTrailerClick = () => {
+    setIsVideoPlaying(true);
+  };
 
   return (
     <div className={styles.viewCardPage}>
@@ -78,7 +60,22 @@ const ViewCardPage: React.FC = () => {
       </div>
       <div className={styles.viewCardPage__trailer}>
         <h2 className={styles.viewCardPage__trailer_title}>Trailer</h2>
-        {trailerContent}
+        {isVideoPlaying ? (
+          <iframe
+            className={styles.viewCardPage__trailer_media}
+            src={movieData.trailerUrl}
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowFullScreen
+          />
+        ) : (
+          <img
+            src={movieData.trailerPreview}
+            alt='Trailer Preview'
+            className={styles.viewCardPage__trailer_media}
+            onClick={handleTrailerClick}
+          />
+        )}
       </div>
     </div>
   );
