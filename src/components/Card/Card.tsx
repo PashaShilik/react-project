@@ -32,7 +32,6 @@ export function Card({ anime }: CardProps) {
                 </div>
                 <h3 className={styles.card__info_title}>{title}</h3>
                 <span className={styles.card__info_genre}>Genres: {genres}</span>
-                {/* <p className={styles.card__info_description}>{description}</p> */}
             </div>
         </li>
     );
