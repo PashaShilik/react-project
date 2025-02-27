@@ -3,9 +3,21 @@ import { THUMBNAIL, ONGOING, UNKNOWN_YEAR, DEFAULT_DESCRIPTION, MONTHS } from ".
 // деструктуризация полученных данных для удобной работы
 export const _transformAnime = (anime: any) => {
     const formatDate = (year: number | string, month: number | string) => {
-        if (year === UNKNOWN_YEAR || !month) return UNKNOWN_YEAR;
-        return `${MONTHS[parseInt(month as string) - 1]} ${year}`;
+        if (year === null || !month) return UNKNOWN_YEAR;
+        return `${MONTHS[parseInt(month as string) - 1]}, ${year}`;
     };
+
+    const yearStart = anime.aired?.prop?.from?.year;
+    let yearEnd = anime.aired?.prop?.to?.year || ONGOING;
+
+    if (yearStart > 2020) {
+        yearEnd = ONGOING;
+    } else {
+        yearEnd = formatDate(
+            anime.aired?.prop?.to?.year,
+            anime.aired?.prop?.to?.month
+        )
+    }
 
     return {
         id: anime.mal_id,
@@ -21,13 +33,11 @@ export const _transformAnime = (anime: any) => {
             ? anime.genres.map((genre: any) => genre.name).join(", ")
             : "Classic",
         yearStart: formatDate(
-            anime.aired?.prop?.from?.year || UNKNOWN_YEAR,
+            yearStart,
             anime.aired?.prop?.from?.month
         ),
-        yearEnd: formatDate(
-            anime.aired?.prop?.to?.year || ONGOING,
-            anime.aired?.prop?.to?.month
-        ),
+        yearEnd: yearEnd,
         homepage: anime.url,
+        score: anime.score,
     };
 };
