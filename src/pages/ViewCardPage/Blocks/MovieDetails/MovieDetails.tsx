@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MovieDetails.module.scss';
-import { IMovieData } from '../../../../types/interfaces/IMovieData';
+import { IMovieData } from '@/types/interfaces/IMovieData';
 
 interface MovieDetailsProps {
   movieData: IMovieData;

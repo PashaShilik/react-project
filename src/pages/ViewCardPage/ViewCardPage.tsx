@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './viewCardPage.module.scss';
-import { CommonButton } from '../../components/Common/CommonButton/CommonButton';
-import { movieData } from '../../constants/movieData/movieData';
+import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
+import { movieData } from '@/constants/movieData/movieData';
 import { MovieDetails } from './Blocks/MovieDetails/MovieDetails';
 
 export const ViewCardPage: React.FC = () => {
