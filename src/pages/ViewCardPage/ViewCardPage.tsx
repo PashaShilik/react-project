@@ -3,7 +3,7 @@ import styles from './viewCardPage.module.scss';
 import { CommonButton } from '../../components/Common/CommonButton/CommonButton';
 import { movieData } from '../../constants/movieData/movieData';
 
-const ViewCardPage: React.FC = () => {
+export const ViewCardPage: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -80,5 +80,3 @@ const ViewCardPage: React.FC = () => {
     </div>
   );
 };
-
-export default ViewCardPage;

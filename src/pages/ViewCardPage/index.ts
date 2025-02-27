@@ -1,0 +1,1 @@
+export { ViewCardPage as default } from './ViewCardPage';

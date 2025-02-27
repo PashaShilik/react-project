@@ -12,7 +12,7 @@ const HistoryPage = React.lazy(() => import('../pages/HistoryPage/HistoryPage'))
 const FavoritesPage = React.lazy(() => import('../pages/FavoritesPage/FavoritesPage'));
 const SigninPage = React.lazy(() => import('../pages/SigninPage/SigninPage'));
 const SignupPage = React.lazy(() => import('../pages/SignupPage/SignupPage'));
-const ViewCardPage = React.lazy(() => import('../pages/ViewCardPage/ViewCardPage'));
+const ViewCardPage = React.lazy(() => import('../pages/ViewCardPage'));
 
 export const RootRouter = function () {
   return (
