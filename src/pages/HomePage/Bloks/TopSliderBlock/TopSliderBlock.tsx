@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { Slider } from "./Blocks/Slider";
 import { IAnime } from "@/types/interfaces/IAnime";
-import { getTopAnime } from "../../../../api/animeApi";
+import { getTopAnime } from "@/api/animeApi";
 import styles from "./topSliderBlock.module.scss"
 
 export function TopSliderBlock() {

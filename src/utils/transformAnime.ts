@@ -1,4 +1,4 @@
-import { THUMBNAIL, ONGOING, UNKNOWN_YEAR, DEFAULT_DESCRIPTION, MONTHS } from "../constants/apiConstants/apiConstants";
+import { THUMBNAIL, ONGOING, UNKNOWN_YEAR, DEFAULT_DESCRIPTION, MONTHS } from "@/constants/apiConstants/apiConstants";
 
 // деструктуризация полученных данных для удобной работы
 export const _transformAnime = (anime: any) => {

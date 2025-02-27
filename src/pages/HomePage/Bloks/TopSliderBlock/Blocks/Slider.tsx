@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "../../../../../components/Card/Card";
+import { Card } from "@/components/Card/Card";
 import { IAnime } from "@/types/interfaces/IAnime";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./slider.module.scss";

@@ -1,6 +1,6 @@
-import { IAnime } from "../types/interfaces/IAnime";
-import { API_FULL_URL, API_TOP_URL } from "../constants/apiConstants/apiConstants";
-import { _transformAnime } from "../utils/transformAnime";
+import { IAnime } from "@/types/interfaces/IAnime";
+import { API_FULL_URL, API_TOP_URL } from "@/constants/apiConstants/apiConstants";
+import { _transformAnime } from "@/utils/transformAnime";
 
 export const getAnimeList = async (
     page: number = 1,

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { getAnimeList } from '../../../../api/animeApi';
-import { IAnime } from '../../../../types/interfaces/IAnime';
+import { getAnimeList } from '@/api/animeApi';
+import { IAnime } from '@/types/interfaces/IAnime';
 import { CardList } from './Blocks/CardList/CardList';
-import { CommonLoader } from '../../../../components/Common/CommonLoader/CommonLoader';
-import { CommonButton } from '../../../../components/Common/CommonButton/CommonButton';
+import { CommonLoader } from '@/components/Common/CommonLoader/CommonLoader';
+import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
 import styles from './cardListBlock.module.scss'
 
 export function CardListBlock() {
