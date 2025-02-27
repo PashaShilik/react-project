@@ -1,5 +1,5 @@
 import styles from "./commonInput.module.scss";
-import deleteIco from "../../../assets/svg/Delete.svg";
+import deleteIco from "@/assets/svg/Delete.svg";
 import { CSSProperties, useState } from "react";
 
 type Props = {
@@ -10,10 +10,11 @@ type Props = {
   style?: CSSProperties;
   maxlengthText?: number;
   type?: string;
-  img?: any;
+  img?: string;
 };
 
-export const DefaultInput = function ({ value, name, label, onChangeFn, style, maxlengthText, type = 'text', img }: Props) {
+export const CommonInput = function ( props: Props ) {
+  const {value, name, label, onChangeFn, style, maxlengthText, type = 'text', img} = props
   const [inputValue, setInputValue] = useState(value);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

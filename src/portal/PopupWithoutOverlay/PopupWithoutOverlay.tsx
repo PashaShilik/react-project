@@ -1,22 +1,22 @@
 import React from 'react';
 import styles from './popupWithoutOverlay.module.scss';
-import {Portal} from '../Portal/Portal';
+import {Portal} from '@/portal/Portal/Portal';
 
 type Props = {
   children:any;
-  onClose: Function;
+  onClose: () => void;
   isOpen:boolean;
 }
 
 
-export const PopupWithoutOverlay = function ({children, onClose, isOpen}:Props) {
-
+export const PopupWithoutOverlay = function (props:Props) {
+  
+  const {children, onClose, isOpen} = props
   if(!isOpen) return null;
 
   const handleClose = () => {
     onClose()
   };
-
 
   return (
   <Portal>

@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './signinPage.module.scss';
 
-import {CommonButton} from '../../components/Common/CommonButton/CommonButton';
-import arrowLeft from '../../assets/svg/arrowLeft.svg';
+import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
+import arrowLeft from '@/assets/svg/arrowLeft.svg';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../routes/routes';
+import { ROUTES } from '@/routes/routes';
 import {BlockSigninForm} from './Blocks/BlockSigninForm/BlockSigninForm';
 
 export const SigninPage = function () {

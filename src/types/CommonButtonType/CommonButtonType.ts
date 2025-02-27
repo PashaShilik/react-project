@@ -1,4 +1,4 @@
-import styles from '../../components/Common/CommonButton/commonButton.module.scss';
+import styles from '@/components/Common/CommonButton/commonButton.module.scss';
 
 type InlineStyle = { [key: string]: string | undefined };
 
