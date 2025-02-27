@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import styles from './signupPage.module.scss';
-import {CommonButton} from '../../components/Common/CommonButton/CommonButton';
-import arrowLeft from '../../assets/svg/arrowLeft.svg';
+import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
+import arrowLeft from '@/assets/svg/arrowLeft.svg';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../routes/routes';
+import { ROUTES } from '@/routes/routes';
 import {BlockSignUpForm} from './Blocks/BlockSignUpForm/BlockSignUpForm';
 
 function SignupPage() {

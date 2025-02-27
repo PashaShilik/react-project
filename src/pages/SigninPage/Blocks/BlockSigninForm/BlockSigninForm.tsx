@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './blockSigninForm.module.scss';
 
 import { Formik, Form } from 'formik';
-import { initialFormValuesLogin, loginValidation } from '../../../../helpers/authValidation/authValidation';
+import { initialFormValuesLogin, loginValidation } from '@/helpers/authValidation/authValidation';
 import { useNavigate } from 'react-router-dom';
 import {CommonInputForm} from '../../../../components/Common/CommonInputForm/CommonInputForm';
 import {CommonButton} from '../../../../components/Common/CommonButton/CommonButton';

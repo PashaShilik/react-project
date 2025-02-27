@@ -1,4 +1,4 @@
-import { RootState } from "../../store";
+import { RootState } from "@/redux/store";
 
 export const calledModalsSelector = (state: RootState) => {
     return state.modalReducer.called_modal_list;

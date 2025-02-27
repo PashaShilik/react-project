@@ -1,14 +1,12 @@
-import { calledModalsSelector } from '../../redux/reducers/modalReducer/modalSelector';
+import { calledModalsSelector } from '@/redux/reducers/modalReducer/modalSelector';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeLastOpenedModal } from '../../redux/reducers/modalReducer/modalReducer';
+import { removeLastOpenedModal } from '@/redux/reducers/modalReducer/modalReducer';
 
-import {PopupWithOverlay} from '../../portal/PopupWithOverlay/PopupWithOverlay';
-import {PopupWithDarkOverlay} from '../../portal/PopupWithDarkOverlay/PopupWithDarkOverlay';
-import {PopupWithoutOverlay} from '../../portal/PopupWithoutOverlay/PopupWithoutOverlay';
-import { modalContainerArr } from '../../constants/ModalContainer/ModalContainer';
-
-
+import {PopupWithOverlay} from '@/portal/PopupWithOverlay/PopupWithOverlay';
+import {PopupWithDarkOverlay} from '@/portal/PopupWithDarkOverlay/PopupWithDarkOverlay';
+import {PopupWithoutOverlay} from '@/portal/PopupWithoutOverlay/PopupWithoutOverlay';
+import { modalContainerArr } from '@/constants/ModalContainer/ModalContainer';
 
 export const ModalContainer = function () {
   const dispatch = useDispatch();
