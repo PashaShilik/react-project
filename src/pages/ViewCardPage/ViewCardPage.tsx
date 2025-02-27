@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './viewCardPage.module.scss';
 import { CommonButton } from '../../components/Common/CommonButton/CommonButton';
 import { movieData } from '../../constants/movieData/movieData';
+import { MovieDetails } from './Blocks/MovieDetails/MovieDetails';
 
 export const ViewCardPage: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -29,20 +30,7 @@ export const ViewCardPage: React.FC = () => {
           <div className={styles.viewCardPage__image_container}>
             <img src={movieData.imageUrl} alt={movieData.title} className={styles.viewCardPage__image} />
           </div>
-          <div className={styles.viewCardPage__details}>
-            <p className={styles.viewCardPage__detail}><strong>Год:</strong> {movieData.year}</p>
-            <p className={styles.viewCardPage__detail}><strong>Рейтинг:</strong> {movieData.rating}</p>
-            <p className={styles.viewCardPage__detail}><strong>Rank:</strong> {movieData.rank}</p>
-            <p className={styles.viewCardPage__detail}><strong>Score:</strong> {movieData.score}</p>
-            <p className={styles.viewCardPage__detail}><strong>Scored:</strong> {movieData.scored}</p>
-            <p className={styles.viewCardPage__detail}><strong>Popularity:</strong> {movieData.popularity}</p>
-            <p className={styles.viewCardPage__detail}><strong>Members:</strong> {movieData.members}</p>
-            <p className={styles.viewCardPage__detail}><strong>Favorites:</strong> {movieData.favorites}</p>
-            <p className={styles.viewCardPage__detail}><strong>Episodes:</strong> {movieData.episodes}</p>
-            <p className={styles.viewCardPage__detail}><strong>Source:</strong> {movieData.source}</p>
-            <p className={styles.viewCardPage__detail}><strong>Season:</strong> {movieData.season}</p>
-            <p className={styles.viewCardPage__detail}><strong>Duration:</strong> {movieData.duration}</p>
-          </div>
+          <MovieDetails movieData={movieData} />
           <div
             className={`${styles.viewCardPage__full_description} ${isExpanded ? styles.viewCardPage__expanded : ''}`}
           >
