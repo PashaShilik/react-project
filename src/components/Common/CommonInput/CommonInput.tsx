@@ -10,10 +10,10 @@ type Props = {
   style?: CSSProperties;
   maxlengthText?: number;
   type?: string;
-  img?: any;
+  img?: string;
 };
 
-export const DefaultInput = function ( props: Props ) {
+export const CommonInput = function ( props: Props ) {
   const {value, name, label, onChangeFn, style, maxlengthText, type = 'text', img} = props
   const [inputValue, setInputValue] = useState(value);
 
