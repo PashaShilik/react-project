@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import styles from "./searchListItem.module.scss";
-import {IAnime} from "../../../types/interfaces/IAnime";
+import {IAnime} from "@/types/interfaces/IAnime";
 
 type Props = {
     anime: IAnime,

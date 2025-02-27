@@ -1,15 +1,15 @@
 import React, {FC, useRef, useState} from 'react';
 import styles from "./mainSearch.module.scss";
 import {CommonSearch} from "../Common/CommonSearch/CommonSearch";
-import searchIco from "../../assets/svg/search.png";
-import {ROUTES} from "../../routes/routes";
+import searchIco from "@/assets/svg/search.png";
+import {ROUTES} from "@/routes/routes";
 import useDebounce from "../../hooks/useDebounce";
 import {useNavigate} from "react-router-dom";
-import {useClickOutsideAndClose} from "../../hooks/useClickOutsideAndClose";
-import {API_BASE_URL} from "../../constants/apiConstants/apiConstants";
-import {_transformAnime} from "../../utils/transformAnime";
-import {IAnime} from "../../types/interfaces/IAnime";
-import SearchListItem from "../../components/MainSearch/SearchListItem/SearchListItem";
+import {useClickOutsideAndClose} from "@/hooks/useClickOutsideAndClose";
+import {API_BASE_URL} from "@/constants/apiConstants/apiConstants";
+import {_transformAnime} from "@/utils/transformAnime";
+import {IAnime} from "@/types/interfaces/IAnime";
+import SearchListItem from "@/components/MainSearch/SearchListItem/SearchListItem";
 
 type Props = {
     limit?: number
@@ -38,6 +38,10 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
         }
     };
 
+    const handleListItemClick = (id: number) => {
+        navigate(`${ROUTES.viewCard}/${id}`);
+    }
+
     function search(newValue: string) {
         if(!newValue) return;
 
@@ -65,11 +69,11 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
                         suggestions.map(anime =>
                             <SearchListItem
                                 anime={anime}
-                                onClickFn={() => navigate(`${ROUTES.viewCard}/${anime.id}`)}
+                                onClickFn={() => handleListItemClick(anime.id)}
                             />
                         )
                         :
-                        <p className={styles.search__suggestions_title}>По вашему запросу ничего не найдено</p>
+                        <p className={styles.search__suggestions_title}>No results were found for your request</p>
                     }
                 </ul>
 
