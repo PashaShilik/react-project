@@ -1,0 +1,21 @@
+export const movieData = {
+  id: 5,
+  title: `Cowboy Bebop: Knockin' on Heaven's Door`,
+  imageUrl: 'https://cdn.myanimelist.net/images/anime/4/19644.jpg',
+  rating: 'R - 17+ (violence & profanity)',
+  rank: 46,
+  score: 8.75,
+  scored: 1005389,
+  popularity: 95,
+  members: 1945713,
+  favorites: 85524,
+  episodes: 26,
+  source: 'Original',
+  season: 'spring',
+  year: 1998,
+  duration: '24 min per ep',
+  synopsis:
+    'Lorem ipsum dolor sit amet  consectetur adipisicing elit. Nisi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, repellat. ',
+  trailerUrl: 'https://www.youtube.com/embed/KA_JwkKBtL8?enablejsapi=1&wmode=opaque&autoplay=1',
+  trailerPreview: 'https://img.youtube.com/vi/KA_JwkKBtL8/hqdefault.jpg',
+};
