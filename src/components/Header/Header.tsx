@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { isAuthSelector } from '@/redux/reducers/userReducer/userSelector';
 import { useAppDispatch } from '@/redux/store';
 import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
+import { HeaderBurger } from '@/components/HeaderBurger/HeaderBurger';
 
 export const Header = function () {
   const navigate = useNavigate(); 
@@ -56,14 +57,17 @@ export const Header = function () {
   }, []);
 
   const authContent = isUserAuth ? (
-    <div className={styles.header__auth_container}>
+    <>
+      <div className={styles.header__auth_container}>
         <img src={favoritesIco} alt="favoritesIco" className={styles.header__favorites_img} onClick={handleFavoritesClick}/>
-      <div className={styles.header__user_data}>
-        <img src={userIco} alt="userIco" className={styles.header__user_img} />
-        <p className={styles.header__login_text}>@{user.login}</p> 
+        <div className={styles.header__data_container}>
+          <img src={userIco} alt="userIco" className={styles.header__user_img} />
+          <p className={styles.header__login_text}>@{user.login}</p> 
+        </div>
+        <CommonButton text='Выход' type='default_bg' onClick={handleLogOut} style={{width:'100px'}}/>
       </div>
-      <CommonButton text='Выход' type='default_bg' onClick={handleLogOut} />
-    </div>
+      <HeaderBurger navFavoritesClick={handleFavoritesClick} userLogin={user.login} logOutClick={handleLogOut}/>
+    </>
   ) : (
     <div className={styles.header__button_container}>
       <CommonButton text='Entrance' type='default_bg' onClick={handleLoginClick}/>
