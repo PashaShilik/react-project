@@ -5,5 +5,5 @@ export const ROUTES = {
     favorites: '/favorites',
     signin:'/signin',
     signup:'/signup',
-    viewCard: '/view_card/:id'
+    viewCard: '/view_card'
 }
