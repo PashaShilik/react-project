@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Modal, initialStateModalReducerType } from "../../../types/modal";
+import { Modal, initialStateModalReducerType } from "@/types/modal";
 
 const initialStateModalReducer: initialStateModalReducerType = {
     called_modal_list: [],

@@ -2,17 +2,17 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ROUTES } from './routes';
 
-import {LayoutWithHeader} from '../layouts/LayoutWithHeader/LayoutWithHeader';
-import {LayoutWithOutHeader} from '../layouts/LayoutWithOutHeader/LayoutWithOutHeader';
-import {CommonLoader} from '../components/Common/CommonLoader/CommonLoader';
+import {LayoutWithHeader} from '@/layouts/LayoutWithHeader/LayoutWithHeader';
+import {LayoutWithOutHeader} from '@/layouts/LayoutWithOutHeader/LayoutWithOutHeader';
+import { CommonLoader } from '@/components/Common/CommonLoader/CommonLoader';
 
-const HomePage = React.lazy(() => import('../pages/HomePage/HomePage'));
-const SearchPage = React.lazy(() => import('../pages/SearchPage/SearchPage'));
-const HistoryPage = React.lazy(() => import('../pages/HistoryPage/HistoryPage'));
-const FavoritesPage = React.lazy(() => import('../pages/FavoritesPage/FavoritesPage'));
-const SigninPage = React.lazy(() => import('../pages/SigninPage/SigninPage'));
-const SignupPage = React.lazy(() => import('../pages/SignupPage/SignupPage'));
-const ViewCardPage = React.lazy(() => import('../pages/ViewCardPage'));
+const HomePage = React.lazy(() => import('@/pages/HomePage/HomePage'));
+const SearchPage = React.lazy(() => import('@/pages/SearchPage/SearchPage'));
+const HistoryPage = React.lazy(() => import('@/pages/HistoryPage/HistoryPage'));
+const FavoritesPage = React.lazy(() => import('@/pages/FavoritesPage/FavoritesPage'));
+const SigninPage = React.lazy(() => import('@/pages/SigninPage/SigninPage'));
+const SignupPage = React.lazy(() => import('@/pages/SignupPage/SignupPage'));
+const ViewCardPage = React.lazy(() => import('@/pages/ViewCardPage'));
 
 export const RootRouter = function () {
   return (

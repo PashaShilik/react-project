@@ -1,0 +1,46 @@
+.searchListItem {
+  padding: 10px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+
+
+  &_textContainer {
+    display: flex;
+    flex-direction: column;
+
+
+    &_title {
+      font-size: 16px;
+      font-weight: 600;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 350px;
+    }
+
+    &_type {
+      font-size: 14px;
+      font-weight: 400;
+      color: #cccccc;
+    }
+  }
+
+
+
+  & img {
+    width: 42px;
+    height: 60px;
+    object-fit: fill;
+  }
+
+  &:hover {
+    background-color: #F14141;
+  }
+
+
+}

@@ -10,6 +10,7 @@ export const _transformAnime = (anime: any) => {
     return {
         id: anime.mal_id,
         title: anime.title,
+        type: anime.type,
         description: anime.synopsis
             ? anime.synopsis
             : DEFAULT_DESCRIPTION,
