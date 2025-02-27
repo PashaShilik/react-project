@@ -43,3 +43,39 @@
         cursor: pointer;
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .blockSigninForm{ 
+        align-items:center;
+        justify-content:center;
+
+        &__input_group{    
+            width: 500px;
+        }
+
+        &__text_container{
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .blockSigninForm{ 
+        margin-top: 25px;
+
+        &__input_group{    
+            width: 350px;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .blockSigninForm{ 
+        margin-top: 15px;
+
+        &__input_group{    
+            width: 300px;
+        }
+    }
+}

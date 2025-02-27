@@ -68,3 +68,90 @@
         line-height: 120%;
     }
 }
+
+
+@media only screen and (max-width: 1000px) {
+    .signinPage{ 
+        background-image: url("../../assets/img/background.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.801);
+            z-index: 1;
+        }
+
+        &__bg_container{
+            display: none;
+        }
+
+        &__form_container{
+            width: 100%;
+            z-index: 2;
+        }
+
+        &__form_content{
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__form_content_title{
+            text-align: center;
+        }
+    
+        &__form_content_text{
+            text-align: center;
+            cursor: default;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .signinPage{ 
+
+        &__form_container{
+            padding: 50px 20px;
+            gap: 50px;
+        }
+
+        &__form_content_title{
+            font-size: 30px;
+            font-weight: 800;
+            max-width: 95%;
+        }
+    
+        &__form_content_text{
+            font-size: 16px;
+            font-weight: 400;
+            max-width: 95%;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .signinPage{ 
+
+        &__form_container{
+            padding: 30px 20px;
+            gap: 30px;
+        }
+
+        &__form_content_title{
+            font-size: 25px;
+            font-weight: 800;
+            max-width: 100%;
+        }
+    
+        &__form_content_text{
+            font-size: 14px;
+            font-weight: 400;
+            max-width: 100%;
+        }
+    }
+}
