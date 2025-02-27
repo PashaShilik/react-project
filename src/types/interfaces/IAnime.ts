@@ -7,4 +7,5 @@ export interface IAnime {
     yearStart: number | string; // год начала выпуска
     yearEnd?: number | string; // год окончания выпуска
     description: string;
+    score: number | string;
 }

@@ -1,22 +1,53 @@
 .card {
+    position: relative;
+    height: 100%;
     background-color: #242323;
     border-radius: 12px;
     color: #fff;
 
+    &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, .8) 0%, 
+          rgba(0, 0, 0, .0) 30%, 
+          rgba(0, 0, 0, .0) 70%,
+          rgba(12, 11, 11, 0.8) 100% 
+        );
+        pointer-events: none;
+      }
+    
     &__img {
         width: 100%;
-        height: 290px;
+        height: 100%;
         object-fit: cover;
+        border-radius: 12px 12px;
+        }
+
+    &__score {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 5px 15px 5px 10px;
+        border-radius: 6px;
+        background-color: rgba($color: #ffb835, $alpha: 1);
+        font-size: 20px;
+        text-align: right;
+        font-weight: 600;
+        line-height: 25px;
     }
 
     &__info {
+        position: absolute;
+        bottom: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 328px;
-        height: 200px;
-        margin: 32px auto 24px;
-        
+        width: 280px;
+        height: 100px;
+        margin: 0 10px 10px 10px ;
 
         &_title {
             display: -webkit-box;
@@ -24,16 +55,33 @@
             -webkit-line-clamp: 1;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 40px;
-            font-size: 32px;
-            line-height: 40px;
+            height: 28px;
+            font-size: 24px;
+            line-height: 28px;
             font-weight: 600;
         }
 
-        span {
-            font-size: 14px;
-            line-height: 18px;
-            font-weight: 700;
+        &_year {
+            display: flex;
+            justify-content: space-between;
+
+            &_from {
+                background-color: rgba($color: #17940f, $alpha: 1);
+            }
+
+            &_to {
+                background-color: rgba($color: #c12525, $alpha: 1);
+            }
+
+            span {
+                display: block;
+                height: 25px;
+                padding: 0 10px 0;
+                border-radius: 6px;
+                font-size: 14px;
+                line-height: 25px;
+                font-weight: 700;
+            }
         }
 
         &_description {
