@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './commonButton.module.scss';
-import { dynamicStylesObject } from '../../../types/CommonButtonType/CommonButtonType';
+import { dynamicStylesObject } from '@/types/CommonButtonType/CommonButtonType';
 
 type Props = {
     style?: React.CSSProperties;

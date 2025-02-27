@@ -23,9 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco  start",
+    "build": "craco  build",
+    "test": "craco  test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,9 +47,14 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
     "@types/jest": "^29.5.14",
+    "@types/react-dom": "^19.0.4",
+    "craco-alias": "^3.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
     "file-loader": "^6.2.0",
-    "sass": "^1.85.0",
+    "sass": "^1.85.1",
+    "sass-loader": "^16.0.5",
     "url-loader": "^4.1.1"
   }
 }

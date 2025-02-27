@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import styles from './commonSelector.module.scss';
-import arrowDown from '../../../assets/img/arrow-down.png';
-import arrowUp from '../../../assets/img/arrow-up.png';
-import closeIcon from '../../../assets/svg/Delete.svg';
-import { useClickOutsideAndClose } from '../../../hooks/useClickOutsideAndClose';
+import arrowDown from '@/assets/img/arrow-down.png';
+import arrowUp from '@/assets/img/arrow-up.png';
+import closeIcon from '@/assets/svg/Delete.svg';
+import { useClickOutsideAndClose } from '@/hooks/useClickOutsideAndClose';
 
 type Props = {
     activeItem: any;
@@ -15,7 +15,8 @@ type Props = {
     className?: any;
 };
 
-export const CommonSelector = function ({activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'}: Props) {
+export const CommonSelector = function (props: Props) {
+    const {activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'} = props
     const [open, setOpen] = useState<boolean>(false);
     const listRef = useRef<HTMLDivElement>(null);
 
@@ -39,29 +40,39 @@ export const CommonSelector = function ({activeItem, setActiveItem, data, name, 
         handleSelect(item)
     };
 
+    const itemList = data && open ? (
+        <ul className={styles.selector__list}>
+            {data.map((item) => (
+                <li className={styles.selector__item} key={item.id} onClick={handleAddItem}>
+                    {item.title}
+                </li>
+            ))}
+        </ul>
+    ) : null;
+
+    let inputImage;
+
+    if (activeItem) {
+        inputImage = (
+            <img src={closeIcon} alt="Close" className={styles.selector__input_img} onClick={handleClear} />
+        );
+    } else if (open) {
+        inputImage = (
+            <img src={arrowUp} alt="Arrow Up" className={styles.selector__input_img} />
+        );
+    } else {
+        inputImage = (
+            <img src={arrowDown} alt="Arrow Down" className={styles.selector__input_img} />
+        );
+    }
+
     return (
         <div className={`${type === 'default' ? styles.selector : styles.selectorTransparent} ${className}`} ref={listRef}>
             <div className={styles.selector__input} onClick={handleOpenList}>
                 <p className={styles.selector__input_title}>{activeItem?.title || name}</p>
-                
-                {activeItem ? (
-                    <img src={closeIcon} alt="Close" className={styles.selector__input_img} onClick={handleClear} />
-                ) : open ? (
-                    <img src={arrowUp} alt="Arrow Up" className={styles.selector__input_img} />
-                ) : (
-                    <img src={arrowDown} alt="Arrow Down" className={styles.selector__input_img} />
-                )}
+                {inputImage}
             </div>
-
-            {data && open ? (
-                <ul className={styles.selector__list}>
-                    {data.map((item) => (
-                        <li className={styles.selector__item} key={item.id} onClick={handleAddItem}>
-                            {item.title}
-                        </li>
-                    ))}
-                </ul>
-            ) : null}
+            {itemList}
         </div>
     );
 }
