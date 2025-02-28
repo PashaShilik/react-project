@@ -42,7 +42,7 @@ export const BlockSignUpForm = function () {
 
   return (
      <div className={styles.blockSignUpForm}>
-      <Formik initialValues={initialFormValuesAuth} validate={registrationValidation} onSubmit={onFormSubmit}>
+      <Formik initialValues={initialFormValuesAuth} validationSchema={registrationValidation} onSubmit={onFormSubmit}>
           {({ isValid, dirty }) => ( 
             <Form>
               <div className={styles.blockSignUpForm__input_group}>
