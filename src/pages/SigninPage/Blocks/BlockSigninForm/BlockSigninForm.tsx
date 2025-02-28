@@ -11,19 +11,20 @@ import { ROUTES } from '@/routes/routes';
 import { useAppDispatch } from '@/redux/store';
 import { setMessageModal, setModalByName } from '@/redux/reducers/modalReducer/modalReducer';
 import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
+import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 
 export const BlockSigninForm = function () {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
     const onFormSubmit = (formValues:any) => {
-        const storedUsers = localStorage.getItem('Users');
+        const storedUsers = localStorage.getItem(LOCAL_STORAGE_KEYS.Users);
         const usersFromLocalStorage = storedUsers ? JSON.parse(storedUsers) : [];
         const isUsersExist = usersFromLocalStorage.find((user:any) => user.login === formValues.login);
         const isInCorrectPassword = isUsersExist?.password !== formValues.password;
 
         if(isUsersExist && !isInCorrectPassword){
-            localStorage.setItem('AuthMe', JSON.stringify(formValues));
+            localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify(formValues));
             dispatch(setAuthInfo(formValues));
             dispatch(setIsAuth({isAuth:true}));
             navigate(ROUTES.home); 

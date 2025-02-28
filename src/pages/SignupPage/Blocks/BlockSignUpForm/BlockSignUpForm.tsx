@@ -9,6 +9,7 @@ import { ROUTES } from '@/routes/routes';
 import { useAppDispatch } from '@/redux/store';
 import { setMessageModal, setModalByName } from '@/redux/reducers/modalReducer/modalReducer';
 import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
+import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 
 
 export const BlockSignUpForm = function () {
@@ -17,7 +18,7 @@ export const BlockSignUpForm = function () {
   const dispatch = useAppDispatch();
 
   const onFormSubmit = (formValues: any) => {
-    const storedUsers = localStorage.getItem('Users');
+    const storedUsers = localStorage.getItem(LOCAL_STORAGE_KEYS.Users);
     const usersFromLocalStorage = storedUsers ? JSON.parse(storedUsers) : [];
     const lastUserId = usersFromLocalStorage[0];
     const isUsersExist = usersFromLocalStorage.find((user:any) => user.login === formValues.login);
@@ -27,8 +28,8 @@ export const BlockSignUpForm = function () {
       dispatch(setMessageModal('A user with this login already exists!'));
     }else{
       const updatedUsers = [...usersFromLocalStorage, {...formValues, id:lastUserId ? lastUserId.id++ : 0}];
-      localStorage.setItem('Users', JSON.stringify(updatedUsers));
-      localStorage.setItem('AuthMe', JSON.stringify(formValues))
+      localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify(updatedUsers));
+      localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify(formValues))
       dispatch(setAuthInfo(formValues));
       dispatch(setIsAuth({isAuth:true}));
       navigate(ROUTES.home);

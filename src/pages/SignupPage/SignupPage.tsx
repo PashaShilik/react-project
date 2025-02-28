@@ -5,6 +5,7 @@ import arrowLeft from '@/assets/svg/arrowLeft.svg';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/routes/routes';
 import {BlockSignUpForm} from './Blocks/BlockSignUpForm/BlockSignUpForm';
+import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 
 function SignupPage() {
 
@@ -15,10 +16,10 @@ function SignupPage() {
   };
 
   useEffect(() => {
-    const isUsersExists = localStorage.getItem('Users');
+    const isUsersExists = localStorage.getItem(LOCAL_STORAGE_KEYS.Users);
 
     if(!isUsersExists){
-     localStorage.setItem('Users', JSON.stringify([]));
+     localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify([]));
     }
 
   }, []);

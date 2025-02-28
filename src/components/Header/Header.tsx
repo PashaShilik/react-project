@@ -13,13 +13,14 @@ import { isAuthSelector } from '@/redux/reducers/userReducer/userSelector';
 import { useAppDispatch } from '@/redux/store';
 import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
 import { HeaderBurger } from '@/components/HeaderBurger/HeaderBurger';
+import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 
 export const Header = function () {
   const navigate = useNavigate(); 
   const [isScrolled, setIsScrolled] = useState(false);
   const isUserAuth = useSelector(isAuthSelector);
   const dispatch = useAppDispatch();
-  const usersData = localStorage.getItem('AuthMe');
+  const usersData = localStorage.getItem(LOCAL_STORAGE_KEYS.AuthMe);
   const user = usersData ? JSON.parse(usersData) : [];
 
   const handleLoginClick = () => {
@@ -35,7 +36,7 @@ export const Header = function () {
   };
 
   const handleLogOut = () => {
-    localStorage.removeItem('AuthMe')
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.AuthMe)
     dispatch(setIsAuth({isAuth:false}))
     dispatch(setAuthInfo({}))
   };

@@ -1,10 +1,11 @@
 import { CommonLoader } from "@/components/Common/CommonLoader/CommonLoader";
+import { LOCAL_STORAGE_KEYS } from "@/constants/LocalStorageKeys/LocalStorageKeys";
 import { setIsAuth } from "@/redux/reducers/userReducer/userReducer";
 import { useAppDispatch } from "@/redux/store";
 import { useEffect, useState } from "react";
 
 export const AuthProvider = ({ children }: any) => {
-    const isAuth = localStorage.getItem('AuthMe');
+    const isAuth = localStorage.getItem(LOCAL_STORAGE_KEYS.AuthMe);
     const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(false);
     
