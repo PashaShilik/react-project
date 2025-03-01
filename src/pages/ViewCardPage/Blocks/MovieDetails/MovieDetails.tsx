@@ -7,20 +7,28 @@ interface MovieDetailsProps {
 }
 
 export const MovieDetails: React.FC<MovieDetailsProps> = ({ movieData }) => {
+  const details = [
+    { key: 'year', label: 'Year', value: movieData.year || 'N/A' },
+    { key: 'rating', label: 'Rating', value: movieData.rating || 'N/A' },
+    { key: 'rank', label: 'Rank', value: movieData.rank || 'N/A' },
+    { key: 'score', label: 'Score', value: movieData.score || 'N/A' },
+    { key: 'scored_by', label: 'Scored', value: movieData.scored_by || 'N/A' },
+    { key: 'popularity', label: 'Popularity', value: movieData.popularity || 'N/A' },
+    { key: 'members', label: 'Members', value: movieData.members || 'N/A' },
+    { key: 'favorites', label: 'Favorites', value: movieData.favorites || 'N/A' },
+    { key: 'episodes', label: 'Episodes', value: movieData.episodes || 'N/A' },
+    { key: 'source', label: 'Source', value: movieData.source || 'N/A' },
+    { key: 'season', label: 'Season', value: movieData.season || 'N/A' },
+    { key: 'duration', label: 'Duration', value: movieData.duration || 'N/A' },
+  ];
+
   return (
     <div className={styles.movieDetails}>
-      <p className={styles.movieDetails__detail}><strong>Year:</strong> {movieData.year}</p>
-      <p className={styles.movieDetails__detail}><strong>Rating:</strong> {movieData.rating}</p>
-      <p className={styles.movieDetails__detail}><strong>Rank:</strong> {movieData.rank}</p>
-      <p className={styles.movieDetails__detail}><strong>Score:</strong> {movieData.score}</p>
-      <p className={styles.movieDetails__detail}><strong>Scored:</strong> {movieData.scored}</p>
-      <p className={styles.movieDetails__detail}><strong>Popularity:</strong> {movieData.popularity}</p>
-      <p className={styles.movieDetails__detail}><strong>Members:</strong> {movieData.members}</p>
-      <p className={styles.movieDetails__detail}><strong>Favorites:</strong> {movieData.favorites}</p>
-      <p className={styles.movieDetails__detail}><strong>Episodes:</strong> {movieData.episodes}</p>
-      <p className={styles.movieDetails__detail}><strong>Source:</strong> {movieData.source}</p>
-      <p className={styles.movieDetails__detail}><strong>Season:</strong> {movieData.season}</p>
-      <p className={styles.movieDetails__detail}><strong>Duration:</strong> {movieData.duration}</p>
+      {details.map((detail) => (
+        <p key={detail.key} className={styles.movieDetails__detail}>
+          <strong>{detail.label}:</strong> {detail.value}
+        </p>
+      ))}
     </div>
   );
 };
