@@ -4,7 +4,7 @@ import { _transformAnime } from "@/utils/transformAnime";
 
 export const getAnimeList = async (
     page: number = 1,
-    limit: number = 9
+    limit: number = 12
 ): Promise<IAnime[]> => {
     try {
         const response = await fetch(
@@ -15,8 +15,8 @@ export const getAnimeList = async (
                 `Couldn't fetch ${API_FULL_URL}, status: ${response.status}`
             );
         }
-        const request = await response.json();
-        return request.data.map(_transformAnime);
+        const animeList = await response.json();
+        return animeList.data.map(_transformAnime);
     } catch (e) {
         console.error(e);
         return [];
