@@ -8,10 +8,10 @@ import { TopSliderBlock } from './Bloks/TopSliderBlock/TopSliderBlock';
 function HomePage() {
   return (
     <div className={styles.homePage}>
+      <TopSliderBlock/>
       <SearchBlock/>
       <FilterBlock/>
       <CardListBlock/>
-      <TopSliderBlock/>
     </div>
   )
 }
