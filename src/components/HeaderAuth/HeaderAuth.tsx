@@ -3,8 +3,8 @@ import styles from './headerAuth.module.scss';
 
 import favoritesIco from '@/assets/img/favorites.png';
 import userIco from '@/assets/svg/user.svg';
-import { CommonButton } from '../Common/CommonButton/CommonButton';
-import { HeaderBurger } from '../HeaderBurger/HeaderBurger';
+import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
+import { HeaderBurger } from '@/components/HeaderBurger/HeaderBurger';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/routes/routes';
 import { useAppDispatch } from '@/redux/store';
