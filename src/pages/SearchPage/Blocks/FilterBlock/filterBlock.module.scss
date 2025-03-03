@@ -1,0 +1,28 @@
+.filterBlock {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  height: 50px;
+
+  &__arrow {
+    font-size: 26px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      text-shadow: white 0 0 1px;
+    }
+  }
+
+  &__arrow_top {
+    @extend .filterBlock__arrow;
+    color: #17940f;
+    transform: rotateZ(0deg);
+  }
+
+  &__arrow_bottom {
+    @extend .filterBlock__arrow;
+    color: #c12525;
+    transform: rotateZ(180deg);
+  }
+}

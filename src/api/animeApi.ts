@@ -75,7 +75,8 @@ type ParamsProps = {
     order_by?: string
     sort?: string
 }
-export const getAnimeByParams = async (props: ParamsProps): Promise<{data: IAnime[], pagination: any} | null> => {
+export const getAnimeByParams = async (props: ParamsProps)
+    : Promise<{data: IAnime[], pagination: any, searchString: string} | null> => {
     try {
         const propsString = [...Object.entries(props)]
             .filter(el => el[1])
@@ -88,7 +89,18 @@ export const getAnimeByParams = async (props: ParamsProps): Promise<{data: IAnim
             );
         }
         const data = await response.json();
-        return {data: data.data.map(_transformAnime), pagination: data.pagination};
+        const usedIds = new Set(); // Иногда с бэка приходят объекты с одинаковыми айдишниками
+        return {
+            data: data.data.map(_transformAnime).filter((el: IAnime) => {
+                if(usedIds.has(el.id)) return false;
+                usedIds.add(el.id);
+                return true;
+            }),
+            pagination: data.pagination,
+            searchString: `?${propsString.split('&').filter(
+                el => !(el.startsWith("page") || el.startsWith("limit"))
+            ).join('&')}`
+        };
     } catch (e) {
         console.error("Failed anime fetching", e);
         return null;
