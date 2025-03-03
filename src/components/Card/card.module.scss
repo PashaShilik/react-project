@@ -1,39 +1,95 @@
 .card {
-    background-color: #242323;
+    position: relative;
+    height: 100%;
+    background-color: #c12525;
     border-radius: 12px;
     color: #fff;
 
+    &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, .8) 0%, 
+          rgba(0, 0, 0, .0) 30%, 
+          rgba(0, 0, 0, .0) 70%,
+          rgba(12, 11, 11, 1) 100% 
+        );
+        pointer-events: none;
+      }
+    
     &__img {
         width: 100%;
-        height: 290px;
+        height: 100%;
         object-fit: cover;
+        border-radius: 12px;
+        }
+
+    &__score {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 15px 5px 10px;
+        border-radius: 6px;
+        background-color: rgba($color: #ffb835, $alpha: 1);
+        font-size: 16px;
+        text-align: right;
+        font-weight: 600;
+        line-height: 18px;
     }
 
     &__info {
+        position: absolute;
+        bottom: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 328px;
-        height: 200px;
-        margin: 32px auto 24px;
-        
+        width: 100%;
+        padding: 0 10px 10px 10px ;
 
         &_title {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
             overflow: hidden;
+            margin-top: 5px;
             text-overflow: ellipsis;
-            height: 40px;
-            font-size: 32px;
-            line-height: 40px;
+            font-size: 18px;
+            line-height: 22px;
             font-weight: 600;
         }
 
-        span {
+        &_year {
+            display: flex;
+            justify-content: space-between;
+
+            &_from {
+                background-color: rgba($color: #17940f, $alpha: 1);
+            }
+
+            &_to {
+                background-color: rgba($color: #c12525, $alpha: 1);
+            }
+
+            span {
+                display: block;
+                padding: 6px 10px;
+                border-radius: 6px;
+                font-size: 12px;
+                line-height: 16px;
+                font-weight: 700;
+            }
+        }
+
+        &_genres {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
             font-size: 14px;
-            line-height: 18px;
-            font-weight: 700;
+            line-height: 16px;
         }
 
         &_description {

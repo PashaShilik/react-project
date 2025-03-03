@@ -1,0 +1,19 @@
+.top__list {
+    width: 1000px;
+    margin: 0 auto;
+
+    &_title {
+        display: block;
+        width: 250px;
+        margin: 0 auto;
+        font-size: 32px;
+        text-align: center;
+        color: #f14141;
+    }
+}
+
+@media only screen and (max-width: 1079px) {
+    .top__list {
+        width: calc(100% - 40px);
+    }
+}
