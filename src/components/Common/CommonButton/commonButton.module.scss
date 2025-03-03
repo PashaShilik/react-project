@@ -78,3 +78,11 @@
     max-width: 24px;
     max-height: 24px;
 }
+
+@media only screen and (max-width: 500px) {
+    .default_bg, .default_bg_img,
+    .default_bg_none, .default_bg_none_img{ 
+        height: 35px;
+        font-size: 14px;
+    }
+}

@@ -3,7 +3,7 @@ export type initialStateModalReducerType = {
     detailSuccessMessageForUser: string;
     detailErrorMessageForUser: string;
     modalItemData: {};
-    messageForModal: {};
+    messageForModal: string;
     feedbackModalInfo: any;
 };
 

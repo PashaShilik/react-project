@@ -1,0 +1,44 @@
+.headerAuth{
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    &__data_container{
+        display: flex;
+        align-items:center;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+    
+    &__user_img{
+        filter: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(423%) hue-rotate(216deg) brightness(117%) contrast(100%);
+    }
+    
+    &__favorites_img{
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+    }
+    
+    &__login_text{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        cursor: default;
+    }
+
+    &__button_container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        gap: 15px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .headerAuth{ 
+        display: none;
+    }
+}

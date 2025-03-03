@@ -21,7 +21,8 @@
     "redux": "^5.0.1",
     "swiper": "^11.2.4",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.6.1"
   },
   "scripts": {
     "start": "craco  start",
