@@ -1,16 +1,15 @@
-import { THUMBNAIL, ONGOING, UNKNOWN_YEAR, DEFAULT_DESCRIPTION, MONTHS } from "@/constants/apiConstants/apiConstants";
+import { THUMBNAIL, ONGOING, UNKNOWN_YEAR, DEFAULT_DESCRIPTION, MONTHS, CURRENTLY } from "@/constants/apiConstants/apiConstants";
 
-// деструктуризация полученных данных для удобной работы
 export const _transformAnime = (anime: any) => {
     const formatDate = (year: number | string, month: number | string) => {
         if (year === null || !month) return UNKNOWN_YEAR;
         return `${MONTHS[parseInt(month as string) - 1]}, ${year}`;
     };
 
-    const yearStart = anime.aired?.prop?.from?.year;
+    const status = anime.status;
     let yearEnd = anime.aired?.prop?.to?.year || ONGOING;
 
-    if (yearStart > 2020) {
+    if (status === CURRENTLY) {
         yearEnd = ONGOING;
     } else {
         yearEnd = formatDate(
@@ -33,7 +32,7 @@ export const _transformAnime = (anime: any) => {
             ? anime.genres.map((genre: any) => genre.name).join(", ")
             : "Classic",
         yearStart: formatDate(
-            yearStart,
+            anime.aired?.prop?.from?.year,
             anime.aired?.prop?.from?.month
         ),
         yearEnd: yearEnd,

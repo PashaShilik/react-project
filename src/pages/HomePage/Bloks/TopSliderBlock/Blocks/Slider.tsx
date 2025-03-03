@@ -20,12 +20,26 @@ export function Slider({ animeList }: CardListProps) {
             className={styles.slider}
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={40}
-            slidesPerView={3}
+            slidesPerView={4}
+            breakpoints={{
+                1080: {
+                    slidesPerView: 4,
+                },
+                820: {
+                    slidesPerView: 3,
+                },
+                560: {
+                    slidesPerView: 2,
+                },
+                320: {
+                    slidesPerView: 1
+                }
+            }}
             navigation
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000, disableOnInteraction: true }}>
             {animeList.map((anime) => (
-                <SwiperSlide
+                <SwiperSlide style={{ height: 320 }}
                     key={anime.id}>
                     <Card anime={anime} />
                 </SwiperSlide>
@@ -33,3 +47,4 @@ export function Slider({ animeList }: CardListProps) {
         </Swiper>
     )
 }
+

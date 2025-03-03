@@ -27,11 +27,11 @@ export function Card({ anime }: CardProps) {
             <BookMark />
             <div className={styles.card__info}>
                 <div className={styles.card__info_year}>
-                    <span className={styles.card__info_year_from}>From: {yearStart}</span>  
-                    <span className={styles.card__info_year_to}>To: {yearEnd}</span>
+                    <span className={styles.card__info_year_from}>From:<br/> {yearStart}</span>  
+                    <span className={styles.card__info_year_to}>To:<br/> {yearEnd}</span>
                 </div>
                 <h3 className={styles.card__info_title}>{title}</h3>
-                <span className={styles.card__info_genre}>Genres: {genres}</span>
+                <span className={styles.card__info_genres}>Genres: {genres}</span>
             </div>
         </li>
     );
