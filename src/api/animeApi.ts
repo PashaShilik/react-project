@@ -61,3 +61,36 @@ export const getAnimeById = async (
         return null;
     }
 };
+
+// получение аниме по множеству параметров
+
+type ParamsProps = {
+    page: number
+    limit: number
+    q?: string
+    genres?: number
+    status?: string
+    start_date?: string
+    end_date?: string
+    order_by?: string
+    sort?: string
+}
+export const getAnimeByParams = async (props: ParamsProps): Promise<{data: IAnime[], pagination: any} | null> => {
+    try {
+        const propsString = [...Object.entries(props)]
+            .filter(el => el[1])
+            .map(el => `${el[0]}=${el[1]}`).join('&');
+        const response = await fetch(`${API_FULL_URL}?${propsString}`);
+
+        if (!response.ok) {
+            throw new Error(
+                `Couldn't fetch ${API_FULL_URL}. Anime not found; status: ${response.status}`
+            );
+        }
+        const data = await response.json();
+        return {data: data.data.map(_transformAnime), pagination: data.pagination};
+    } catch (e) {
+        console.error("Failed anime fetching", e);
+        return null;
+    }
+}

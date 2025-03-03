@@ -1,7 +1,8 @@
 import { THUMBNAIL, ONGOING, UNKNOWN_YEAR, DEFAULT_DESCRIPTION, MONTHS } from "@/constants/apiConstants/apiConstants";
+import {IAnime} from "@/types/interfaces/IAnime";
 
 // деструктуризация полученных данных для удобной работы
-export const _transformAnime = (anime: any) => {
+export const _transformAnime = (anime: any): IAnime => {
     const formatDate = (year: number | string, month: number | string) => {
         if (year === null || !month) return UNKNOWN_YEAR;
         return `${MONTHS[parseInt(month as string) - 1]}, ${year}`;
@@ -37,7 +38,6 @@ export const _transformAnime = (anime: any) => {
             anime.aired?.prop?.from?.month
         ),
         yearEnd: yearEnd,
-        homepage: anime.url,
         score: anime.score,
     };
 };
