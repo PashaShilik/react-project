@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './commonSelector.module.scss';
 import arrowDown from '@/assets/img/arrow-down.png';
 import arrowUp from '@/assets/img/arrow-up.png';
@@ -25,7 +25,8 @@ export const CommonSelector = function (props: Props) {
         setOpen(false);
     };
 
-    const handleClear = () => {
+    const handleClear = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+        e.stopPropagation()
         setActiveItem(null);
         setOpen(false);
     };
@@ -43,7 +44,7 @@ export const CommonSelector = function (props: Props) {
     const itemList = data && open ? (
         <ul className={styles.selector__list}>
             {data.map((item) => (
-                <li className={styles.selector__item} key={item.id} onClick={handleAddItem}>
+                <li className={styles.selector__item} key={item.id} onClick={() => handleAddItem(item)}>
                     {item.title}
                 </li>
             ))}
