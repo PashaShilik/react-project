@@ -6,7 +6,11 @@
   width: 100%;
   margin: auto;
 
-  &__container {}
+  &__container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 
   &__title {
     font-size: 40px;
@@ -17,9 +21,7 @@
   }
 
   &__movie_card {
-    padding: 128px;
-    max-width: 1600px;
-    margin: 0 auto;
+    padding: 128px 0 128px 0;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -62,9 +64,12 @@
   }
 
   &__trailer {
-    display: block;
-    margin-top: 32px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
     text-align: center;
+    border-radius: 16px;
+    height: 41vh
   }
 
   &__trailer_title {
@@ -72,17 +77,18 @@
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 16px;
-    text-align: center;
+  }
+
+  &__trailer_text {
+    padding-top: 20px;
+    font-size: 26px;
   }
 
   &__trailer_media {
-    border-radius: 16px;
-    max-width: 100%;
-    width: 1280px;
-    height: auto;
-    min-height: 640px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     cursor: pointer;
     object-fit: cover;
-    margin: auto 0 384px;
+    border-radius: 16px;
   }
 }

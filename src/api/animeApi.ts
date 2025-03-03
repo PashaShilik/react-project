@@ -1,4 +1,5 @@
 import { IAnime } from "@/types/interfaces/IAnime";
+import { IMovieData } from "@/types/interfaces/IMovieData";
 import { API_FULL_URL, API_TOP_URL } from "@/constants/apiConstants/apiConstants";
 import { _transformAnime } from "@/utils/transformAnime";
 
@@ -46,9 +47,9 @@ export const getTopAnime = async (
 // получение аниме по id для перехода на страницу для детального просмотра
 export const getAnimeById = async (
     id: string | number
-): Promise<IAnime | null> => {
+): Promise<IMovieData | null> => {
     try {
-        const response = await fetch(`${API_FULL_URL}/${id}`);
+        const response = await fetch(`${API_FULL_URL}/${id}/full`);
         if (!response.ok) {
             throw new Error(
                 `Couldn't fetch ${API_FULL_URL}. Anime not found; status: ${response.status}`
