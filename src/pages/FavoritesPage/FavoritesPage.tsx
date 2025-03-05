@@ -6,10 +6,6 @@ import { Card } from '@/components/Card/Card';
 
 const FavoritesPage = () => {
   const favorites = useSelector(authInfoSelector)?.Favorites || []; 
-  const favoritesNew = useSelector(authInfoSelector); 
-
-  console.log('132', favoritesNew)
-  
   
   return (
     <div className={styles.favoritesPage}>
@@ -20,7 +16,7 @@ const FavoritesPage = () => {
           </h3>
           <div className={styles.favoritesPage__card_container}>
             {favorites.map((item:any) => (
-              <Card key={item.id} anime={item} />
+              <Card key={item.id} anime={item} favoritesPage/>
             ))}
           </div>
         </div>

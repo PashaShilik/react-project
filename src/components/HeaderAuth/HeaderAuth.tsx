@@ -29,6 +29,7 @@ export const HeaderAuth = () => {
     localStorage.removeItem(LOCAL_STORAGE_KEYS.AuthMe)
     dispatch(setIsAuth({isAuth:false}))
     dispatch(setAuthInfo({}))
+    navigate(ROUTES.home);
   };
   const handleLoginClick = () => {
     navigate(ROUTES.signin);
