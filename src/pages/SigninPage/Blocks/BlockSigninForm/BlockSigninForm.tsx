@@ -24,10 +24,11 @@ export const BlockSigninForm = function () {
         const isInCorrectPassword = isUsersExist?.password !== formValues.password;
 
         if(isUsersExist && !isInCorrectPassword){
-            localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify(formValues));
-            dispatch(setAuthInfo(formValues));
+            localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify({...formValues, Favorites:isUsersExist.Favorites}));
+            dispatch(setAuthInfo({...formValues, Favorites:isUsersExist.Favorites || []}));
             dispatch(setIsAuth({isAuth:true}));
             navigate(ROUTES.home); 
+            console.log('22', isUsersExist)
         } else {
             dispatch(setModalByName({ isModalActive: true, modalName: 'modal-feedback', withDarkOverlay: true }));
             dispatch(setMessageModal('You have entered an incorrect login or password!'));

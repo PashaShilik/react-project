@@ -1,0 +1,14 @@
+.commonEmptyBlock{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+
+    &__text{
+        font-size: 35px;
+        font-weight: 800;
+        width: 100%;
+        text-align: center;
+    }
+}

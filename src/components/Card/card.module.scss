@@ -18,14 +18,14 @@
           rgba(12, 11, 11, 1) 100% 
         );
         pointer-events: none;
-      }
+    }
     
     &__img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 12px;
-        }
+    }
 
     &__score {
         position: absolute;
