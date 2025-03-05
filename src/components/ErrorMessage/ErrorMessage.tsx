@@ -1,4 +1,4 @@
-import img from '@assets/error.gif';
+import img from '@/assets/error.gif';
 
 export function ErrorMessage() {
     return (
