@@ -1,6 +1,6 @@
-import { ICharacter } from "@/types/interfaces/ICharacter";
+import { Character } from "@/types/interfaces/Character";
 
-export const _transformCharacter = (character: ICharacter) => {
+export const _transformCharacter = (character: Character) => {
   return {
     mal_id: character.id,
     name: character.name,

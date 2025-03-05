@@ -1,4 +1,4 @@
-export interface IMovieData {
+export type MovieData = {
   id: number;
   title: string;
   type: string;
@@ -34,4 +34,4 @@ export interface IMovieData {
   source: string;
   season: string;
   duration: string;
-}
+};

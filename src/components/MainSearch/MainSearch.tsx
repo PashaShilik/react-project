@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {useClickOutsideAndClose} from "@/hooks/useClickOutsideAndClose";
 import {API_BASE_URL} from "@/constants/apiConstants/apiConstants";
 import {_transformAnime} from "@/utils/transformAnime";
-import {IAnime} from "@/types/interfaces/IAnime";
+import {Anime} from "@/types/interfaces/Anime";
 import SearchListItem from "@/components/MainSearch/SearchListItem/SearchListItem";
 
 type Props = {
@@ -21,7 +21,7 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
     const navigate = useNavigate();
     const [value, setValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [suggestions, setSuggestions] = useState<IAnime[]>([]);
+    const [suggestions, setSuggestions] = useState<Anime[]>([]);
     const [suggestionsVisible, setSuggestionsVisible] = useState(false);
 
     useClickOutsideAndClose(blockRef, () => setSuggestionsVisible(false));

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { UniversalSlider } from "@/components/UniversalSlider/UniversalSlider";
-import { IAnime } from "@/types/interfaces/IAnime";
+import { Anime } from "@/types/interfaces/Anime";
 import { getTopAnime } from "@/api/animeApi";
 import { Card } from "@/components/Card/Card";
 import styles from "./topSliderBlock.module.scss";
 
 export function TopSliderBlock() {
-  const [animeList, setAnimeList] = useState<Array<IAnime>>([]);
+  const [animeList, setAnimeList] = useState<Array<Anime>>([]);
 
   useEffect(() => {
     onRequestAnime();

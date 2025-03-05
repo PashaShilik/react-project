@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getAnimeById, getAnimeCharacters } from '@/api/animeApi';
-import { IMovieData } from '@/types/interfaces/IMovieData';
-import { ICharacterResponse } from '@/types/interfaces/ICharacter';
+import { MovieData } from '@/types/interfaces/MovieData';
+import { CharacterResponse } from '@/types/interfaces/Character';
 import { UniversalSlider } from "@/components/UniversalSlider/UniversalSlider";
 import { Card } from "@/components/Card/Card";
 import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
@@ -13,8 +13,8 @@ import styles from './viewCardPage.module.scss';
 
 export const ViewCardPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [animeData, setAnimeData] = useState<IMovieData | null>(null);
-  const [characters, setCharacters] = useState<ICharacterResponse[]>([]);
+  const [animeData, setAnimeData] = useState<MovieData | null>(null);
+  const [characters, setCharacters] = useState<CharacterResponse[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 

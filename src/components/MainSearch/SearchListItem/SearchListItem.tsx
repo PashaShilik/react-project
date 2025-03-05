@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import styles from "./searchListItem.module.scss";
-import {IAnime} from "@/types/interfaces/IAnime";
+import {Anime} from "@/types/interfaces/Anime";
 
 type Props = {
-    anime: IAnime,
+    anime: Anime,
     onClickFn?: () => void
 }
 
