@@ -1,15 +1,17 @@
 import React from 'react';
 import styles from '@/pages/SearchPage/Blocks/SelectorsBlock/selectorsBlock.module.scss';
 import {CommonSelector} from "@/components/Common/CommonSelector/CommonSelector";
-import {useAppDispatch, useAppSelector} from "@/redux/store";
+import {useAppDispatch} from "@/redux/store";
 import {setGenre, setStatus, setYear} from "@/redux/reducers/searchReducer/searchSlice";
 import {animeGenreType, animeStatusType, animeYearType} from "@/types/search";
 import {ANIME_GENRES, ANIME_STATUS_TYPES, ANIME_YEARS} from "@/constants/searchConstants/searchConstants";
+import {searchSelector} from "@/redux/reducers/searchReducer/searchSelector";
+import {useSelector} from "react-redux";
 
 export const SelectorsBlock = () => {
 
     const dispatch = useAppDispatch();
-    const {genre, status, year} = useAppSelector(state => state.searchReducer);
+    const {genre, status, year} = useSelector(searchSelector);
 
     const handleGenreChange = (item: animeGenreType) => {
         dispatch(setGenre(item));

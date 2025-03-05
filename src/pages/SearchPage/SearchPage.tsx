@@ -2,37 +2,48 @@ import React, {useEffect, useState} from 'react';
 import styles from './searchPage.module.scss'
 import {CommonSearch} from "@/components/Common/CommonSearch/CommonSearch";
 import {CommonButton} from "@/components/Common/CommonButton/CommonButton";
-import {CardList} from "@/pages/HomePage/Bloks/CardListBlock/Blocks/CardList/CardList";
 import {IAnime} from "@/types/interfaces/IAnime";
 import {getAnimeByParams} from "@/api/animeApi";
 import {SelectorsBlock} from "@/pages/SearchPage/Blocks/SelectorsBlock/SelectorsBlock";
-import {useAppSelector} from "@/redux/store";
-import {FilterBlock} from "@/pages/SearchPage/Blocks/FilterBlock/FilterBlock";
+import {useAppDispatch} from "@/redux/store";
 import {useLocation, useNavigate} from "react-router-dom";
+import {setInfoFromQuery, setQ} from "@/redux/reducers/searchReducer/searchSlice";
+import {Key} from "@/constants/Key";
+import {searchSelector} from "@/redux/reducers/searchReducer/searchSelector";
+import {useSelector} from "react-redux";
+import {ResultsBlock} from "@/pages/SearchPage/Blocks/ResultsBlock/ResultsBlock";
 export const SearchPage = () => {
 
-    const [searchValue, setSearchValue] = useState('');
+    const dispatch = useAppDispatch();
+    const {q, genre, status, year, order_by, sort, isFetched} = useSelector(searchSelector);
     const [animeList, setAnimeList] = useState<IAnime[]>([]);
     const [foundCount, setFoundCount] = useState(0);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
+    const location = useLocation();
     const navigate = useNavigate();
-    const {genre, status, year, order_by, sort} = useAppSelector(state => state.searchReducer);
 
     useEffect(() => {
-        handleSearch()
+        console.log('work')
+        dispatch(setInfoFromQuery(location.search));
+    }, []);
+
+    useEffect(() => {
+        if(isFetched === true) {
+            handleSearch();
+        }
     }, [genre, status, year, order_by, sort]);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-        if(e.key === "Enter") {
+        if(e.key === Key.ENTER) {
             handleSearch();
         }
     }
 
     const handleSearchChange = (newValue: string) => {
-        setSearchValue(newValue);
+        dispatch(setQ(newValue));
     }
-    const handleSearch = () => {
+    function handleSearch() {
         if(isLoading) return;
 
         setIsLoading(true);
@@ -64,11 +75,11 @@ export const SearchPage = () => {
         });
     }
 
-    const search = async (page: number) => {
-        return getAnimeByParams({
+    const search = async (page: number) =>
+        getAnimeByParams({
             page: page,
             limit: 9,
-            q: searchValue,
+            q: q,
             status: status?.title,
             genres: genre?.id,
             start_date: year?.startValue,
@@ -76,25 +87,12 @@ export const SearchPage = () => {
             order_by: order_by?.value,
             sort: (order_by) ? sort : undefined,
         })
-    }
-
-    const searchResult = (animeList.length ?
-        (
-            <>
-                <h2 className={styles.searchPage__foundBlock_title}>{foundCount} matches found</h2>
-                <FilterBlock />
-                <CardList animeList={animeList}/>
-            </>
-        )
-        :
-            <h2 className={styles.searchPage__foundBlock_title}>No results were found for your request</h2>
-    )
 
     return (
         <div className={styles.searchPage} onKeyDown={handleKeyDown}>
             <h1 className={styles.searchPage__title}>Advanced Search</h1>
             <CommonSearch
-                value={searchValue}
+                value={q}
                 onChangeFn={handleSearchChange}
             />
 
@@ -106,18 +104,14 @@ export const SearchPage = () => {
                 type={"default_bg"}
                 onClick={handleSearch}
             />
-            <div className={styles.searchPage__foundBlock}>
-                {searchResult}
 
-                {animeList.length < foundCount &&
-                    <CommonButton
-                        style={{width: 400, alignSelf: "center"}}
-                        text={isLoading?"Loading...":"Show more"}
-                        type={"default_bg"}
-                        onClick={handleShowMore}
-                    />
-                }
-            </div>
+            <ResultsBlock
+                animeList={animeList}
+                isLoading={isLoading && !isFetched}
+                foundCount={foundCount}
+                onShowMoreFunc={() => handleShowMore()}
+            />
+
         </div>
     )
 }

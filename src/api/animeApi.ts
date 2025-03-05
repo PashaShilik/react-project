@@ -1,6 +1,10 @@
 import { IAnime } from "@/types/interfaces/IAnime";
 import { API_FULL_URL, API_TOP_URL } from "@/constants/apiConstants/apiConstants";
 import { _transformAnime } from "@/utils/transformAnime";
+import {ParamsProps} from "@/types/search";
+import {convertParamsToQueryString} from "@/utils/search/convertParamsToQueryString";
+import {removeDuplicatesFromAnimeList} from "@/utils/search/removeDuplicatesFromAnimeList";
+import {removePageAndLimitFromQueryString} from "@/utils/search/removePageAndLimitFromQueryString";
 
 export const getAnimeList = async (
     page: number = 1,
@@ -62,44 +66,25 @@ export const getAnimeById = async (
     }
 };
 
-// получение аниме по множеству параметров
 
-type ParamsProps = {
-    page: number
-    limit: number
-    q?: string
-    genres?: number
-    status?: string
-    start_date?: string
-    end_date?: string
-    order_by?: string
-    sort?: string
-}
 export const getAnimeByParams = async (props: ParamsProps)
     : Promise<{data: IAnime[], pagination: any, searchString: string} | null> => {
     try {
-        const propsString = [...Object.entries(props)]
-            .filter(el => el[1])
-            .map(el => `${el[0]}=${el[1]}`).join('&');
+        const propsString = convertParamsToQueryString(props);
         const response = await fetch(`${API_FULL_URL}?${propsString}`);
 
         if (!response.ok) {
             throw new Error(
-                `Couldn't fetch ${API_FULL_URL}. Anime not found; status: ${response.status}`
+                `Couldn't fetch ${API_FULL_URL}?${propsString}. Anime not found; status: ${response.status}`
             );
         }
-        const data = await response.json();
-        const usedIds = new Set(); // Иногда с бэка приходят объекты с одинаковыми айдишниками
+        const {data, pagination} = await response.json();
+        const animeList = data.map(_transformAnime);
+
         return {
-            data: data.data.map(_transformAnime).filter((el: IAnime) => {
-                if(usedIds.has(el.id)) return false;
-                usedIds.add(el.id);
-                return true;
-            }),
-            pagination: data.pagination,
-            searchString: `?${propsString.split('&').filter(
-                el => !(el.startsWith("page") || el.startsWith("limit"))
-            ).join('&')}`
+            data: removeDuplicatesFromAnimeList(animeList),
+            pagination: pagination,
+            searchString: `?${removePageAndLimitFromQueryString(propsString)}`
         };
     } catch (e) {
         console.error("Failed anime fetching", e);

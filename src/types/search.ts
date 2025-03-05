@@ -1,3 +1,15 @@
+export type ParamsProps = {
+    page?: number
+    limit?: number
+    q?: string
+    genres?: number
+    status?: string
+    start_date?: string
+    end_date?: string
+    order_by?: string
+    sort?: string
+}
+
 export type animeGenreType = {
     id: number
     type: string
