@@ -2,7 +2,7 @@ import { Anime } from "@/types/interfaces/Anime";
 import { MovieData } from "@/types/interfaces/MovieData";
 import { CharacterResponse } from '@/types/interfaces/Character';
 import { API_FULL_URL, API_TOP_URL, API_CHARACTERS_ENDPOINT } from "@/constants/apiConstants/apiConstants";
-import { _transformAnime } from "@/utils/transformAnime";
+import { _transformAnime } from "@/utils/transformAnime/transformAnime";
 import { _transformCharacter } from '@/utils/transformCharacter';
 
 export const getAnimeList = async (

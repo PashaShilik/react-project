@@ -6,6 +6,5 @@ export type Anime = {
   genres: string[];
   yearStart: number | string;
   yearEnd?: number | string;
-  description: string;
-  score: number | string;
+  score: number;
 };
