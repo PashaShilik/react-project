@@ -50,8 +50,14 @@ export function Card({
                     <div className={styles.card__info}>
                         {showYear && (
                             <div className={styles.card__info_year}>
-                                <span className={styles.card__info_year_from}>From:<br /> {data.yearStart}</span>
-                                <span className={styles.card__info_year_to}>To:<br /> {data.yearEnd}</span>
+                                <span className={styles.card__info_year_from}>
+                                    <span>From:</span>
+                                    <span>{data.yearStart}</span>
+                                </span>
+                                <span className={styles.card__info_year_to}>
+                                    <span>To:</span>
+                                    <span>{data.yearEnd}</span>
+                                </span>
                             </div>
                         )}
                         {showTitle && <h3 className={styles.card__info_title}>{data.title}</h3>}
