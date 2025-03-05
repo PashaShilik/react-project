@@ -14,18 +14,4 @@
         font-weight: bold;
         margin-bottom: 40px;
     }
-
-    &__foundBlock {
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
-        row-gap: 20px;
-
-
-        &_title {
-            text-align: center;
-            font-size: 26px;
-            font-weight: 400;
-        }
-    }
 }

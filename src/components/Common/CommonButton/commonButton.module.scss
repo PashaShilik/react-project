@@ -1,3 +1,5 @@
+@import "@/styles/variables";
+
 .default_bg, .default_bg_img{
     display: flex;
     justify-content: center;
@@ -14,24 +16,24 @@
     font-weight: 400;
     line-height: 120%;
 
-    background:#F14141;
+    background: $color-red-1;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     transition: background 0.3s ease;
 
     &:hover{
-        background: #717171;
+        background: $color-gray-1;
         transition: background 0.3s ease;
     }
 
     &:active{
-        background:#F14141;
+        background: $color-red-1;
     }
 
     &:disabled{
         cursor: not-allowed;
-        background: #71717162;
+        background: $color-gray-2;
     }
 }
 
@@ -64,7 +66,7 @@
     transition: color 0.3s ease;
 
     &:hover{
-        color:#F14141;
+        color: $color-red-1;
         transition: color 0.3s ease;
         filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7414%) hue-rotate(11deg) brightness(120%) contrast(120%);
     }
