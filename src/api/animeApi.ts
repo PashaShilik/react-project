@@ -1,7 +1,7 @@
 import { Anime } from "@/types/interfaces/Anime";
 import { MovieData } from "@/types/interfaces/MovieData";
 import { CharacterResponse } from '@/types/interfaces/Character';
-import { API_FULL_URL, API_TOP_URL } from "@/constants/apiConstants/apiConstants";
+import { API_FULL_URL, API_TOP_URL, API_CHARACTERS_ENDPOINT } from "@/constants/apiConstants/apiConstants";
 import { _transformAnime } from "@/utils/transformAnime";
 import { _transformCharacter } from '@/utils/transformCharacter';
 
@@ -69,7 +69,7 @@ export const getAnimeCharacters = async (
     id: string | number
 ): Promise<CharacterResponse[]> => {
     try {
-        const response = await fetch(`${API_FULL_URL}/${id}/characters`);
+        const response = await fetch(`${API_FULL_URL}/${id}/${API_CHARACTERS_ENDPOINT}`);
         if (!response.ok) {
             throw new Error(`Failed to fetch characters, status: ${response.status}`);
         }
