@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './MovieDetails.module.scss';
-import { IMovieData } from '@/types/interfaces/IMovieData';
+import { MovieData } from '@/types/interfaces/MovieData';
 import { movieDataFormatter } from '@/utils/movieDataFormatter';
 
 interface MovieDetailsProps {
-  movieData: IMovieData;
+  movieData: MovieData;
 }
 
 export const MovieDetails: React.FC<MovieDetailsProps> = ({ movieData }) => {

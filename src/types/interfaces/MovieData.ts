@@ -1,4 +1,4 @@
-export interface IMovieData {
+export type MovieData = {
   id: number;
   title: string;
   type: string;
@@ -20,7 +20,7 @@ export interface IMovieData {
     embed_url: string;
     images: {
       small_image_url: string;
-  }
+    };
   };
   synopsis: string;
   year: number;
@@ -34,4 +34,4 @@ export interface IMovieData {
   source: string;
   season: string;
   duration: string;
-}
+};
