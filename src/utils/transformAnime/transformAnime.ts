@@ -22,13 +22,10 @@ export const _transformAnime = (anime: any) => {
         id: anime.mal_id,
         title: anime.title,
         type: anime.type,
-        description: anime.synopsis
-            ? anime.synopsis
-            : DEFAULT_DESCRIPTION,
         imageUrl: anime.images?.webp?.image_url
             ? anime.images?.webp?.image_url
             : THUMBNAIL,
-        genres: anime.genres
+        genres: anime.genres && anime.genres.length
             ? anime.genres.map((genre: any) => genre.name).join(", ")
             : "Classic",
         yearStart: formatDate(

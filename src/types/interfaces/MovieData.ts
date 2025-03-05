@@ -2,7 +2,6 @@ export type MovieData = {
   id: number;
   title: string;
   type: string;
-  description: string;
   imageUrl: string;
   genres: string;
   yearStart: string;
