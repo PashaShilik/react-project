@@ -20,7 +20,7 @@ export interface IMovieData {
     embed_url: string;
     images: {
       small_image_url: string;
-  }
+    };
   };
   synopsis: string;
   year: number;

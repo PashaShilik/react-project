@@ -1,7 +1,9 @@
 import { IAnime } from "@/types/interfaces/IAnime";
 import { IMovieData } from "@/types/interfaces/IMovieData";
+import { ICharacterResponse } from '@/types/interfaces/ICharacter';
 import { API_FULL_URL, API_TOP_URL } from "@/constants/apiConstants/apiConstants";
 import { _transformAnime } from "@/utils/transformAnime";
+import { _transformCharacter } from '@/utils/transformCharacter';
 
 export const getAnimeList = async (
     page: number = 1,
@@ -60,5 +62,23 @@ export const getAnimeById = async (
     } catch (e) {
         console.error("Failed anime fetching", e);
         return null;
+    }
+};
+
+export const getAnimeCharacters = async (
+    id: string | number
+): Promise<ICharacterResponse[]> => {
+    try {
+        const response = await fetch(`${API_FULL_URL}/${id}/characters`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch characters, status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data.data.map((item: ICharacterResponse) => ({
+            character: _transformCharacter(item.character)
+        }));
+    } catch (e) {
+        console.error("Failed to fetch characters", e);
+        return [];
     }
 };
