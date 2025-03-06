@@ -1,5 +1,5 @@
 import {removeDuplicatesFromAnimeList} from './removeDuplicatesFromAnimeList'
-import {IAnime} from "@/types/interfaces/IAnime";
+import {Anime} from "@/types/interfaces/Anime";
 
 test('should remove duplicates with same id', () => {
     const params = [generateAnime(1), generateAnime(1)];
@@ -19,7 +19,7 @@ test('should filter elements without id', () => {
     expect(removeDuplicatesFromAnimeList(params)).toEqual(expected);
 })
 
-function generateAnime(id: number): IAnime {
+function generateAnime(id: number): Anime {
     return {
         id: id,
         title: "Naruto",
@@ -28,7 +28,6 @@ function generateAnime(id: number): IAnime {
         genres: ["1", "5"],
         yearStart: 2008,
         yearEnd: 2014,
-        description: 'description',
         score: 10
     }
 }

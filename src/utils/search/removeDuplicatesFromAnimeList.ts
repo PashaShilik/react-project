@@ -1,7 +1,7 @@
-import {IAnime} from "@/types/interfaces/IAnime";
-export function removeDuplicatesFromAnimeList(animeList: IAnime[]): IAnime[] {
+import {Anime} from "@/types/interfaces/Anime";
+export function removeDuplicatesFromAnimeList(animeList: Anime[]): Anime[] {
     const usedIds = new Set();
-    return animeList.filter((el: IAnime) => {
+    return animeList.filter((el: Anime) => {
         if(!el.hasOwnProperty('id') || usedIds.has(el.id)) return false;
         usedIds.add(el.id);
         return true;

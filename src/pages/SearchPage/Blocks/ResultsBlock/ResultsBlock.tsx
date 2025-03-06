@@ -3,10 +3,10 @@ import styles from "./resultsBlock.module.scss";
 import {CommonButton} from "@/components/Common/CommonButton/CommonButton";
 import {FilterBlock} from "@/pages/SearchPage/Blocks/FilterBlock/FilterBlock";
 import {CardList} from "@/pages/HomePage/Bloks/CardListBlock/Blocks/CardList/CardList";
-import {IAnime} from "@/types/interfaces/IAnime";
+import {Anime} from "@/types/interfaces/Anime";
 
 type Props = {
-    animeList: IAnime[]
+    animeList: Anime[]
     foundCount: number
     isLoading: boolean
     onShowMoreFunc: () => void

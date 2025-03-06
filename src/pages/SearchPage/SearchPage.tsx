@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './searchPage.module.scss'
 import {CommonSearch} from "@/components/Common/CommonSearch/CommonSearch";
 import {CommonButton} from "@/components/Common/CommonButton/CommonButton";
-import {IAnime} from "@/types/interfaces/IAnime";
+import {Anime} from "@/types/interfaces/Anime";
 import {getAnimeByParams} from "@/api/animeApi";
 import {SelectorsBlock} from "@/pages/SearchPage/Blocks/SelectorsBlock/SelectorsBlock";
 import {useAppDispatch} from "@/redux/store";
@@ -16,7 +16,7 @@ export const SearchPage = () => {
 
     const dispatch = useAppDispatch();
     const {q, genre, status, year, order_by, sort, isFetched} = useSelector(searchSelector);
-    const [animeList, setAnimeList] = useState<IAnime[]>([]);
+    const [animeList, setAnimeList] = useState<Anime[]>([]);
     const [foundCount, setFoundCount] = useState(0);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
@@ -78,7 +78,7 @@ export const SearchPage = () => {
     const search = async (page: number) =>
         getAnimeByParams({
             page: page,
-            limit: 9,
+            limit: 12,
             q: q,
             status: status?.title,
             genres: genre?.id,
