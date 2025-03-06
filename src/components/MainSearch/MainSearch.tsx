@@ -7,7 +7,7 @@ import useDebounce from "../../hooks/useDebounce";
 import {useNavigate} from "react-router-dom";
 import {useClickOutsideAndClose} from "@/hooks/useClickOutsideAndClose";
 import {API_BASE_URL} from "@/constants/apiConstants/apiConstants";
-import {_transformAnime} from "@/utils/transformAnime";
+import {_transformAnime} from "@/utils/transformAnime/transformAnime";
 import {Anime} from "@/types/interfaces/Anime";
 import SearchListItem from "@/components/MainSearch/SearchListItem/SearchListItem";
 
