@@ -1,6 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {animeGenreType, animeOrderByType, animeStatusType, animeYearType, SortOrder} from "@/types/search";
-import {ANIME_GENRES, ANIME_ORDERS, ANIME_STATUS_TYPES, ANIME_YEARS} from "@/constants/searchConstants/searchConstants";
+import {
+    ANIME_GENRES,
+    ANIME_ORDERS,
+    ANIME_STATUS_TYPES,
+    ANIME_YEARS
+} from "@/constants/searchConstants/searchConstants";
+import {QueryParams} from "@/constants/searchConstants/QueryParams";
 
 type initialStateType = {
     isFetched: boolean,
@@ -48,17 +54,17 @@ export const searchSlice = createSlice({
         setInfoFromQuery: (state, action: PayloadAction<string>) => {
             state.isFetched = false;
             const queryParams = new URLSearchParams(action.payload);
-            if(queryParams.has("q")) state.q = queryParams.get('q') ?? "";
-            if(queryParams.has("genres"))
-                state.genre = ANIME_GENRES.find(el => el.id === Number(queryParams.get("genres"))) ?? null;
-            if(queryParams.has("status"))
-                state.status = ANIME_STATUS_TYPES.find(el => el.title === queryParams.get("status")) ?? null;
-            if(queryParams.has("start_date"))
-                state.year = ANIME_YEARS.find(el => queryParams.get("start_date")?.startsWith(el.title)) ?? null;
-            if(queryParams.has("order_by"))
-                state.order_by = ANIME_ORDERS.find(el => el.value === queryParams.get('order_by')) ?? null;
-            if(queryParams.has("sort")) {
-                const sortStr = queryParams.get("sort");
+            if(queryParams.has(QueryParams.Name)) state.q = queryParams.get(QueryParams.Name) ?? "";
+            if(queryParams.has(QueryParams.Genres))
+                state.genre = ANIME_GENRES.find(el => el.id === Number(queryParams.get(QueryParams.Genres))) ?? null;
+            if(queryParams.has(QueryParams.Status))
+                state.status = ANIME_STATUS_TYPES.find(el => el.title === queryParams.get(QueryParams.Status)) ?? null;
+            if(queryParams.has(QueryParams.StartDate))
+                state.year = ANIME_YEARS.find(el => queryParams.get(QueryParams.StartDate)?.startsWith(el.title)) ?? null;
+            if(queryParams.has(QueryParams.OrderBy))
+                state.order_by = ANIME_ORDERS.find(el => el.value === queryParams.get(QueryParams.OrderBy)) ?? null;
+            if(queryParams.has(QueryParams.Sort)) {
+                const sortStr = queryParams.get(QueryParams.Sort);
                 state.sort = (sortStr === SortOrder.DOWN) ? SortOrder.DOWN : SortOrder.UP;
             }
             state.isFetched = true;
