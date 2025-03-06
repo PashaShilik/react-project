@@ -29,7 +29,7 @@ export const CommonInputForm = function ( props:Props ) {
     };
 
     const handleDeleteValue = () => {
-        setValue(setValue(''))
+        setValue('')
     };
 
     const passwordIcon = type === 'password' ? (

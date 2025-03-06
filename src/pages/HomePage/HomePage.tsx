@@ -4,14 +4,21 @@ import {SearchBlock} from './Bloks/SearchBlock/SearchBlock';
 import {FilterBlock} from './Bloks/FilterBlock/FilterBlock';
 import {CardListBlock} from './Bloks/CardListBlock/CardListBlock';
 import { TopSliderBlock } from './Bloks/TopSliderBlock/TopSliderBlock';
+import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
 
 function HomePage() {
   return (
     <div className={styles.homePage}>
-      <SearchBlock/>
+      <ErrorBoundary>
+        <TopSliderBlock/>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <SearchBlock/>
+      </ErrorBoundary>
       <FilterBlock/>
-      <CardListBlock/>
-      <TopSliderBlock/>
+      <ErrorBoundary>
+        <CardListBlock/>
+      </ErrorBoundary>
     </div>
   )
 }

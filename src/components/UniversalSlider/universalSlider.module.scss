@@ -1,0 +1,45 @@
+.slider {
+  width: 1000px;
+  height: 400px;
+  margin: 30px auto 0px;
+
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+      position: absolute;
+      top: var(--swiper-navigation-top-offset, 100%);
+      transform: translateY(-100%);
+      color: #f14141;
+
+      &:hover {
+          cursor: pointer;
+          color: rgba(#f14141, .5);
+      }
+  }
+
+  :global(.swiper-pagination-bullet) {
+      background-color: rgba(#f14141, .8)
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+      background-color: rgba(#f14141, 1)
+  }
+
+}
+
+@media only screen and (max-width: 1079px) {
+  .slider {
+      width: 740px;
+  }
+}
+
+@media only screen and (max-width: 819px) {
+  .slider {
+      width: 480px;
+  }
+}
+
+@media only screen and (max-width: 559px) {
+  .slider {
+      max-width: 220px;
+  }
+}

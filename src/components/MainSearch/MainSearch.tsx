@@ -6,9 +6,9 @@ import {ROUTES} from "@/routes/routes";
 import useDebounce from "../../hooks/useDebounce";
 import {useNavigate} from "react-router-dom";
 import {useClickOutsideAndClose} from "@/hooks/useClickOutsideAndClose";
-import {API_FULL_URL} from "@/constants/apiConstants/apiConstants";
-import {_transformAnime} from "@/utils/transformAnime";
-import {IAnime} from "@/types/interfaces/IAnime";
+import {API_BASE_URL} from "@/constants/apiConstants/apiConstants";
+import {_transformAnime} from "@/utils/transformAnime/transformAnime";
+import {Anime} from "@/types/interfaces/Anime";
 import SearchListItem from "@/components/MainSearch/SearchListItem/SearchListItem";
 
 type Props = {
@@ -21,7 +21,7 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
     const navigate = useNavigate();
     const [value, setValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [suggestions, setSuggestions] = useState<IAnime[]>([]);
+    const [suggestions, setSuggestions] = useState<Anime[]>([]);
     const [suggestionsVisible, setSuggestionsVisible] = useState(false);
 
     useClickOutsideAndClose(blockRef, () => setSuggestionsVisible(false));
@@ -45,7 +45,7 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
     function search(newValue: string) {
         if(!newValue) return;
 
-        fetch(`${API_FULL_URL}?${newValue ? `q=${newValue}` : ''}&limit=${limit}`)
+        fetch(`${API_BASE_URL}?${newValue ? `q=${newValue}` : ''}&limit=${limit}`)
             .then(response => response.json())
             .then(json => {
                 setSuggestions(Array.isArray(json.data) ? json.data.map(_transformAnime) : []);

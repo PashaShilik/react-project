@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './header.module.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logo from '@/assets/img/logo.png';
-
-import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
 import { ROUTES } from '@/routes/routes';
+import { HeaderAuth } from '../HeaderAuth/HeaderAuth';
 
 export const Header = function () {
-
-  const navigate = useNavigate(); 
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const handleLoginClick = () => {
-    navigate(ROUTES.signin);
-  };
-
-  const handleRegisterClick = () => {
-    navigate(ROUTES.signup);
-  };
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -42,10 +31,7 @@ export const Header = function () {
         <Link to={ROUTES.home} className={styles.header__logo_container}>
           <img src={logo} alt="logo" className={styles.header__logo_img} />
         </Link>
-        <div className={styles.header__button_container}>
-          <CommonButton text='Entrance' type='default_bg' onClick={handleLoginClick}/>
-          <CommonButton text='Registration' type='default_bg' onClick={handleRegisterClick}/>
-        </div>
+        <HeaderAuth/>
       </div>
     </div>
   );

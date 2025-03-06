@@ -26,7 +26,6 @@ export const SigninPage = function () {
             </p>
             <BlockSigninForm/>
         </div>
-
       </div>
       <div className={styles.signinPage__bg_container}></div>
     </div>

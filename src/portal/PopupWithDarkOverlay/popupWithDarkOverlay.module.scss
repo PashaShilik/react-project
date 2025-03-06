@@ -1,4 +1,4 @@
-.popupWithOverlay{
+.popupWithDarkOverlay{
     position: fixed;
     top: 0;
     left: 0;
@@ -28,5 +28,6 @@
 
     &__content{
         z-index: 1000;
+        color: black;
     }
 }

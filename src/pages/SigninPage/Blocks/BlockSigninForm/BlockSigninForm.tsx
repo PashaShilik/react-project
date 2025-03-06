@@ -8,12 +8,30 @@ import { useNavigate } from 'react-router-dom';
 import {CommonInputForm} from '@/components/Common/CommonInputForm/CommonInputForm';
 import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
 import { ROUTES } from '@/routes/routes';
+import { useAppDispatch } from '@/redux/store';
+import { setMessageModal, setModalByName } from '@/redux/reducers/modalReducer/modalReducer';
+import { setAuthInfo, setIsAuth } from '@/redux/reducers/userReducer/userReducer';
+import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 
 export const BlockSigninForm = function () {
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
 
-    const onFormSubmit = () => {
-        navigate(ROUTES.home); 
+    const onFormSubmit = (formValues:any) => {
+        const storedUsers = localStorage.getItem(LOCAL_STORAGE_KEYS.Users);
+        const usersFromLocalStorage = storedUsers ? JSON.parse(storedUsers) : [];
+        const isUsersExist = usersFromLocalStorage.find((user:any) => user.login === formValues.login);
+        const isInCorrectPassword = isUsersExist?.password !== formValues.password;
+
+        if(isUsersExist && !isInCorrectPassword){
+            localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify(formValues));
+            dispatch(setAuthInfo(formValues));
+            dispatch(setIsAuth({isAuth:true}));
+            navigate(ROUTES.home); 
+        } else {
+            dispatch(setModalByName({ isModalActive: true, modalName: 'modal-feedback', withDarkOverlay: true }));
+            dispatch(setMessageModal('You have entered an incorrect login or password!'));
+        }
     };
 
     const handleSingUpClick = () => {
@@ -22,7 +40,7 @@ export const BlockSigninForm = function () {
 
     return (
         <div className={styles.blockSigninForm}>
-            <Formik initialValues={initialFormValuesLogin} validate={loginValidation} onSubmit={onFormSubmit}>
+            <Formik initialValues={initialFormValuesLogin} validationSchema={loginValidation} onSubmit={onFormSubmit}>
                 {({ isValid, dirty }) => ( 
                     <Form>
                         <div className={styles.blockSigninForm__input_group}>

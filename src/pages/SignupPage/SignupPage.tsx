@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './signupPage.module.scss';
 import {CommonButton} from '@/components/Common/CommonButton/CommonButton';
 import arrowLeft from '@/assets/svg/arrowLeft.svg';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/routes/routes';
 import {BlockSignUpForm} from './Blocks/BlockSignUpForm/BlockSignUpForm';
+import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 
 function SignupPage() {
 
@@ -13,6 +14,15 @@ function SignupPage() {
   const handleHomeClick = () => {
     navigate(ROUTES.home);
   };
+
+  useEffect(() => {
+    const isUsersExists = localStorage.getItem(LOCAL_STORAGE_KEYS.Users);
+
+    if(!isUsersExists){
+     localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify([]));
+    }
+
+  }, []);
 
   return (
     <div className={styles.signupPage}>

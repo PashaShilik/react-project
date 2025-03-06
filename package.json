@@ -21,7 +21,8 @@
     "redux": "^5.0.1",
     "swiper": "^11.2.4",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.6.1"
   },
   "scripts": {
     "start": "craco  start",
@@ -56,6 +57,7 @@
     "file-loader": "^6.2.0",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
+    "ts-jest": "^29.2.6",
     "url-loader": "^4.1.1"
   }
 }

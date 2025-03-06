@@ -1,8 +1,9 @@
 .card__list {
     display: grid;
-    grid-template-columns: repeat(3, 300px);
-    grid-auto-rows: 400px;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-auto-rows: 320px;
+    justify-content: center;
     gap: 40px 40px;
-    max-width: 1000px;
+    width: 100%;
     margin: 0 auto 20px;
 }
