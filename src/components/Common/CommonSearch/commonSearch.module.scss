@@ -1,12 +1,13 @@
+@import "@/styles/variables";
 
 .wrapper {
   width: 450px;
   height: 50px;
-  border: 1px solid #717171;
+  border: 1px solid $color-gray-1;
   border-radius: 5px;
 
   &_focus {
-    border: 1px solid #F14141;
+    border: 1px solid $color-red-1;
   }
 }
 
@@ -22,7 +23,7 @@
     width: 100%;
     border: none;
     background-color: inherit;
-    color: #717171;
+    color: $color-gray-1;
 
     &:focus {
       outline: none;
@@ -38,7 +39,7 @@
       cursor: pointer;
 
       &:hover {
-        color: #F14141;
+        color: $color-red-1;
       }
     }
   }
