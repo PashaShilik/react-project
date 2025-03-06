@@ -18,3 +18,29 @@
         max-height: 500px;
     }
 }
+
+@media only screen and (max-width: 550px) {
+    .commonEmptyBlock{ 
+        &__text{
+            font-size: 30px;
+        }
+
+        &__image{
+            max-width: 400px;
+            max-height: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .commonEmptyBlock{ 
+        &__text{
+            font-size: 25px;
+        }
+
+        &__image{
+            max-width: 300px;
+            max-height: 300px;
+        }
+    }
+}
