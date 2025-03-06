@@ -17,7 +17,7 @@ const FavoritesPage = () => {
           </h3>
           <div className={styles.favoritesPage__card_container}>
             {favorites.map((item:any) => (
-              <Card key={item.id} anime={item} favoritesPage/>
+              <Card key={item.id} anime={item}/>
             ))}
           </div>
         </div>
