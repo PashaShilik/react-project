@@ -3,6 +3,7 @@ import styles from './favoritesPage.module.scss'
 import { useSelector } from 'react-redux';
 import { authInfoSelector } from '@/redux/reducers/userReducer/userSelector';
 import { Card } from '@/components/Card/Card';
+import { CommonEmptyBlock } from '@/components/Common/CommonEmptyBlock/CommonEmptyBlock';
 
 const FavoritesPage = () => {
   const favorites = useSelector(authInfoSelector)?.Favorites || []; 
@@ -21,7 +22,7 @@ const FavoritesPage = () => {
           </div>
         </div>
       ) : (
-        <p>У вас нет избранного</p> 
+        <CommonEmptyBlock text={'You have no favorites!'}/>
       )}
     </div>
   );

@@ -10,7 +10,6 @@ import { setFavorites } from "@/redux/reducers/userReducer/userReducer";
 import { useSelector } from "react-redux";
 import { authInfoSelector, isAuthSelector } from "@/redux/reducers/userReducer/userSelector";
 import { setMessageModal, setModalByName } from "@/redux/reducers/modalReducer/modalReducer";
-import FavoritesPage from './../../pages/FavoritesPage/FavoritesPage';
 
 interface CardProps {
     anime: IAnime
@@ -46,7 +45,7 @@ export function Card({ anime, favoritesPage }: CardProps) {
         }else if (isUserAuth){
             handleAddFavorites()
         }else{
-            dispatch(setModalByName({ isModalActive: true, modalName: 'modal-feedback', withDarkOverlay: true }));
+            dispatch(setModalByName({ isModalActive: true, modalName: 'modal-GoToEntranceModal', withDarkOverlay: true }));
             dispatch(setMessageModal('To add anime to your favorites you need to register!')); 
         }
     };
