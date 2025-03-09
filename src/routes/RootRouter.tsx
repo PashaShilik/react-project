@@ -8,7 +8,7 @@ import { CommonLoader } from '@/components/Common/CommonLoader/CommonLoader';
 
 const HomePage = React.lazy(() => import('@/pages/HomePage/HomePage'));
 const SearchPage = React.lazy(() => import('@/pages/SearchPage'));
-const HistoryPage = React.lazy(() => import('@/pages/HistoryPage/HistoryPage'));
+const HistoryPage = React.lazy(() => import('@/pages/HistoryPage'));
 const FavoritesPage = React.lazy(() => import('@/pages/FavoritesPage/FavoritesPage'));
 const SigninPage = React.lazy(() => import('@/pages/SigninPage/SigninPage'));
 const SignupPage = React.lazy(() => import('@/pages/SignupPage/SignupPage'));

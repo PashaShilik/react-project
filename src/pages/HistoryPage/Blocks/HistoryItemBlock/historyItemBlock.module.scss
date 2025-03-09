@@ -1,0 +1,43 @@
+@import 'src/styles/variables';
+
+.historyItemBlock {
+  background: $color-item-bg;
+  border: 1px solid $color-item-border;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+
+  &__dateContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  &__date {
+    font-weight: bold;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__icon {
+    fill: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    margin: 0 10px;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
