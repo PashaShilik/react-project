@@ -5,11 +5,22 @@
     width: 25px;
     height: 30px;
 
-   &__ico{
-    filter: brightness(0) saturate(100%) invert(100%) sepia(56%) saturate(477%) hue-rotate(160deg) brightness(116%) contrast(101%);
-   }
+    &__button{
+        background: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
 
-   &__active_ico{
-    filter: brightness(0) saturate(100%) invert(78%) sepia(56%) saturate(2235%) hue-rotate(14deg) brightness(114%) contrast(106%);
-   }
+    &__ico{
+        width: 25px;
+        height: 20px;
+        filter: brightness(0) saturate(100%) invert(100%) sepia(56%) saturate(477%) hue-rotate(160deg) brightness(116%) contrast(101%);
+    }
+
+    &__active_ico{
+        width: 25px;
+        height: 20px;
+        filter: brightness(0) saturate(100%) invert(78%) sepia(56%) saturate(2235%) hue-rotate(14deg) brightness(114%) contrast(106%);
+    }
 }

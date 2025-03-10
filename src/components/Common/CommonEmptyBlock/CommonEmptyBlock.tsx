@@ -3,8 +3,8 @@ import styles from './commonEmptyBlock.module.scss';
 import emptyImage from '@/assets/img/NoFavorites.webp'
 
 type Props = {
-  image?:string,
-  text:string
+  text:string,
+  image?:string
 }
 
 export const CommonEmptyBlock = ( props:Props ) => {

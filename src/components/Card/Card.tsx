@@ -5,7 +5,7 @@ import styles from "./card.module.scss"
 import { ROUTES } from "@/routes/routes";
 import { BookMark } from "./BookMark/BookMark";
 import { useSelector } from "react-redux";
-import { authInfoSelector, isAuthSelector } from "@/redux/reducers/userReducer/userSelector";
+import { authInfoFavoritesSelector, isAuthSelector } from "@/redux/reducers/userReducer/userSelector";
 import useFavorites from "@/hooks/useFavorites";
 
 interface CardProps {
@@ -19,18 +19,22 @@ export function Card({ anime }: CardProps) {
 
     const navigate = useNavigate();
     const isUserAuth = useSelector(isAuthSelector); 
-    const favorites = useSelector(authInfoSelector)?.Favorites || [];
+    const favorites = useSelector(authInfoFavoritesSelector) || [];
     const { isFavorites, handleClickFavorites } = useFavorites(anime, isUserAuth, favorites);
 
     const handleClick = () => {
         navigate(`${ROUTES.viewCard}/${anime.id}`);
     };
 
+    const handleFavoritesClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        handleClickFavorites(e); 
+    };
+
     return (
         <li className={styles.card} onClick={handleClick}>
             <img className={styles.card__img} src={imageUrl} alt={title} />
             <div className={styles.card__score}>★ {score}</div>
-              <BookMark onClick={(e:any)=>handleClickFavorites(e)} addFavorite={isFavorites}/> 
+              <BookMark onClick={handleFavoritesClick} addFavorite={isFavorites}/> 
             <div className={styles.card__info}>
                 <div className={styles.card__info_year}>
                     <span className={styles.card__info_year_from}>From:<br/> {yearStart}</span>  

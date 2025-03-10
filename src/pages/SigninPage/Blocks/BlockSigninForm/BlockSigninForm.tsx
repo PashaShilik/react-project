@@ -28,7 +28,6 @@ export const BlockSigninForm = function () {
             dispatch(setAuthInfo({...formValues, Favorites:isUsersExist.Favorites || []}));
             dispatch(setIsAuth({isAuth:true}));
             navigate(ROUTES.home); 
-            console.log('22', isUsersExist)
         } else {
             dispatch(setModalByName({ isModalActive: true, modalName: 'modal-feedback', withDarkOverlay: true }));
             dispatch(setMessageModal('You have entered an incorrect login or password!'));
