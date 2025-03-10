@@ -11,7 +11,14 @@ export function CardList({ animeList }: CardListProps) {
   return (
     <ul className={styles.card__list}>
       {animeList.map((anime) => (
-        <Card key={anime.id} data={anime} />
+        <Card
+          key={anime.id}
+          data={anime}
+          showBookmark
+          showYear
+          showTitle
+          showGenres
+          showScore />
       ))}
     </ul>
   );
