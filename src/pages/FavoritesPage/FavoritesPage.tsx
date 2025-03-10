@@ -10,7 +10,7 @@ const FavoritesPage = () => {
   
   return (
     <div className={styles.favoritesPage}>
-      {favorites.length > 0 ? ( 
+      {favorites.length ? ( 
         <div className={styles.favoritesPage__content_container}>
           <h3 className={styles.favoritesPage__title}>
             You have added to favorites - {favorites.length} Anime

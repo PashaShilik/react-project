@@ -1,15 +1,14 @@
 import { LOCAL_STORAGE_KEYS } from '@/constants/LocalStorageKeys/LocalStorageKeys';
 import { IAnime } from '@/types/interfaces/IAnime';
 
-export interface User {
-    id:number,
-    lastName:string,
+export type User = {
+    id: number;
+    lastName: string;
     login: string;
-    name:string,
-    password:string,
+    name: string;
+    password: string;
     Favorites: IAnime[]; 
-}
-
+};
 export const getAuthMe = () => {
     const authMeItem = localStorage.getItem(LOCAL_STORAGE_KEYS.AuthMe);
     return authMeItem ? JSON.parse(authMeItem) : null;
