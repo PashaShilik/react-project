@@ -1,0 +1,39 @@
+.goToEntranceModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 454px;
+    min-height: 100px;
+
+    background: #FFF;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 0px rgba(18, 17, 39, 0.10);
+    padding: 0 20px;
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 20px;
+    }
+
+    &__close {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    &__close_img {
+        cursor: pointer;
+    }
+
+    &__message {
+        font-size: 18px;
+        text-align: center;
+        line-height: 1.2;
+    }
+}
+

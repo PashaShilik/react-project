@@ -11,11 +11,12 @@ type Props = {
     navFavoritesClick: () => void;
     userLogin: string;
     logOutClick: () => void;
+    favoritesCount?:number;
 }
 
 export const HeaderBurger = (props : Props) => {
 
-    const {navFavoritesClick, userLogin, logOutClick} = props
+    const {navFavoritesClick, userLogin, logOutClick, favoritesCount} = props
 
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation(); 
@@ -37,6 +38,7 @@ export const HeaderBurger = (props : Props) => {
                 <p className={styles.headerBurger__login_text}>@{userLogin}</p> 
             </div>
             <div className={styles.headerBurger__favorites_content} onClick={navFavoritesClick}>
+                <div className={styles.headerBurger__favorites_counter}>{favoritesCount}</div>
                 <img src={favoritesIco} alt="favoritesIco" className={styles.headerBurger__favorites_img}/>
                 <p >Посмотреть избранное</p>
             </div>

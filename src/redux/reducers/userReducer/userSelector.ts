@@ -7,3 +7,7 @@ export const isAuthSelector = (state: RootState) => {
 export const authInfoSelector = (state: RootState) => {
     return state.authReducer.authInfo;
 };
+
+export const authInfoFavoritesSelector = (state: RootState) => {
+    return state.authReducer.authInfo?.Favorites;
+};
