@@ -1,17 +1,21 @@
 import { Anime } from "@/types/interfaces/Anime";
 import { MovieData } from "@/types/interfaces/MovieData";
-import { CharacterResponse } from '@/types/interfaces/Character';
-import { API_FULL_URL, API_TOP_URL, API_CHARACTERS_ENDPOINT } from "@/constants/apiConstants/apiConstants";
+import { CharacterResponse } from "@/types/interfaces/Character";
+import {
+    API_FULL_URL,
+    API_TOP_URL,
+    API_CHARACTERS_ENDPOINT,
+} from "@/constants/apiConstants/apiConstants";
 import { _transformAnime } from "@/utils/transformAnime/transformAnime";
-import { _transformCharacter } from '@/utils/transformCharacter';
-import {ParamsProps} from "@/types/search";
-import {convertParamsToQueryString} from "@/utils/search/convertParamsToQueryString";
-import {removeDuplicatesFromAnimeList} from "@/utils/search/removeDuplicatesFromAnimeList";
-import {removePageAndLimitFromQueryString} from "@/utils/search/removePageAndLimitFromQueryString";
+import { _transformCharacter } from "@/utils/transformCharacter";
+import { ParamsProps } from "@/types/search";
+import { convertParamsToQueryString } from "@/utils/search/convertParamsToQueryString";
+import { removeDuplicatesFromAnimeList } from "@/utils/search/removeDuplicatesFromAnimeList";
+import { removePageAndLimitFromQueryString } from "@/utils/search/removePageAndLimitFromQueryString";
 
 export const getAnimeList = async (
     page: number = 1,
-    limit: number = 9
+    limit: number = 12
 ): Promise<Anime[]> => {
     try {
         const response = await fetch(
@@ -23,20 +27,17 @@ export const getAnimeList = async (
             );
         }
         const request = await response.json();
-        return request.data.map(_transformAnime);
+        const animeList = request.data.map(_transformAnime);
+        return removeDuplicatesFromAnimeList(animeList);
     } catch (e) {
         console.error(e);
         return [];
     }
 };
 
-export const getTopAnime = async (
-    limit: number = 10
-): Promise<Anime[]> => {
+export const getTopAnime = async (limit: number = 10): Promise<Anime[]> => {
     try {
-        const response = await fetch(
-            `${API_TOP_URL}?limit=${limit}`
-        );
+        const response = await fetch(`${API_TOP_URL}?limit=${limit}`);
         if (!response.ok) {
             throw new Error(
                 `Couldn't fetch ${API_TOP_URL}, status: ${response.status}`
@@ -48,7 +49,7 @@ export const getTopAnime = async (
         console.error(e);
         return [];
     }
-}
+};
 
 // получение аниме по id для перехода на страницу для детального просмотра
 export const getAnimeById = async (
@@ -69,8 +70,9 @@ export const getAnimeById = async (
     }
 };
 
-export const getAnimeByParams = async (props: ParamsProps)
-    : Promise<{data: Anime[], pagination: any, searchString: string} | null> => {
+export const getAnimeByParams = async (
+    props: ParamsProps
+): Promise<{ data: Anime[]; pagination: any; searchString: string } | null> => {
     try {
         const propsString = convertParamsToQueryString(props);
         const response = await fetch(`${API_FULL_URL}?${propsString}`);
@@ -80,31 +82,35 @@ export const getAnimeByParams = async (props: ParamsProps)
                 `Couldn't fetch ${API_FULL_URL}?${propsString}. Anime not found; status: ${response.status}`
             );
         }
-        const {data, pagination} = await response.json();
+        const { data, pagination } = await response.json();
         const animeList = data.map(_transformAnime);
 
         return {
             data: removeDuplicatesFromAnimeList(animeList),
             pagination: pagination,
-            searchString: `?${removePageAndLimitFromQueryString(propsString)}`
+            searchString: `?${removePageAndLimitFromQueryString(propsString)}`,
         };
     } catch (e) {
         console.error("Failed anime fetching", e);
         return null;
     }
-}
+};
 
 export const getAnimeCharacters = async (
     id: string | number
 ): Promise<CharacterResponse[]> => {
     try {
-        const response = await fetch(`${API_FULL_URL}/${id}/${API_CHARACTERS_ENDPOINT}`);
+        const response = await fetch(
+            `${API_FULL_URL}/${id}/${API_CHARACTERS_ENDPOINT}`
+        );
         if (!response.ok) {
-            throw new Error(`Failed to fetch characters, status: ${response.status}`);
+            throw new Error(
+                `Failed to fetch characters, status: ${response.status}`
+            );
         }
         const data = await response.json();
         return data.data.map((item: CharacterResponse) => ({
-            character: _transformCharacter(item.character)
+            character: _transformCharacter(item.character),
         }));
     } catch (e) {
         console.error("Failed to fetch characters", e);
