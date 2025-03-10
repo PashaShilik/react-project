@@ -1,0 +1,29 @@
+@import 'src/styles/variables';
+
+.detailsBlock {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+  gap: 8px;
+  justify-content: start;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid $color-detail-block-border;
+    border-radius: 8px;
+    padding: 8px;
+    width: 150px;
+  }
+
+  &__key {
+    color: $color-detail-key;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  &__value {
+    font-size: 12px;
+    word-break: break-word;
+  }
+}

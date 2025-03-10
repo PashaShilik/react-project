@@ -57,6 +57,7 @@
     "file-loader": "^6.2.0",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
+    "ts-jest": "^29.2.6",
     "url-loader": "^4.1.1"
   }
 }

@@ -1,6 +1,10 @@
+@import "@/styles/variables";
+
 .selector, .selectorTransparent {
     position: relative;
     height: 40px;
+    width: 150px;
+    user-select: none;
 
     &__input {
         height: 100%;
@@ -12,7 +16,7 @@
         padding: 0 20px;
         gap: 10px;
         cursor: pointer;
-        background-color: #c0c0c0;
+        background-color: $color-red-1;
         color: white;
     }
 
@@ -28,7 +32,7 @@
 
     &__list {
         padding: 5px;
-        background-color: #c0c0c0;
+        background-color: $color-red-1   ;
         border-radius: 5px;
         position: absolute;
         top: 45px;
@@ -37,6 +41,15 @@
         width: auto;
         min-width: 100%;
         color:white;
+        max-height: 265px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        overscroll-behavior: none;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
     }
 
     &__item {
@@ -48,8 +61,9 @@
         padding: 15px 15px;
         white-space: nowrap;
         cursor: pointer;
+
         &:hover {
-            background-color: #e6e6e6;
+            background-color: $color-red-2;
         }
     }
 }

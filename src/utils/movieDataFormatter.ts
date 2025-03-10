@@ -1,6 +1,6 @@
-import { IMovieData } from '@/types/interfaces/IMovieData';
+import { MovieData } from '@/types/interfaces/MovieData';
 
-export const movieDataFormatter = (movieData: IMovieData) => {
+export const movieDataFormatter = (movieData: MovieData) => {
   return [
     { key: 'year', label: 'Year', value: movieData.year || 'N/A' },
     { key: 'rating', label: 'Rating', value: movieData.rating || 'N/A' },
