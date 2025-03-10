@@ -4,9 +4,10 @@ import { setFavorites } from "@/redux/reducers/userReducer/userReducer";
 import { setMessageModal, setModalByName } from "@/redux/reducers/modalReducer/modalReducer";
 import { getAuthMe, getUsers, updateFavoritesInLocalStorage, updateUsersInLocalStorage } from '@/constants/LocalStorageCard/LocalStorageCard';
 import { User } from '@/constants/LocalStorageCard/LocalStorageCard'; 
-import { IAnime } from '@/types/interfaces/IAnime';
+import { Anime } from '@/types/interfaces/Anime';
+import { UniversalData } from '@/types/interfaces/universalData';
 
-const useFavorites = (anime: IAnime, isUserAuth: boolean, favorites: IAnime[]) => {
+const useFavorites = (data: UniversalData, isUserAuth: boolean, favorites: Anime[]) => {
     const dispatch = useAppDispatch();
     const [isFavorites, setIsFavorites] = useState<boolean>(false);
 
@@ -14,11 +15,11 @@ const useFavorites = (anime: IAnime, isUserAuth: boolean, favorites: IAnime[]) =
     const currentFavorites = storedAuthMe ? storedAuthMe.Favorites : [];
 
     useEffect(() => {
-        const isSavedFavorite = currentFavorites.some((item:any) => item.id === anime.id);
+        const isSavedFavorite = currentFavorites.some((item:any) => item.id === data.id);
         if (isSavedFavorite) {
             setIsFavorites(true);
         }
-    }, [currentFavorites, anime.id]);
+    }, [currentFavorites, data.id]);
 
     const handleClickFavorites = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -34,7 +35,7 @@ const useFavorites = (anime: IAnime, isUserAuth: boolean, favorites: IAnime[]) =
     };
 
     const handleAddFavorites = () => {
-        const newFavorites = [...currentFavorites, anime];
+        const newFavorites = [...currentFavorites, data];
         updateFavoritesInLocalStorage(newFavorites);
         const getUsersData = getUsers();
         const updatedUser: User = { ...storedAuthMe, Favorites: newFavorites };
@@ -44,7 +45,7 @@ const useFavorites = (anime: IAnime, isUserAuth: boolean, favorites: IAnime[]) =
     };
 
     const handleDeleteFavorites = () => {
-        const updatedFavorites = currentFavorites.filter((item:any) => item.id !== anime.id);
+        const updatedFavorites = currentFavorites.filter((item:any) => item.id !== data.id);
         updateFavoritesInLocalStorage(updatedFavorites);
         const getUsersData = getUsers();
         const updatedUser: User = { ...storedAuthMe, Favorites: updatedFavorites };

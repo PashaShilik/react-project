@@ -1,4 +1,4 @@
-import { IAnime } from '@/types/interfaces/IAnime';
+import { Anime } from '@/types/interfaces/Anime';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const authReducer = createSlice({
@@ -15,7 +15,7 @@ const authReducer = createSlice({
         setIsAuth: (state, action: PayloadAction<{ isAuth: boolean }>) => {
             state.isAuth = action.payload.isAuth;
         },
-        setFavorites: (state, action: PayloadAction<{ Favorites: IAnime[]}>) => {
+        setFavorites: (state, action: PayloadAction<{ Favorites: Anime[]}>) => {
             state.authInfo.Favorites = action.payload.Favorites;
         },
     },
