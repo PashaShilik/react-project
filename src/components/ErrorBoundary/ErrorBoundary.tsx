@@ -1,12 +1,12 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
-interface Props {
+type Props = {
     children: ReactNode;
     fallback?: ReactNode;
 }
 
-interface State {
+type State = {
     error: boolean;
 }
 

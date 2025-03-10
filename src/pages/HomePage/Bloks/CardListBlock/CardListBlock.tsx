@@ -20,7 +20,7 @@ export function CardListBlock() {
     setNewAnimeLoading(true);
 
     const newAnimeList = await getAnimeList(page);
-    if (newAnimeList.length < 9) {
+    if (newAnimeList.length < 12) {
       setHasMore(false);
     }
     setAnimeList(prevList => [...prevList, ...newAnimeList]);
@@ -30,8 +30,11 @@ export function CardListBlock() {
 
   return (
     <div className={styles.card__list_block}>
+      <h2 className={styles.card__list_block_title}>Let's choice anime !</h2>
       <CardList animeList={animeList} />
-      {newAnimeLoading && <CommonLoader />}
+      <div className={styles.loader__wrapper}>
+        {newAnimeLoading && <CommonLoader />}
+      </div>
       {hasMore && (
         <CommonButton
           type="default_bg"
