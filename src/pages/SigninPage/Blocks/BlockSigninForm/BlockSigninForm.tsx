@@ -24,7 +24,7 @@ export const BlockSigninForm = function () {
         const isInCorrectPassword = isUsersExist?.password !== formValues.password;
 
         if(isUsersExist && !isInCorrectPassword){
-            localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify({...formValues, Favorites:isUsersExist.Favorites}));
+            localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify({ ...formValues, Favorites: isUsersExist.Favorites, History: isUsersExist.History || [], }));
             dispatch(setAuthInfo({...formValues, Favorites:isUsersExist.Favorites || []}));
             dispatch(setIsAuth({isAuth:true}));
             navigate(ROUTES.home); 

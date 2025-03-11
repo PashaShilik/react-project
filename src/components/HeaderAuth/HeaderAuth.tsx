@@ -51,8 +51,8 @@ export const HeaderAuth = () => {
           <div className={styles.headerAuth__favorites_container}>
             <div className={styles.headerAuth__favorites_counter}>{favorites.length}</div>
             <img src={favoritesIco} alt="favoritesIco" className={styles.headerAuth__favorites_img} onClick={handleFavoritesClick}/>
-            <img src={historyIco} alt="historySearchIco" className={styles.headerAuth__favorites_img} onClick={handleHistoryClick}/>
           </div>
+            <img src={historyIco} alt="historySearchIco" className={styles.headerAuth__favorites_img} onClick={handleHistoryClick}/>
           <div className={styles.headerAuth__data_container}>
             <img src={userIco} alt="userIco" className={styles.headerAuth__user_img} />
             <p className={styles.headerAuth__login_text}>@{user.login}</p> 

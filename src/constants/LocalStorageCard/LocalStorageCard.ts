@@ -35,3 +35,52 @@ export const updateUsersInLocalStorage = (getUsers:any, updatedUser:any) => {
         localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify(updatedUsers));
     }
 };
+
+export const updateAuthMeHistory = (searchHistoryEntry: any) => {
+    const authMe = getAuthMe();
+    if (authMe) {
+        const updatedAuthMe = {
+            ...authMe,
+            History: [...(authMe.History || []), searchHistoryEntry],
+        };
+        localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify(updatedAuthMe));
+        return updatedAuthMe;
+    }
+    return null;
+};
+
+export const updateUsersHistory = (updatedAuthMe: any) => {
+    if (updatedAuthMe) {
+        const users = getUsers();
+        if (users) {
+            const userIndex = users.findIndex((user: any) => user.login === updatedAuthMe.login);
+            if (userIndex !== -1) {
+                const updatedUser = {
+                    ...users[userIndex],
+                    History: updatedAuthMe.History,
+                };
+                const updatedUsers = [
+                    ...users.slice(0, userIndex),
+                    updatedUser,
+                    ...users.slice(userIndex + 1),
+                ];
+                localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify(updatedUsers));
+            }
+        }
+    }
+};
+
+export const deleteHistoryEntry = (index: number) => {
+    const authMe = getAuthMe();
+    if (authMe && authMe.History) {
+        const updatedHistory = authMe.History.filter((_: any, i: number) => i !== index);
+        const updatedAuthMe = { ...authMe, History: updatedHistory };
+        localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify(updatedAuthMe));
+        updateUsersHistory(updatedAuthMe);
+    }
+};
+
+export const updateSearchHistoryInLocalStorage = (searchHistoryEntry: any) => {
+    const updatedAuthMe = updateAuthMeHistory(searchHistoryEntry);
+    updateUsersHistory(updatedAuthMe);
+};

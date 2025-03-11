@@ -12,6 +12,10 @@ import {Key} from "@/constants/Key";
 import {searchSelector} from "@/redux/reducers/searchReducer/searchSelector";
 import {useSelector} from "react-redux";
 import {ResultsBlock} from "@/pages/SearchPage/Blocks/ResultsBlock/ResultsBlock";
+import { convertQueryStringToParams } from '@/utils/history/convertQueryStringToParams';
+import { createSearchHistoryEntry } from '@/utils/history/createSearchHistoryEntry';
+import { updateSearchHistoryInLocalStorage } from '@/constants/LocalStorageCard/LocalStorageCard';
+
 export const SearchPage = () => {
 
     const dispatch = useAppDispatch();
@@ -48,11 +52,17 @@ export const SearchPage = () => {
 
         setIsLoading(true);
 
+        const searchParams = convertQueryStringToParams(location.search);
+
         search(1).then((res) => {
             if(res === null) return;
             const {data, pagination, searchString} = res;
             setFoundCount(pagination.items.total);
             setAnimeList(data);
+            const searchHistoryEntry = createSearchHistoryEntry(searchParams);
+            if (searchHistoryEntry) {
+                updateSearchHistoryInLocalStorage(searchHistoryEntry);
+            }
             navigate(searchString);
         }).finally(() => {
             setIsLoading(false);

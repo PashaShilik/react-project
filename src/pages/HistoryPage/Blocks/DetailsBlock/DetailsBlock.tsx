@@ -1,10 +1,6 @@
 import React from 'react';
 import styles from './detailsBlock.module.scss';
-import { DetailItem } from '@/types/interfaces/HistoryData';
-
-interface DetailsBlockProps {
-  details: DetailItem[];
-}
+import { DetailsBlockProps } from '@/types/history';
 
 export const DetailsBlock: React.FC<DetailsBlockProps> = ({ details }) => {
   return (

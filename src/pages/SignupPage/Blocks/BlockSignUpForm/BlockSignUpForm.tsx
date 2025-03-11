@@ -27,9 +27,9 @@ export const BlockSignUpForm = function () {
       dispatch(setModalByName({ isModalActive: true, modalName: 'modal-feedback', withDarkOverlay: true }));
       dispatch(setMessageModal('A user with this login already exists!'));
     }else{
-      const updatedUsers = [...usersFromLocalStorage, {...formValues, Favorites:[], id:lastUserId ? lastUserId.id++ : 0}];
+      const updatedUsers = [...usersFromLocalStorage, {...formValues, Favorites:[], History:[], id:lastUserId ? lastUserId.id++ : 0}];
       localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify(updatedUsers));
-      localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify({...formValues, Favorites:[]}));
+      localStorage.setItem(LOCAL_STORAGE_KEYS.AuthMe, JSON.stringify({...formValues, Favorites:[], History: []}));
       dispatch(setAuthInfo({...formValues, Favorites:[]}));
       dispatch(setIsAuth({isAuth:true}));
       navigate(ROUTES.home);

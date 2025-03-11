@@ -2,7 +2,7 @@ export type ParamsProps = {
     page?: number
     limit?: number
     q?: string
-    genres?: number
+    genres?: string | number
     status?: string
     start_date?: string
     end_date?: string
