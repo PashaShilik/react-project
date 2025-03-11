@@ -13,7 +13,7 @@
     z-index: 10;
     transition: 0.3s all;
 
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 50px; 
 
     &__container{
@@ -39,7 +39,7 @@
 
 
 .header_scroll{
-    background:#000000;
+    background-color: rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid rgba(255, 255, 255, 0.596);
 }
 
