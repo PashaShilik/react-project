@@ -55,15 +55,8 @@ export const updateUsersHistory = (updatedAuthMe: any) => {
         if (users) {
             const userIndex = users.findIndex((user: any) => user.login === updatedAuthMe.login);
             if (userIndex !== -1) {
-                const updatedUser = {
-                    ...users[userIndex],
-                    History: updatedAuthMe.History,
-                };
-                const updatedUsers = [
-                    ...users.slice(0, userIndex),
-                    updatedUser,
-                    ...users.slice(userIndex + 1),
-                ];
+                const updatedUsers = [...users];
+                updatedUsers[userIndex] = { ...updatedUsers[userIndex], History: updatedAuthMe.History };
                 localStorage.setItem(LOCAL_STORAGE_KEYS.Users, JSON.stringify(updatedUsers));
             }
         }
