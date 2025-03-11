@@ -1,29 +1,11 @@
-.slider {
-  width: 1000px;
-  height: 400px;
-  margin: 30px auto 0px;
-
-  :global(.swiper-button-prev),
-  :global(.swiper-button-next) {
-      position: absolute;
-      top: var(--swiper-navigation-top-offset, 100%);
-      transform: translateY(-100%);
-      color: #f14141;
-
-      &:hover {
-          cursor: pointer;
-          color: rgba(#f14141, .5);
-      }
+.slider{
+  width: 1220px;
+  
+  &__slide_arrow{
+    filter: brightness(0) saturate(100%) invert(60%) sepia(82%) saturate(6773%) hue-rotate(339deg) brightness(99%) contrast(92%);
+    width: 50px;
+    height: 50px;
   }
-
-  :global(.swiper-pagination-bullet) {
-      background-color: rgba(#f14141, .8)
-  }
-
-  :global(.swiper-pagination-bullet-active) {
-      background-color: rgba(#f14141, 1)
-  }
-
 }
 
 @media only screen and (max-width: 1079px) {
