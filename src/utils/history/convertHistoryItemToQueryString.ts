@@ -2,7 +2,8 @@ import { HistoryItem } from '@/types/history';
 
 export function convertHistoryItemToQueryString(item: HistoryItem) {
   const { searchInput, status, genres, start_date, end_date, order_by, sort } = item;
-  const params = {
+
+  return Object.entries({
     q: searchInput,
     status,
     genres,
@@ -10,10 +11,10 @@ export function convertHistoryItemToQueryString(item: HistoryItem) {
     end_date,
     order_by,
     sort,
-  };
-
-  return Object.entries(params)
-    .filter(([_, value]) => value !== undefined && value !== '')
-    .map(([key, value]) => `${key}=${value}`)
+  })
+    .reduce((acc, [key, value]) => {
+      if (value) acc.push(`${key}=${value}`);
+      return acc;
+    }, [] as string[])
     .join('&');
 }
