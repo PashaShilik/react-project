@@ -17,8 +17,10 @@ export const ResultsBlock: FC<Props> = ({animeList, foundCount, isLoading, onSho
     const searchResult = (animeList.length ?
             (
                 <>
-                    <h2 className={styles.foundBlock_title}>{foundCount} matches found</h2>
-                    <FilterBlock />
+                    <div className={styles.foundBlock__header_list_container}>
+                        <h2 className={styles.foundBlock__title}>{foundCount} matches found</h2>
+                        <FilterBlock />
+                    </div>
                     <CardList animeList={animeList}/>
                 </>
             )

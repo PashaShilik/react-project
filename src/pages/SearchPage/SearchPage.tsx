@@ -24,7 +24,6 @@ export const SearchPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('work')
         dispatch(setInfoFromQuery(location.search));
     }, []);
 
@@ -90,28 +89,25 @@ export const SearchPage = () => {
 
     return (
         <div className={styles.searchPage} onKeyDown={handleKeyDown}>
-            <h1 className={styles.searchPage__title}>Advanced Search</h1>
-            <CommonSearch
-                value={q}
-                onChangeFn={handleSearchChange}
-            />
-
-            {<SelectorsBlock/>}
-
-            <CommonButton
-                style={{width: 400}}
-                text={isLoading?"Loading...":"Search"}
-                type={"default_bg"}
-                onClick={handleSearch}
-            />
-
-            <ResultsBlock
-                animeList={animeList}
-                isLoading={isLoading && !isFetched}
-                foundCount={foundCount}
-                onShowMoreFunc={() => handleShowMore()}
-            />
-
+            <div className={styles.searchPage__main_container}>
+                <div className={styles.searchPage__bg}></div>
+                <div className={styles.searchPage__search_content}>
+                    <h1 className={styles.searchPage__title}>Advanced Search</h1>
+                    <CommonSearch value={q} onChangeFn={handleSearchChange}/>
+                    {<SelectorsBlock/>}
+                    <CommonButton
+                        text={isLoading?"Loading...":"Search"}
+                        type={"default_bg"}
+                        onClick={handleSearch}
+                    />
+                 </div>
+            </div>
+                <ResultsBlock
+                    animeList={animeList}
+                    isLoading={isLoading && !isFetched}
+                    foundCount={foundCount}
+                    onShowMoreFunc={() => handleShowMore()}
+                />
         </div>
     )
 }
