@@ -38,8 +38,6 @@
             background-color: rgba(0, 0, 0, 0.719);
             z-index: 1;
         }
-    
-    
     }
 
     &__search_content{
@@ -63,7 +61,7 @@
 
 @media only screen and (max-width: 1260px) {
     .searchPage{
-        &__main_container{
+        &__search_content{
             padding: 0 50px;
         }
     }
@@ -71,7 +69,7 @@
 
 @media only screen and (max-width: 800px) {
     .searchPage{ 
-        &__main_container{
+        &__search_content{
             padding: 0 20px;
         }
 

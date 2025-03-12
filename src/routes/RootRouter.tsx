@@ -13,6 +13,7 @@ const FavoritesPage = React.lazy(() => import('@/pages/FavoritesPage/FavoritesPa
 const SigninPage = React.lazy(() => import('@/pages/SigninPage/SigninPage'));
 const SignupPage = React.lazy(() => import('@/pages/SignupPage/SignupPage'));
 const ViewCardPage = React.lazy(() => import('@/pages/ViewCardPage'));
+const PageNotFound = React.lazy(() => import('@/pages/PageNotFound/PageNotFound'));
 
 export const RootRouter = function () {
   return (
@@ -24,6 +25,7 @@ export const RootRouter = function () {
           <Route path={ROUTES.history} element={<HistoryPage/>}/>
           <Route path={ROUTES.favorites} element={<FavoritesPage/>}/>
           <Route path={`${ROUTES.viewCard}/:id`} element={<ViewCardPage/>}/>
+          <Route path={'*'} element={<PageNotFound/>}/>
         </Route>
         <Route element={ <LayoutWithOutHeader/> }>
           <Route path={ROUTES.signin} element={<SigninPage/>}/>

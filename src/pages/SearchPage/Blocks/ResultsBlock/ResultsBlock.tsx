@@ -33,12 +33,13 @@ export const ResultsBlock: FC<Props> = ({animeList, foundCount, isLoading, onSho
             {searchResult}
 
             {animeList.length < foundCount &&
+            <div className={styles.foundBlock__button_container}>
                 <CommonButton
-                    style={{width: 400, alignSelf: "center"}}
                     text={isLoading ? "Loading..." : "Show more"}
                     type={"default_bg"}
                     onClick={onShowMoreFunc}
                 />
+            </div>
             }
         </div>
     );
