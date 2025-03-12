@@ -52,18 +52,17 @@ export const SearchPage = () => {
 
         setIsLoading(true);
 
-        const searchParams = convertQueryStringToParams(location.search);
-
         search(1).then((res) => {
             if(res === null) return;
             const {data, pagination, searchString} = res;
             setFoundCount(pagination.items.total);
             setAnimeList(data);
-            const searchHistoryEntry = createSearchHistoryEntry(searchParams);
-            if (searchHistoryEntry) {
+            navigate(searchString);
+            const updatedSearchParams = convertQueryStringToParams(searchString);
+            const searchHistoryEntry = createSearchHistoryEntry(updatedSearchParams);
+            if(searchHistoryEntry) {
                 updateSearchHistoryInLocalStorage(searchHistoryEntry);
             }
-            navigate(searchString);
         }).finally(() => {
             setIsLoading(false);
             setPage(1);

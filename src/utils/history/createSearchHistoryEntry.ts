@@ -1,4 +1,4 @@
-import { HistoryItem } from "@/types/history";
+import { HistoryItem } from '@/types/history';
 
 export function createSearchHistoryEntry(searchParams: Record<string, string>): HistoryItem | null {
   const now = new Date();
@@ -25,7 +25,7 @@ export function createSearchHistoryEntry(searchParams: Record<string, string>): 
     Object.entries(searchHistoryEntry).filter(([_, value]) => value !== undefined && value !== '')
   ) as HistoryItem;
 
-  if (Object.keys(filteredEntry).length === 1 && filteredEntry.date) {
+  if (!filteredEntry.searchInput) {
     return null;
   }
 
