@@ -8,20 +8,8 @@
   }
 }
 
-@media only screen and (max-width: 1079px) {
-  .slider {
-      width: 740px;
-  }
-}
-
-@media only screen and (max-width: 819px) {
-  .slider {
-      width: 480px;
-  }
-}
-
-@media only screen and (max-width: 559px) {
-  .slider {
-      max-width: 220px;
+@media only screen and (max-width: 1260px) {
+  .slider{ 
+      width: 100%;
   }
 }

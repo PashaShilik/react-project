@@ -35,7 +35,7 @@ export function UniversalSlider({
   breakpoints = {
     1080: { slidesPerView: 4 },
     820: { slidesPerView: 3 },
-    560: { slidesPerView: 2 },
+    600: { slidesPerView: 2 },
     320: { slidesPerView: 1 },
   },
   navigation = true,

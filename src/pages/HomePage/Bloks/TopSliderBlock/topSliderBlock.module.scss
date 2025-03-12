@@ -23,3 +23,36 @@
         width: calc(100% - 40px);
     }
 }
+
+
+@media only screen and (max-width: 1260px) {
+    .top__list{ 
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .top__list{ 
+        margin-bottom: 50px;
+        
+        &_title {
+            font-size: 40px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .top__list{ 
+        &_title {
+            font-size: 35px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .top__list{ 
+        &_title {
+            font-size: 30px;
+        }
+    }
+}

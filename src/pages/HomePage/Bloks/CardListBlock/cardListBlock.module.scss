@@ -17,10 +17,9 @@
         text-transform: uppercase;
     }
 
-    button {
-        position: absolute;
-        bottom: -25px;
+    &__button_container {
         width: 200px;
+        margin-top: 30px;
     }
 }
 
@@ -35,5 +34,29 @@
 @media only screen and (max-width: 1079px) {
     .card__list_block {
         width: calc(100% - 80px);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .card__list_block{ 
+        &_title{
+            font-size: 40px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .card__list_block{ 
+        &_title{
+            font-size: 35px;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .card__list_block{ 
+        &_title{
+            font-size: 30px;
+        }
     }
 }

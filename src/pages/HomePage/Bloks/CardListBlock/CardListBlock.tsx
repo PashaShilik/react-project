@@ -35,14 +35,16 @@ export function CardListBlock() {
       <div className={styles.loader__wrapper}>
         {newAnimeLoading && <CommonLoader />}
       </div>
-      {hasMore && (
-        <CommonButton
-          type="default_bg"
-          text="Load more"
-          onClick={onRequestAnime}
-          disabled={newAnimeLoading}
-        />
-      )}
+      <div  className={styles.card__list_block__button_container}>
+        {hasMore && (
+          <CommonButton
+            type="default_bg"
+            text="Load more"
+            onClick={onRequestAnime}
+            disabled={newAnimeLoading}
+          />
+        )}
+      </div>
     </div>
   );
 }

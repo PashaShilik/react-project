@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './introductionBlock.module.scss';
 import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
 import {SearchBlock} from '@/pages/HomePage/Bloks/SearchBlock/SearchBlock';
-import { CommonButton } from './../../../../components/Common/CommonButton/CommonButton';
+import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/routes/routes';
 
