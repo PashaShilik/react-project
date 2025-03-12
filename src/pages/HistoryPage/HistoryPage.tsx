@@ -3,6 +3,7 @@ import styles from './historyPage.module.scss';
 import { HistoryItemBlock } from './Blocks/HistoryItemBlock/HistoryItemBlock';
 import { getAuthMe, deleteHistoryEntry } from '@/constants/LocalStorageCard/LocalStorageCard';
 import { HistoryItem } from '@/types/history';
+import { CommonEmptyBlock } from '@/components/Common/CommonEmptyBlock/CommonEmptyBlock';
 
 export function HistoryPage() {
   const authMe = getAuthMe();
@@ -28,10 +29,14 @@ export function HistoryPage() {
 
   return (
     <div className={styles.historyPage}>
-      <h1 className={styles.historyPage__title}>История поиска</h1>
-      <ul className={styles.historyPage__list}>
-        {historyItems}
-      </ul>
+      <h1 className={styles.historyPage__title}>Search history</h1>
+      {historyData.length > 0 ? (
+        <ul className={styles.historyPage__list}>
+          {historyItems}
+        </ul>
+      ) : (
+        <CommonEmptyBlock text={'Search history is empty!'} />
+      )}
     </div>
   );
 }
