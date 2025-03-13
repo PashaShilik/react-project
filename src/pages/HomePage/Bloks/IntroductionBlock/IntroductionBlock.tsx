@@ -20,7 +20,7 @@ export const IntroductionBlock = () => {
 
   return (
     <div className={styles.introductionBlock}>
-        <div className={styles.introductionBlock__bg}></div>
+        <div className={styles.introductionBlock__bg}/>
         <div className={styles.introductionBlock__content}>
             <h1 className={styles.introductionBlock__title}>Welcome to the world of anime</h1>
             <p className={styles.introductionBlock__sub_title}>
@@ -43,4 +43,3 @@ export const IntroductionBlock = () => {
   )
 }
 
-export default IntroductionBlock

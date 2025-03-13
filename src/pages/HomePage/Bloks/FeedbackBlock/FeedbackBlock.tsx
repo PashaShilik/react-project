@@ -20,7 +20,7 @@ export const FeedbackBlock = () => {
 
   return (
     <div className={styles.feedbackBlock}>
-        <div className={styles.feedbackBlock__bg}></div>
+        <div className={styles.feedbackBlock__bg}/>
         <div className={styles.feedbackBlock__content}>
             <div className={styles.feedbackBlock__text_container}>
                 <h1 className={styles.feedbackBlock__title}>We hope you enjoyed our educational app!</h1>
