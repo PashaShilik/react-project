@@ -7,7 +7,7 @@ import {getAnimeByParams} from "@/api/animeApi";
 import {SelectorsBlock} from "@/pages/SearchPage/Blocks/SelectorsBlock/SelectorsBlock";
 import {useAppDispatch} from "@/redux/store";
 import {useLocation, useNavigate} from "react-router-dom";
-import {setInfoFromQuery, setQ} from "@/redux/reducers/searchReducer/searchSlice";
+import {clearSearchInfo, setInfoFromQuery, setQ} from "@/redux/reducers/searchReducer/searchSlice";
 import {Key} from "@/constants/Key";
 import {searchSelector} from "@/redux/reducers/searchReducer/searchSelector";
 import {useSelector} from "react-redux";
@@ -24,18 +24,22 @@ export const SearchPage = () => {
     const [foundCount, setFoundCount] = useState(0);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
+    const [isLoadingPages, setIsLoadingPages] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(setInfoFromQuery(location.search));
+        return () => {
+            dispatch(clearSearchInfo());
+        }
     }, []);
 
     useEffect(() => {
         if(isFetched === true) {
             handleSearch();
         }
-    }, [genre, status, year, order_by, sort]);
+    }, [genre, status, year, order_by, sort, isFetched]);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
         if(e.key === Key.ENTER) {
@@ -47,7 +51,7 @@ export const SearchPage = () => {
         dispatch(setQ(newValue));
     }
     function handleSearch() {
-        if(isLoading) return;
+        if(isLoading || !isFetched) return;
 
         setIsLoading(true);
 
@@ -69,9 +73,9 @@ export const SearchPage = () => {
     }
 
     const handleShowMore = () => {
-        if(isLoading) return;
+        if(isLoadingPages) return;
 
-        setIsLoading(true);
+        setIsLoadingPages(true);
 
         search(page+1).then((res) => {
             if(res === null) return;
@@ -79,7 +83,7 @@ export const SearchPage = () => {
             setAnimeList(prevState => [...prevState, ...data]);
             setPage(prevState => prevState + 1);
         }).finally(() => {
-            setIsLoading(false);
+            setIsLoadingPages(false);
         });
     }
 
@@ -113,7 +117,8 @@ export const SearchPage = () => {
             </div>
                 <ResultsBlock
                     animeList={animeList}
-                    isLoading={isLoading && !isFetched}
+                    isLoading={isLoading}
+                    isLoadingPages={isLoadingPages}
                     foundCount={foundCount}
                     onShowMoreFunc={() => handleShowMore()}
                 />

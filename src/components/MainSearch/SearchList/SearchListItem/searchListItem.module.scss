@@ -12,6 +12,7 @@
   &_textContainer {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
 
     &_title {
@@ -20,7 +21,7 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      width: 350px;
+      width: 100%;
     }
 
     &_type {
