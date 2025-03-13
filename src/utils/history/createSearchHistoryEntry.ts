@@ -25,9 +25,9 @@ export function createSearchHistoryEntry(searchParams: Record<string, string>): 
     Object.entries(searchHistoryEntry).filter(([_, value]) => value !== undefined && value !== '')
   ) as HistoryItem;
 
-  if (!filteredEntry.searchInput) {
-    return null;
+  if (Object.keys(filteredEntry).length > 1) {
+    return filteredEntry;
   }
 
-  return filteredEntry;
+  return null;
 }

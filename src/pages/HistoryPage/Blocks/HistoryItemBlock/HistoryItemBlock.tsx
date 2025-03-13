@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '@/redux/store';
+import { setInfoFromQuery } from '@/redux/reducers/searchReducer/searchSlice';
 import styles from './historyItemBlock.module.scss';
 import SearchIcon from '@/assets/svg/Search.svg';
 import TrashIcon from '@/assets/svg/can-trash.svg';
@@ -10,6 +12,7 @@ import { convertHistoryItemToQueryString } from '@/utils/history/convertHistoryI
 
 export const HistoryItemBlock: React.FC<HistoryItemBlockProps> = ({ item, index, onDelete }) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const handleDelete = () => {
     onDelete(index);
@@ -18,6 +21,7 @@ export const HistoryItemBlock: React.FC<HistoryItemBlockProps> = ({ item, index,
   const handleSearch = () => {
     const queryString = convertHistoryItemToQueryString(item);
     navigate(`/search?${queryString}`);
+    dispatch(setInfoFromQuery(queryString));
   };
 
   return (

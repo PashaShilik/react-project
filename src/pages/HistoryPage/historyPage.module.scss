@@ -4,9 +4,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 90vh;
-    max-width: 1140px;
+    min-height: 100vh;
+    max-width: 1232px;
     margin: 0 auto;
+    padding: 200px 50px 250px 50px;
 
     &__title {
         font-size: 24px;

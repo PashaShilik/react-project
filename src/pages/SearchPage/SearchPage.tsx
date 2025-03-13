@@ -29,7 +29,7 @@ export const SearchPage = () => {
 
     useEffect(() => {
         dispatch(setInfoFromQuery(location.search));
-    }, []);
+    }, [location.search, dispatch]);
 
     useEffect(() => {
         if(isFetched === true) {
