@@ -53,6 +53,7 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
                 setIsLoading(false);
             });
     }
+    
     return (
         <div className={styles.search} ref={blockRef}>
             <CommonSearch

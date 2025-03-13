@@ -1,5 +1,8 @@
 .selectorsBlock {
   display: flex;
-  column-gap: 10px;
-  margin-bottom: 40px;
+  align-items:center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+
 }

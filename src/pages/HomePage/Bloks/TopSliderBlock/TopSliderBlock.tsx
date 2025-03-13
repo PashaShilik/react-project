@@ -28,14 +28,7 @@ export function TopSliderBlock() {
       <UniversalSlider
         data={animeList}
         renderItem={(item) => (
-          <Card
-            data={item}
-            showScore
-            showBookmark
-            showYear
-            showTitle
-            showGenres
-          />
+          <Card data={item} showScore showBookmark showYear showTitle showGenres/>
         )}
       />
       <div className={wrapper.loader__wrapper}>

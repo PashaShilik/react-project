@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './searchBlock.module.scss'
-import {MainSearch} from "../../../../components/MainSearch/MainSearch";
+import {MainSearch} from "@/components/MainSearch/MainSearch";
 import {Link} from "react-router-dom";
-import {ROUTES} from "../../../../routes/routes";
+import {ROUTES} from "@/routes/routes";
 
 export const SearchBlock = function () {
     return (
