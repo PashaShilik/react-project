@@ -9,7 +9,7 @@ import {useClickOutsideAndClose} from "@/hooks/useClickOutsideAndClose";
 import {API_FULL_URL} from "@/constants/apiConstants/apiConstants";
 import {_transformAnime} from "@/utils/transformAnime/transformAnime";
 import {Anime} from "@/types/interfaces/Anime";
-import SearchListItem from "@/components/MainSearch/SearchListItem/SearchListItem";
+import SearchList from "@/components/MainSearch/SearchList/SearchList";
 
 type Props = {
     limit?: number
@@ -65,18 +65,11 @@ export const MainSearch: FC<Props> = ({limit = 5}) => {
             />
             {suggestionsVisible &&
 
-                <ul className={styles.search__suggestions}>
-                    { suggestions.length > 0 ?
-                        suggestions.map(anime =>
-                            <SearchListItem
-                                anime={anime}
-                                onClickFn={() => handleListItemClick(anime.id)}
-                            />
-                        )
-                        :
-                        <p className={styles.search__suggestions_title}>No results were found for your request</p>
-                    }
-                </ul>
+                <SearchList
+                    searchValue={value}
+                    suggestions={suggestions}
+                    onItemClick={handleListItemClick}
+                />
 
             }
         </div>
