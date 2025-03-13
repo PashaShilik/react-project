@@ -1,5 +1,6 @@
 .slider{
-  width: 1220px;
+  position: relative;
+  width: 940px;
   
   &__slide_arrow{
     filter: brightness(0) saturate(100%) invert(60%) sepia(82%) saturate(6773%) hue-rotate(339deg) brightness(99%) contrast(92%);
@@ -8,8 +9,20 @@
   }
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 1080px) {
   .slider{ 
-      width: 100%;
+      width: 700px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .slider{ 
+      width: 460px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .slider{ 
+      width: 220px;
   }
 }
