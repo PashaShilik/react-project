@@ -1,4 +1,4 @@
-import { HistoryItem } from '@/types/interfaces/HistoryData';
+import { HistoryItem } from '@/types/history';
 
 export const getDetails = (item: HistoryItem) => {
   return [
