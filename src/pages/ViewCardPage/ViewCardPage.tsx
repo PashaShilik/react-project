@@ -28,7 +28,7 @@ export const ViewCardPage: React.FC = () => {
   const fetchAnimeData = async () => {
     if (id) {
       const data = await getAnimeById(Number(id));
-      setBackgroundUrl(data?.images?.webp?.large_image_url || undefined);
+      setBackgroundUrl(data?.imageUrl || undefined);
       setAnimeData(data);
     }
   };
@@ -72,7 +72,7 @@ export const ViewCardPage: React.FC = () => {
         <div className={styles.viewCardPage__img_container}>
           <img
             className={styles.viewCardPage__img}
-            src={animeData?.images.webp.large_image_url}
+            src={animeData?.imageUrl}
             alt={animeData?.title}
           />
           <CommonButton
