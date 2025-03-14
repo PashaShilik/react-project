@@ -1,0 +1,61 @@
+@import '@/styles/_variables.scss';
+
+.marks {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &__item {
+        display: block;
+        height: 20px;
+        padding: 0 3px;
+    }
+
+    :nth-child(1) {
+        border-radius: 4px 0 0 4px;
+        background-color: $color-red-1;
+    }
+
+    :nth-child(2) {
+        background-color: #666666;
+
+        svg {
+            background-color: unset;
+        }
+    }
+
+    :nth-child(3) {
+        background-color: #36d0ff;
+
+        svg {
+            background-color: unset;
+        }
+    }
+
+    :nth-child(4) {
+        background-color: #c8a416;
+
+        svg {
+            background-color: unset;
+        }
+    }
+
+    :nth-child(5) {
+        border-radius: 0 4px 4px 0;
+        background-color: #ff40a6;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .marks {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .marks {
+        justify-content: center;
+    }
+}
