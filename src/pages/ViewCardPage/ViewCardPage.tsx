@@ -28,7 +28,7 @@ export const ViewCardPage: React.FC = () => {
   const fetchAnimeData = async () => {
     if (id) {
       const data = await getAnimeById(Number(id));
-      setBackgroundUrl(data?.images?.webp?.large_image_url || undefined);
+      setBackgroundUrl(data?.imageUrl || undefined);
       setAnimeData(data);
     }
   };
@@ -65,7 +65,11 @@ export const ViewCardPage: React.FC = () => {
       <img src={backgroundUrl} alt="background" className={styles.viewCardPage__background} />
       <div className={styles.viewCardPage__container}>
         <div className={styles.viewCardPage__img_container}>
-          <img className={styles.viewCardPage__img} src={animeData?.images.webp.large_image_url} alt={animeData?.title}/>
+          <img
+            className={styles.viewCardPage__img}
+            src={animeData?.imageUrl}
+            alt={animeData?.title}
+          />
           <CommonButton
             text={animeData?.trailer.embed_url ? 'Watch trailer' : 'Trailer is missing'}
             type="default_bg"

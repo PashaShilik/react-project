@@ -6,15 +6,7 @@ export type MovieData = {
   genres: string;
   yearStart: string;
   yearEnd: string;
-  homepage: string;
   score: number;
-  images: {
-    webp: {
-      large_image_url: string;
-      small_image_url: string;
-      image_url: string;
-    };
-  };
   trailer: {
     embed_url: string;
     images: {
@@ -22,7 +14,6 @@ export type MovieData = {
     };
   };
   synopsis: string;
-  year: number;
   rating: string;
   rank: number;
   scored_by: number;
