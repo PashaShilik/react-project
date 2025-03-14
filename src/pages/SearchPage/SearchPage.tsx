@@ -30,14 +30,10 @@ export const SearchPage = () => {
 
     useEffect(() => {
         dispatch(setInfoFromQuery(location.search));
-<<<<<<< HEAD
-    }, [location.search, dispatch]);
-=======
         return () => {
             dispatch(clearSearchInfo());
         }
-    }, []);
->>>>>>> main
+    }, [location.search, dispatch]);
 
     useEffect(() => {
         if(isFetched === true) {
