@@ -33,7 +33,7 @@ export const SearchPage = () => {
         return () => {
             dispatch(clearSearchInfo());
         }
-    }, []);
+    }, [location.search, dispatch]);
 
     useEffect(() => {
         if(isFetched === true) {

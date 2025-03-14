@@ -54,6 +54,14 @@ export const searchSlice = createSlice({
         setInfoFromQuery: (state, action: PayloadAction<string>) => {
             state.isFetched = false;
             const queryParams = new URLSearchParams(action.payload);
+
+            state.q = "";
+            state.genre = null;
+            state.status = null;
+            state.year = null;
+            state.order_by = null;
+            state.sort = SortOrder.UP;
+
             if(queryParams.has(QueryParams.Name)) state.q = queryParams.get(QueryParams.Name) ?? "";
 
             state.genre = (queryParams.has(QueryParams.Genres)) ?

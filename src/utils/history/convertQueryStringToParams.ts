@@ -1,7 +1,7 @@
 export function convertQueryStringToParams(queryString: string): Record<string, string> {
   const cleanedQueryString = queryString.split('?')[1] || queryString;
   const defaultParams: Record<string, string> = {
-    searchInput: '',
+    q: '',
     status: '',
     genres: '',
     start_date: '',
