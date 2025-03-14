@@ -7,8 +7,6 @@ import { BookMark } from "./BookMark/BookMark";
 import { useSelector } from "react-redux";
 import { authInfoFavoritesSelector, isAuthSelector } from "@/redux/reducers/userReducer/userSelector";
 import useFavorites from "@/hooks/useFavorites";
-import emptyImg from '@/assets/img/emtyImg.jpg'
-
 
 export interface CardProps {
     data: UniversalData;
@@ -64,7 +62,7 @@ export function Card({data, showScore = false, showBookmark = false, showYear = 
                         {showTitle && <h3 className={styles.card__info_title}>{data.title}</h3>}
                         {showGenres && (
                             <span className={styles.card__info_genres}>
-                            Genres: {Array.isArray(data.genres) ? data.genres.join(', ') : 'No genres available'}
+                            Genres: {data.genres}
                             </span>
                         )}
                     </div>
