@@ -5,6 +5,7 @@ import { ROUTES } from './routes';
 import {LayoutWithHeader} from '@/layouts/LayoutWithHeader/LayoutWithHeader';
 import {LayoutWithOutHeader} from '@/layouts/LayoutWithOutHeader/LayoutWithOutHeader';
 import { CommonLoader } from '@/components/Common/CommonLoader/CommonLoader';
+import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
 
 const HomePage = React.lazy(() => import('@/pages/HomePage/HomePage'));
 const SearchPage = React.lazy(() => import('@/pages/SearchPage'));
@@ -24,7 +25,7 @@ export const RootRouter = function () {
           <Route path={ROUTES.search} element={<SearchPage/>}/>
           <Route path={ROUTES.history} element={<HistoryPage/>}/>
           <Route path={ROUTES.favorites} element={<FavoritesPage/>}/>
-          <Route path={`${ROUTES.viewCard}/:id`} element={<ViewCardPage/>}/>
+          <Route path={`${ROUTES.viewCard}/:id`} element={<ErrorBoundary><ViewCardPage/></ErrorBoundary>}/>
           <Route path={'*'} element={<PageNotFound/>}/>
         </Route>
         <Route element={ <LayoutWithOutHeader/> }>
