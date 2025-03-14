@@ -42,16 +42,7 @@ export function Card({data, showScore = false, showBookmark = false, showYear = 
     return (
         <li className={styles.card} onClick={handleClick}>
 
-
-
-           {
-            imageUrl ? (
-               <img className={styles.card__img} src={imageUrl} alt={isAnime(data) ? data.title : data.name}  style={{ cursor: isCharacter(data) ? 'default' : 'pointer' }}/> 
-            ) : (
-                <img className={styles.card__img} src={emptyImg} alt="emty img"/> 
-            )
-           }
-            
+            <img className={styles.card__img} src={imageUrl} alt={isAnime(data) ? data.title : data.name}  style={{ cursor: isCharacter(data) ? 'default' : 'pointer' }}/> 
 
             {isAnime(data) && (
                 <>
