@@ -33,7 +33,7 @@ export const SearchPage = () => {
         return () => {
             dispatch(clearSearchInfo());
         }
-    }, [location.search, dispatch]);
+    }, []);
 
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -43,8 +43,9 @@ export const SearchPage = () => {
     }
 
     useEffect(() => {
-        handleSearch()
-     }, []);
+        if(isFetched)
+            handleSearch()
+     }, [isFetched]);
 
     const handleSearchChange = (newValue: string) => {
         dispatch(setQ(newValue));
