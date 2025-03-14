@@ -2,20 +2,80 @@
 
 .historyPage {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
     flex-direction: column;
+    position: relative;
     width: 100%;
-    min-height: 100vh;
-    max-width: 1232px;
-    margin: 0 auto;
-    padding: 200px 50px 250px 50px;
+    height: 100vh;
+    margin-bottom: 50px;
+    padding-top: 200px;
 
-    &__title {
-        font-size: 24px;
-        margin-bottom: 20px;
+    &__content_container{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        flex-direction: column;
+        width: 1220px;
+        gap: 50px;
+    }
+
+    &__title{
+        font-size: 50px;
+        font-weight: 800;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
     }
 
     &__list {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 100%;
         list-style: none;
         padding: 0;
+    }
+}
+
+
+@media only screen and (max-width: 1260px) {
+    .historyPage{ 
+        &__content_container{
+            width: 100%;
+            padding: 0 50px;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .historyPage{ 
+        &__title{
+            font-size: 40px;
+        }
+
+        &__content_container{
+            padding: 0 20px;
+            gap: 30px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .historyPage{ 
+        &__title{
+            font-size: 35px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .historyPage{ 
+        &__title{
+            font-size: 30px;
+        }
     }
 }

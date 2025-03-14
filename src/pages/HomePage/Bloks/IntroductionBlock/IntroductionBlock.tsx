@@ -5,10 +5,13 @@ import {SearchBlock} from '@/pages/HomePage/Bloks/SearchBlock/SearchBlock';
 import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/routes/routes';
+import { useSelector } from 'react-redux';
+import { isAuthSelector } from '@/redux/reducers/userReducer/userSelector';
 
 export const IntroductionBlock = () => {
 
   const navigate = useNavigate(); 
+  const isUserAuth = useSelector(isAuthSelector);
 
   const handleLoginClick = () => {
     navigate(ROUTES.signin);
@@ -17,6 +20,13 @@ export const IntroductionBlock = () => {
   const handleRegisterClick = () => {
     navigate(ROUTES.signup);
   };
+
+  const showButton = !isUserAuth ? (
+    <div className={styles.introductionBlock__button_container}>
+      <CommonButton text='Entrance' type='default_bg' onClick={handleLoginClick} />
+      <CommonButton text='Registration' type='default_bg' onClick={handleRegisterClick} />
+    </div>
+  ) : null;
 
   return (
     <div className={styles.introductionBlock}>
@@ -34,10 +44,7 @@ export const IntroductionBlock = () => {
                 <SearchBlock/>
             </ErrorBoundary>
             </div>
-            <div className={styles.introductionBlock__button_container}>
-              <CommonButton text='Entrance' type='default_bg' onClick={handleLoginClick}/>
-              <CommonButton text='Registration' type='default_bg' onClick={handleRegisterClick}/>
-            </div>
+            {showButton}
         </div>
     </div>
   )

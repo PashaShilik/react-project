@@ -35,11 +35,6 @@ export const SearchPage = () => {
         }
     }, [location.search, dispatch]);
 
-    useEffect(() => {
-        if(isFetched === true) {
-            handleSearch();
-        }
-    }, [genre, status, year, order_by, sort, isFetched]);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
         if(e.key === Key.ENTER) {
@@ -47,11 +42,15 @@ export const SearchPage = () => {
         }
     }
 
+    useEffect(() => {
+        handleSearch()
+     }, []);
+
     const handleSearchChange = (newValue: string) => {
         dispatch(setQ(newValue));
     }
     function handleSearch() {
-        if(isLoading || !isFetched) return;
+        if(isLoading) return;
 
         setIsLoading(true);
 
@@ -71,6 +70,7 @@ export const SearchPage = () => {
             setPage(1);
         });
     }
+;
 
     const handleShowMore = () => {
         if(isLoadingPages) return;
@@ -121,6 +121,7 @@ export const SearchPage = () => {
                     isLoadingPages={isLoadingPages}
                     foundCount={foundCount}
                     onShowMoreFunc={() => handleShowMore()}
+                    handleSearch={handleSearch}
                 />
         </div>
     )

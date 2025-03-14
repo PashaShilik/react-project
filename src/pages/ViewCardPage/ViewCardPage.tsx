@@ -60,12 +60,7 @@ export const ViewCardPage: React.FC = () => {
   return (
     <div className={styles.viewCardPage}>
       <div className={styles.viewCardPage__back}>
-        <CommonButton
-          text="Go back"
-          type="default_bg_none_img"
-          image={arrowLeft}
-          onClick={handleHomeClick}
-        />
+        <CommonButton text="Go back" type="default_bg_none_img" image={arrowLeft} onClick={handleHomeClick}/>
       </div>
       <img src={backgroundUrl} alt="background" className={styles.viewCardPage__background} />
       <div className={styles.viewCardPage__container}>

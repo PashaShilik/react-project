@@ -7,6 +7,7 @@ import { BookMark } from "./BookMark/BookMark";
 import { useSelector } from "react-redux";
 import { authInfoFavoritesSelector, isAuthSelector } from "@/redux/reducers/userReducer/userSelector";
 import useFavorites from "@/hooks/useFavorites";
+import emptyImg from '@/assets/img/emtyImg.jpg'
 
 
 export interface CardProps {
@@ -40,12 +41,8 @@ export function Card({data, showScore = false, showBookmark = false, showYear = 
 
     return (
         <li className={styles.card} onClick={handleClick}>
-            <img
-                className={styles.card__img}
-                src={imageUrl}
-                alt={isAnime(data) ? data.title : data.name} 
-                style={{ cursor: isCharacter(data) ? 'default' : 'pointer' }}
-            />
+
+            <img className={styles.card__img} src={imageUrl} alt={isAnime(data) ? data.title : data.name}  style={{ cursor: isCharacter(data) ? 'default' : 'pointer' }}/> 
 
             {isAnime(data) && (
                 <>

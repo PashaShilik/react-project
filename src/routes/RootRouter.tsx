@@ -1,11 +1,13 @@
 import React, { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ROUTES } from './routes';
 
 import {LayoutWithHeader} from '@/layouts/LayoutWithHeader/LayoutWithHeader';
 import {LayoutWithOutHeader} from '@/layouts/LayoutWithOutHeader/LayoutWithOutHeader';
 import { CommonLoader } from '@/components/Common/CommonLoader/CommonLoader';
 import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
+import { useSelector } from 'react-redux';
+import { isAuthSelector } from '@/redux/reducers/userReducer/userSelector';
 
 const HomePage = React.lazy(() => import('@/pages/HomePage/HomePage'));
 const SearchPage = React.lazy(() => import('@/pages/SearchPage'));
@@ -17,14 +19,20 @@ const ViewCardPage = React.lazy(() => import('@/pages/ViewCardPage'));
 const PageNotFound = React.lazy(() => import('@/pages/PageNotFound/PageNotFound'));
 
 export const RootRouter = function () {
+
+  const isUserAuth = useSelector(isAuthSelector);
+  const navigate = useNavigate(); 
+
   return (
     <Suspense fallback={<CommonLoader/>}>
       <Routes>
         <Route element={ <LayoutWithHeader/> }>
           <Route path={ROUTES.home} element={<HomePage/>}/>
           <Route path={ROUTES.search} element={<SearchPage/>}/>
-          <Route path={ROUTES.history} element={<HistoryPage/>}/>
-          <Route path={ROUTES.favorites} element={<FavoritesPage/>}/>
+
+          {isUserAuth && <Route path={ROUTES.history} element={<HistoryPage/>}/>}
+          {isUserAuth && <Route path={ROUTES.favorites} element={<FavoritesPage/>}/>}
+
           <Route path={`${ROUTES.viewCard}/:id`} element={<ErrorBoundary><ViewCardPage/></ErrorBoundary>}/>
           <Route path={'*'} element={<PageNotFound/>}/>
         </Route>
