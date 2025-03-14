@@ -33,15 +33,7 @@ export const _transformAnime = (anime: any) => {
             anime.aired?.prop?.from?.month
         ),
         yearEnd: yearEnd,
-        homepage: anime.url,
         score: anime.score,
-        images: {
-          webp: {
-            large_image_url: anime.images?.webp?.large_image_url || '',
-            small_image_url: anime.images?.webp?.small_image_url || '',
-            image_url: anime.images?.webp?.image_url || '',
-          },
-        },
         trailer: {
           embed_url: anime.trailer?.embed_url || '',
           images: {
@@ -49,7 +41,6 @@ export const _transformAnime = (anime: any) => {
           }
         },
         synopsis: anime.synopsis || DEFAULT_DESCRIPTION,
-        year: anime.aired?.prop?.from?.year || 0,
         rating: anime.rating || '',
         rank: anime.rank || 0,
         scored_by: anime.scored_by || 0,
