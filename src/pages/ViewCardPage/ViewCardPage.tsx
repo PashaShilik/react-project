@@ -60,21 +60,12 @@ export const ViewCardPage: React.FC = () => {
   return (
     <div className={styles.viewCardPage}>
       <div className={styles.viewCardPage__back}>
-        <CommonButton
-          text="Go back"
-          type="default_bg_none_img"
-          image={arrowLeft}
-          onClick={handleHomeClick}
-        />
+        <CommonButton text="Go back" type="default_bg_none_img" image={arrowLeft} onClick={handleHomeClick}/>
       </div>
       <img src={backgroundUrl} alt="background" className={styles.viewCardPage__background} />
       <div className={styles.viewCardPage__container}>
         <div className={styles.viewCardPage__img_container}>
-          <img
-            className={styles.viewCardPage__img}
-            src={animeData?.images.webp.large_image_url}
-            alt={animeData?.title}
-          />
+          <img className={styles.viewCardPage__img} src={animeData?.images.webp.large_image_url} alt={animeData?.title}/>
           <CommonButton
             text={animeData?.trailer.embed_url ? 'Watch trailer' : 'Trailer is missing'}
             type="default_bg"

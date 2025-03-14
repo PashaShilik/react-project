@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    row-gap: 20px;
+    gap: 70px;
 
     width: 100%;
     min-height: 100vh;
@@ -37,6 +37,18 @@
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.719);
             z-index: 1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 1);
+            z-index: 1;
+            box-shadow: 0px -22px 91px 85px rgb(0, 0, 0);
         }
     }
 

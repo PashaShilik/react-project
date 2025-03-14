@@ -29,20 +29,8 @@ export const HistoryItemBlock: React.FC<HistoryItemBlockProps> = ({ item, index,
       <div className={styles.historyItemBlock__dateContainer}>
         <div className={styles.historyItemBlock__date}>{item.date}</div>
         <div className={styles.historyItemBlock__icons}>
-          <img
-            src={SearchIcon}
-            alt="Search"
-            className={styles.historyItemBlock__icon}
-            title="Go to search"
-            onClick={handleSearch}
-          />
-          <img
-            src={TrashIcon}
-            alt="Delete"
-            className={styles.historyItemBlock__icon}
-            title="Delete search history"
-            onClick={handleDelete}
-          />
+          <img src={SearchIcon} alt="Search" className={styles.historyItemBlock__icon} title="Go to search" onClick={handleSearch}/>
+          <img src={TrashIcon} alt="Delete" className={styles.historyItemBlock__icon} title="Delete search history" onClick={handleDelete}/>
         </div>
       </div>
       <DetailsBlock details={getDetails(item)} />

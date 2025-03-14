@@ -13,16 +13,20 @@ type Props = {
     type: 'default' | 'transparent' 
     typeSelector?: string
     className?: any;
+    handleSearch?:() => void
 };
 
 export const CommonSelector = function (props: Props) {
-    const {activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default'} = props
+    const {activeItem, setActiveItem, data, name, className = '', typeSelector, type = 'default', handleSearch} = props
     const [open, setOpen] = useState<boolean>(false);
     const listRef = useRef<HTMLDivElement>(null);
 
     const handleSelect = (item: any) => {
         setActiveItem({ ...item, typeSelector });
         setOpen(false);
+        if (handleSearch){
+            handleSearch() 
+        }
     };
 
     const handleClear = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {

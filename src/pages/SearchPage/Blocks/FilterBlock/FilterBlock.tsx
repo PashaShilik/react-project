@@ -8,7 +8,11 @@ import {ANIME_ORDERS} from "@/constants/searchConstants/searchConstants";
 import {searchSelector} from "@/redux/reducers/searchReducer/searchSelector";
 import {useSelector} from "react-redux";
 
-export const FilterBlock = () => {
+type Props = {
+    handleSearch:() => void
+}
+
+export const FilterBlock = ({handleSearch}:Props) => {
     const dispatch = useAppDispatch();
     const {order_by, sort} = useSelector(searchSelector);
 
@@ -18,15 +22,15 @@ export const FilterBlock = () => {
 
     const handleArrowClick = () => {
         dispatch(setSortDirection(sort === SortOrder.UP ? SortOrder.DOWN : SortOrder.UP));
+        if (handleSearch){
+            handleSearch() 
+        }
     }
 
     const showSortArrow = (
         order_by
             ?
-            <span
-                className={sort === SortOrder.UP ? styles.filterBlock__arrow_top : styles.filterBlock__arrow_bottom}
-                onClick={handleArrowClick}
-            >
+            <span className={sort === SortOrder.UP ? styles.filterBlock__arrow_top : styles.filterBlock__arrow_bottom} onClick={handleArrowClick}>
                 {"▲"}
             </span>
             :
@@ -41,6 +45,7 @@ export const FilterBlock = () => {
                 data={ANIME_ORDERS}
                 name={"Order by"}
                 type={"default"}
+                handleSearch={handleSearch}
             />
             {showSortArrow}
         </div>

@@ -3,12 +3,14 @@ import styles from './feedbackBlock.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/routes/routes';
 import { CommonButton } from '@/components/Common/CommonButton/CommonButton';
-
 import animeHero from '@/assets/img/animeHero.webp'
-import { MainSearch } from '@/components/MainSearch/MainSearch';
+import { useSelector } from 'react-redux';
+import { isAuthSelector } from '@/redux/reducers/userReducer/userSelector';
+
 
 export const FeedbackBlock = () => {
     const navigate = useNavigate(); 
+    const isUserAuth = useSelector(isAuthSelector);
 
   const handleLoginClick = () => {
     navigate(ROUTES.signin);
@@ -17,6 +19,14 @@ export const FeedbackBlock = () => {
   const handleRegisterClick = () => {
     navigate(ROUTES.signup);
   };
+
+  const showButton = !isUserAuth ? (
+    <div className={styles.feedbackBlock__button_container}>
+      <CommonButton text='Entrance' type='default_bg' onClick={handleLoginClick}/>
+      <CommonButton text='Registration' type='default_bg' onClick={handleRegisterClick}/>
+    </div>
+  ) : null;
+
 
   return (
     <div className={styles.feedbackBlock}>
@@ -30,10 +40,7 @@ export const FeedbackBlock = () => {
                 Here you will be able to immerse yourself in the fascinating 
                 world of anime and expand your knowledge of various aspects of this amazing culture.
                 </p>
-                <div className={styles.feedbackBlock__button_container}>
-                    <CommonButton text='Entrance' type='default_bg' onClick={handleLoginClick}/>
-                    <CommonButton text='Registration' type='default_bg' onClick={handleRegisterClick}/>
-                </div>  
+                {showButton} 
             </div>
             <div className={styles.feedbackBlock__img_container}>
                 <img src={animeHero} alt="anime hero" className={styles.feedbackBlock__img_hero} />

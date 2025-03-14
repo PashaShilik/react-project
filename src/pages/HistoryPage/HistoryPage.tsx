@@ -16,27 +16,24 @@ export function HistoryPage() {
 
   const historyItems = useMemo(
     () =>
-      historyData.map((item: HistoryItem, index: number) => (
-        <HistoryItemBlock
-          key={index}
-          item={item}
-          index={index}
-          onDelete={handleDeleteHistoryEntry}
-        />
+      historyData.reverse().map((item: HistoryItem, index: number) => (
+        <HistoryItemBlock key={index} item={item} index={index} onDelete={handleDeleteHistoryEntry}/>
       )),
     [historyData]
   );
 
   return (
     <div className={styles.historyPage}>
-      <h1 className={styles.historyPage__title}>Search history</h1>
-      {historyData.length > 0 ? (
-        <ul className={styles.historyPage__list}>
-          {historyItems}
-        </ul>
-      ) : (
-        <CommonEmptyBlock text={'Search history is empty!'} />
-      )}
+      <div className={styles.historyPage__content_container}>
+        <h1 className={styles.historyPage__title}>History ({historyData.length})</h1>
+        {historyData.length > 0 ? (
+          <ul className={styles.historyPage__list}>
+            {historyItems}
+          </ul>
+        ) : (
+          <CommonEmptyBlock text={'History is empty!'} />
+        )}
+      </div>
     </div>
   );
 }
