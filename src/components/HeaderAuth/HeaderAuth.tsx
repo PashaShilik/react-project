@@ -59,7 +59,7 @@ export const HeaderAuth = () => {
           </div>
           <CommonButton text='Exit' type='default_bg' onClick={handleLogOut} style={{width:'100px'}}/>
         </div>
-        <HeaderBurger navFavoritesClick={handleFavoritesClick} userLogin={user.login} logOutClick={handleLogOut} favoritesCount={favorites.length}/>
+        <HeaderBurger navHistoryClick={handleHistoryClick} navFavoritesClick={handleFavoritesClick} userLogin={user.login} logOutClick={handleLogOut} favoritesCount={favorites.length}/>
       </>
       ) : (
         <div className={styles.headerAuth__button_container}>

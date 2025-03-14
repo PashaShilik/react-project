@@ -16,9 +16,9 @@ export function HistoryPage() {
 
   const historyItems = useMemo(
     () =>
-      historyData.reverse().map((item: HistoryItem, index: number) => (
+      historyData.map((item: HistoryItem, index: number) => (
         <HistoryItemBlock key={index} item={item} index={index} onDelete={handleDeleteHistoryEntry}/>
-      )),
+      )).reverse(),
     [historyData]
   );
 
